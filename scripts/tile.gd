@@ -6,9 +6,12 @@ var snap: Node2D
 var value: String = Constants.EMPTY_TILE_VALUE
 var is_fading_out: bool = false
 var fade_tween: Tween
-signal returned_to_field
+signal placed_in_field
+signal picked_up_from_field
 signal placed_in_slot
-signal picked_up
+signal picked_up_from_slot
+signal faded_out
+var is_in_slot: bool = false
 
 
 func _ready():
@@ -24,8 +27,12 @@ func _ready():
 
 
 func attempt_fade_out() -> void:
+	if is_in_slot:
+		return
+
 	if GameState.current_tile == self:
 		get_tree().create_timer(1.0).timeout.connect(attempt_fade_out)
+		return
 
 	if not is_fading_out:
 		is_fading_out = true
@@ -38,7 +45,15 @@ func attempt_fade_out() -> void:
 		fade_tween.tween_interval(stay_time)
 		fade_tween.tween_property(self, "modulate:a", 0.0, 0.8)
 
-		fade_tween.finished.connect(queue_free)
+		fade_tween.finished.connect(_on_fade_out_finished)
+
+
+func _on_fade_out_finished() -> void:
+	if is_in_slot:
+		is_fading_out = false
+		return
+	emit_signal("faded_out")
+	queue_free()
 
 
 func interrupt_fade():
@@ -54,20 +69,32 @@ func _to_string() -> String:
 	return value
 
 
-func drop_to_field():
-	# print("Tile dropped back to field, will attempt fade out")
-	emit_signal("returned_to_field")
+func pickup():
+	if is_in_slot:
+		pickup_from_slot()
+	else:
+		pickup_from_field()
+
+
+func place_in_field():
+	emit_signal("placed_in_field")
 	attempt_fade_out()
 
 
+func pickup_from_field():
+	emit_signal("picked_up_from_field")
+	interrupt_fade()
+
+
 func place_in_slot():
-	# print("Tile placed in slot!")
+	is_in_slot = true
+	interrupt_fade()
 	emit_signal("placed_in_slot")
 
 
-func pickup():
-	# print("Tile picked up!")
-	emit_signal("picked_up")
+func pickup_from_slot():
+	is_in_slot = false
+	emit_signal("picked_up_from_slot")
 	interrupt_fade()
 
 
