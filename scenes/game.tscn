@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://klp3ymst6qu6"]
+
+[ext_resource type="Script" uid="uid://cwwhgakk2d2hc" path="res://scripts/player.gd" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://vym8e5fiqglh" path="res://scripts/hud.gd" id="2_iywne"]
+[ext_resource type="PackedScene" uid="uid://c5pwfbxuhugw4" path="res://scenes/tile.tscn" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://1ytxmmop8hgq" path="res://scenes/tile_snap.tscn" id="4_u5sy4"]
+
+[node name="game" type="Node2D" unique_id=504948786]
+script = ExtResource("1_lbhrr")
+
+[node name="hud" type="CanvasLayer" parent="." unique_id=455043324]
+script = ExtResource("2_iywne")
+
+[node name="ColorRect14" type="ColorRect" parent="hud" unique_id=238982238]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 562.0
+offset_bottom = 562.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1502757, 0.015276081, 0.10984173, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="hud/ColorRect14" unique_id=1756846983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hud/ColorRect14/MarginContainer" unique_id=648046495]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 13
+
+[node name="ColorRect" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=508302421]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1039475273]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=970535216]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=363306742]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=812558034]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1177529840]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1390553846]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1613705304]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1380878272]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1063623609]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect11" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1691642642]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1103531941]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect13" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1405033496]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=854707110]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect15" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1358911932]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="ColorRect16" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1502678579]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+
+[node name="col rect" type="ColorRect" parent="hud" unique_id=160027287]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = 701.0
+offset_right = -5.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1502757, 0.015276081, 0.10984173, 1)
+
+[node name="tile_snap9" parent="hud" unique_id=443787678 instance=ExtResource("4_u5sy4")]
+position = Vector2(693, 186)
+
+[node name="tile" parent="hud" unique_id=350684231 instance=ExtResource("3_p57ef")]
+position = Vector2(122, 114)
+
+[node name="tile2" parent="hud" unique_id=847190004 instance=ExtResource("3_p57ef")]
+position = Vector2(217, 278)
+
+[node name="tile3" parent="hud" unique_id=37917058 instance=ExtResource("3_p57ef")]
+position = Vector2(382, 332)
+
+[node name="output_tray_1" type="Node2D" parent="hud" unique_id=987707424]
+
+[node name="tile_snap" parent="hud/output_tray_1" unique_id=2083315615 instance=ExtResource("4_u5sy4")]
+position = Vector2(87, 573)
+
+[node name="tile_snap2" parent="hud/output_tray_1" unique_id=669815026 instance=ExtResource("4_u5sy4")]
+position = Vector2(227, 573)
+
+[node name="tile_snap3" parent="hud/output_tray_1" unique_id=1412561984 instance=ExtResource("4_u5sy4")]
+position = Vector2(365, 573)
+
+[node name="tile_snap4" parent="hud/output_tray_1" unique_id=710208215 instance=ExtResource("4_u5sy4")]
+position = Vector2(505, 573)
+
+[node name="tile_snap5" parent="hud/output_tray_1" unique_id=1335985056 instance=ExtResource("4_u5sy4")]
+position = Vector2(643, 573)
+
+[node name="tile_snap6" parent="hud/output_tray_1" unique_id=48316128 instance=ExtResource("4_u5sy4")]
+position = Vector2(783, 573)
+
+[node name="tile_snap7" parent="hud/output_tray_1" unique_id=1145551139 instance=ExtResource("4_u5sy4")]
+position = Vector2(922, 573)
+
+[node name="tile_snap8" parent="hud/output_tray_1" unique_id=755958492 instance=ExtResource("4_u5sy4")]
+position = Vector2(1062, 573)
+
+[node name="output_tray_2" type="Node2D" parent="hud" unique_id=1196407009]
+position = Vector2(1152, 0)
+
+[node name="tile_snap" parent="hud/output_tray_2" unique_id=1342886287 instance=ExtResource("4_u5sy4")]
+position = Vector2(87, 573)
+
+[node name="tile_snap2" parent="hud/output_tray_2" unique_id=315712593 instance=ExtResource("4_u5sy4")]
+position = Vector2(227, 573)
+
+[node name="tile_snap3" parent="hud/output_tray_2" unique_id=487428751 instance=ExtResource("4_u5sy4")]
+position = Vector2(365, 573)
+
+[node name="tile_snap4" parent="hud/output_tray_2" unique_id=784848801 instance=ExtResource("4_u5sy4")]
+position = Vector2(505, 573)
+
+[node name="tile_snap5" parent="hud/output_tray_2" unique_id=1339681428 instance=ExtResource("4_u5sy4")]
+position = Vector2(643, 573)
+
+[node name="tile_snap6" parent="hud/output_tray_2" unique_id=1799049055 instance=ExtResource("4_u5sy4")]
+position = Vector2(783, 573)
+
+[node name="tile_snap7" parent="hud/output_tray_2" unique_id=537025437 instance=ExtResource("4_u5sy4")]
+position = Vector2(922, 573)
+
+[node name="tile_snap8" parent="hud/output_tray_2" unique_id=1404493519 instance=ExtResource("4_u5sy4")]
+position = Vector2(1062, 573)
+
+[node name="speaker" type="CanvasLayer" parent="." unique_id=379233023]
+
+[node name="crowd" type="CanvasLayer" parent="." unique_id=1745457221]
