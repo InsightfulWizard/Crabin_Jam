@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjmdq8hl4rsy7"]
 
 [ext_resource type="Script" uid="uid://vym8e5fiqglh" path="res://scripts/hud.gd" id="1_047uy"]
-[ext_resource type="PackedScene" path="res://scenes/tile_cloud.tscn" id="2_5pdws"]
+[ext_resource type="PackedScene" uid="uid://drqnvg2myetut" path="res://scenes/tile_cloud.tscn" id="2_5pdws"]
 [ext_resource type="PackedScene" uid="uid://brgm757thyuvh" path="res://scenes/output_tray.tscn" id="3_hd3ao"]
 [ext_resource type="Script" uid="uid://b5xenegjrrkvn" path="res://scripts/score_bar.gd" id="4_0i1j5"]
 [ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="5_mphia"]
@@ -44,6 +44,11 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_kvuet")
 value = 100.0
 fill_mode = 3
 show_percentage = false
+
+[node name="water_surface" type="Sprite2D" parent="score/ProgressBar" unique_id=1117442419]
+position = Vector2(28.999983, 0.99999994)
+scale = Vector2(0.49999967, 0.14062499)
+texture = ExtResource("5_mphia")
 
 [node name="facier_ui" parent="score" unique_id=1759600616 instance=ExtResource("6_0m4u7")]
 z_index = -968
