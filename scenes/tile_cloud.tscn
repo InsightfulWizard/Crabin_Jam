@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://drqnvg2myetut"]
+
+[ext_resource type="Script" uid="uid://bbp3bnxfogo1f" path="res://scripts/tiles/tile_cloud.gd" id="1_h1dor"]
+[ext_resource type="PackedScene" uid="uid://c5pwfbxuhugw4" path="res://scenes/tile.tscn" id="2_jv26r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jv26r"]
+
+[node name="TileCloud" type="Area2D" unique_id=1750301718]
+script = ExtResource("1_h1dor")
+tile_scene = ExtResource("2_jv26r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1864225647]
+scale = Vector2(25, 12.5)
+shape = SubResource("CircleShape2D_jv26r")

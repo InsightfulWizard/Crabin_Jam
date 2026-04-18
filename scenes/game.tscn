@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://cwwhgakk2d2hc" path="res://scripts/player.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://bct7mfq5wmm2a" path="res://art/chef_1_nutural_1.png" id="2_0tnpc"]
 [ext_resource type="Script" uid="uid://vym8e5fiqglh" path="res://scripts/hud.gd" id="2_iywne"]
-[ext_resource type="PackedScene" uid="uid://c5pwfbxuhugw4" path="res://scenes/tile.tscn" id="3_p57ef"]
 [ext_resource type="Texture2D" uid="uid://dbtdlkgw2f541" path="res://art/chef_2_nutural_1.png" id="3_vtaks"]
 [ext_resource type="Texture2D" uid="uid://cxrlokfux1jfv" path="res://art/chef_3_nutural_1.png" id="4_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://cxvdxv6jl5qdm" path="res://art/podium.png" id="5_dinhu"]
 [ext_resource type="PackedScene" uid="uid://6gigoejmr1m2" path="res://scenes/crab.tscn" id="6_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://brgm757thyuvh" path="res://scenes/output_tray.tscn" id="10_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="11_dinhu"]
-[ext_resource type="Script" uid="uid://b5xenegjrrkvn" path="res://scripts/score_bar.gd" id="11_kvuet"]
+[ext_resource type="Script" path="res://scripts/score_bar.gd" id="11_kvuet"]
+[ext_resource type="PackedScene" uid="uid://drqnvg2myetut" path="res://scenes/tile_cloud.tscn" id="12_kvuet"]
 [ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="12_trtic"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
@@ -39,7 +39,7 @@ scale = Vector2(0.24091995, 0.24091995)
 texture = ExtResource("4_kvpfn")
 
 [node name="Sprite2D" type="Sprite2D" parent="crowd" unique_id=1010300480]
-position = Vector2(944.52625, 297.52618)
+position = Vector2(944.9999, 298)
 scale = Vector2(0.4092308, 0.4092308)
 texture = ExtResource("2_0tnpc")
 
@@ -85,23 +85,9 @@ texture = ExtResource("5_dinhu")
 [node name="hud" type="CanvasLayer" parent="." unique_id=455043324]
 script = ExtResource("2_iywne")
 
-[node name="tile" parent="hud" unique_id=350684231 instance=ExtResource("3_p57ef")]
-position = Vector2(514, 183)
-
-[node name="tile2" parent="hud" unique_id=847190004 instance=ExtResource("3_p57ef")]
-position = Vector2(592, 52)
-
-[node name="tile3" parent="hud" unique_id=37917058 instance=ExtResource("3_p57ef")]
-position = Vector2(650, 139)
-
-[node name="tile4" parent="hud" unique_id=86400651 instance=ExtResource("3_p57ef")]
-position = Vector2(396, 50)
-
-[node name="tile5" parent="hud" unique_id=1293893547 instance=ExtResource("3_p57ef")]
-position = Vector2(814, 159)
-
-[node name="tile6" parent="hud" unique_id=1053744406 instance=ExtResource("3_p57ef")]
-position = Vector2(737, 61)
+[node name="TileCloud" parent="hud" unique_id=1679367254 instance=ExtResource("12_kvuet")]
+z_index = 100
+position = Vector2(598, 151)
 
 [node name="output_tray_1" parent="hud" unique_id=962911779 instance=ExtResource("10_kvpfn")]
 z_index = -100
