@@ -9,15 +9,13 @@ var rules_engine: RulesEngine = RulesEngine.new()
 	output_tray_1,
 	output_tray_2,
 ]
-
 var current_output_tray: int = 0
-
 var cycling_output_tray: bool = false
 
 
 func _ready() -> void:
 	Util.hud = self
-	output_tray_2.position.x = get_viewport().size.x
+	output_tray_2.position.x = get_viewport().get_visible_rect().size.x
 	output_tray_2.set_snaps_active(false)
 
 
@@ -49,7 +47,7 @@ func cycle_output_trays():
 	cycling_output_tray = true
 	var current = output_trays[current_output_tray]
 	var next = output_trays[(current_output_tray + 1) % 2]
-	var size_x = get_viewport().size.x
+	var size_x = get_viewport().get_visible_rect().size.x
 	
 	current.set_snaps_active(false)
 	

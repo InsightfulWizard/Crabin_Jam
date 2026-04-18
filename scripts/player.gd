@@ -14,12 +14,14 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		if GameState.current_tile:
 			#tile to mouse, clamped to viewport
-			var size: Vector2 = get_viewport().size
+			var size: Vector2 = get_viewport().get_visible_rect().size
 			var pos: Vector2 = event.position
 			pos = Vector2(clampf(pos.x, 0, size.x), clampf(pos.y, 0, size.y))
 			GameState.current_tile.position = pos
 	if event.is_action_pressed("test"):
 		Util.hud.submit_output_trays()
+	if event.is_action_pressed("escape"):
+		get_tree().quit()
 
 
 func pickup_tile(tile: Node2D):
