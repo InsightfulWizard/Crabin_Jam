@@ -20,6 +20,7 @@ func _input(event):
 
 func pickup_tile(tile: Node2D):
 	GameState.current_tile = tile
+	tile.pickup()
 	if tile.snap:
 		tile.snap.unsnap()
 	tile.position = get_viewport().get_mouse_position()
@@ -31,11 +32,20 @@ func drop_tile():
 		return
 	var snap = Util.get_closest(tile.global_position, 'tile_snap', 130.0)
 	#var snap = GameState.hovered_snap
+
 	if snap:
 		snap.to_snap(tile)
+		tile.place_in_slot()
 		# var vals = Util.hud.get_output_values()
 		# print("vals: ", vals)
 		# Debugging
 		# Util.hud.score_solution()
-
+	else:
+		# tile dropped elsewhere, fade
+		tile.drop_to_field()
 	GameState.current_tile = null
+
+
+func delete():
+	queue_free()
+	#TODO: JUICE POINT
