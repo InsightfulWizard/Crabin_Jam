@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bjmdq8hl4rsy7"]
+
+[ext_resource type="Script" uid="uid://vym8e5fiqglh" path="res://scripts/hud.gd" id="1_047uy"]
+[ext_resource type="PackedScene" path="res://scenes/tile_cloud.tscn" id="2_5pdws"]
+[ext_resource type="PackedScene" uid="uid://brgm757thyuvh" path="res://scenes/output_tray.tscn" id="3_hd3ao"]
+[ext_resource type="Script" uid="uid://b5xenegjrrkvn" path="res://scripts/score_bar.gd" id="4_0i1j5"]
+[ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="5_mphia"]
+[ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="6_0m4u7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
+texture = ExtResource("5_mphia")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
+
+[node name="hud" type="CanvasLayer" unique_id=1041986312]
+script = ExtResource("1_047uy")
+
+[node name="TileCloud" parent="." unique_id=1750301718 instance=ExtResource("2_5pdws")]
+z_index = 100
+position = Vector2(598, 151)
+
+[node name="output_tray_1" parent="." unique_id=962911779 instance=ExtResource("3_hd3ao")]
+z_index = -100
+
+[node name="output_tray_2" parent="." unique_id=3009417 instance=ExtResource("3_hd3ao")]
+z_index = -100
+position = Vector2(1152, 0)
+
+[node name="score" type="Node2D" parent="." unique_id=2011193952]
+script = ExtResource("4_0i1j5")
+
+[node name="ProgressBar" type="ProgressBar" parent="score" unique_id=1150095300]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1080.0
+offset_top = 149.0
+offset_right = 1138.0
+offset_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxTexture_kvuet")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="facier_ui" parent="score" unique_id=1759600616 instance=ExtResource("6_0m4u7")]
+z_index = -968
+offset_left = 1058.0
+offset_top = 122.0
+offset_right = 1718.9307
+offset_bottom = 1911.5969
+scale = Vector2(0.19669233, 0.19669233)
+
+[node name="facier_ui2" parent="." unique_id=1788682475 instance=ExtResource("6_0m4u7")]
+z_index = -769
+offset_left = 14.0
+offset_top = 143.0
+offset_right = 700.3511
+offset_bottom = 1378.4319
+scale = Vector2(0.19669233, 0.19669233)
+
+[node name="facier_ui5" parent="." unique_id=1190896814 instance=ExtResource("6_0m4u7")]
+z_index = -769
+offset_left = 96.0
+offset_top = 327.0
+offset_right = 517.97876
+offset_bottom = 738.81067
+scale = Vector2(0.19669233, 0.19669233)
+
+[node name="facier_ui3" parent="." unique_id=1249275422 instance=ExtResource("6_0m4u7")]
+z_index = -1000
+offset_left = -24.0
+offset_top = 532.99994
+offset_right = 6081.983
+offset_bottom = 1280.3601
+scale = Vector2(0.19669233, 0.19669233)
+
+[node name="facier_ui4" parent="." unique_id=233268454 instance=ExtResource("6_0m4u7")]
+z_index = -1000
+offset_left = -6.999999
+offset_top = 549.0
+offset_right = 5921.0396
+offset_bottom = 1215.0144
+scale = Vector2(0.19669233, 0.19669233)
