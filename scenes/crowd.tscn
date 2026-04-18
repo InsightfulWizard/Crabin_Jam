@@ -1,52 +1,84 @@
 [gd_scene format=3 uid="uid://csw065nhfxbot"]
 
-[ext_resource type="Texture2D" uid="uid://bct7mfq5wmm2a" path="res://art/chef_1_nutural_1.png" id="1_31vpn"]
-[ext_resource type="Texture2D" uid="uid://dbtdlkgw2f541" path="res://art/chef_2_nutural_1.png" id="2_fvvip"]
-[ext_resource type="Texture2D" uid="uid://cxrlokfux1jfv" path="res://art/chef_3_nutural_1.png" id="3_xfuro"]
+[ext_resource type="PackedScene" uid="uid://viiv7j7suowg" path="res://scenes/chef_1.tscn" id="1_31vpn"]
+[ext_resource type="PackedScene" uid="uid://bip4ohvcdadr6" path="res://scenes/chef_2.tscn" id="2_fvvip"]
+[ext_resource type="PackedScene" uid="uid://o03bhcag80i6" path="res://scenes/chef_3.tscn" id="3_xfuro"]
 
 [node name="crowd" type="CanvasLayer" unique_id=2082014096]
 
-[node name="Sprite2D7" type="Sprite2D" parent="." unique_id=1528158923]
-position = Vector2(342.351, 152.35101)
-scale = Vector2(0.24091995, 0.24091995)
-texture = ExtResource("1_31vpn")
+[node name="chef_1" parent="." unique_id=358088398 instance=ExtResource("1_31vpn")]
+position = Vector2(207.79999, 442.79996)
+scale = Vector2(0.4, 0.4)
 
-[node name="Sprite2D8" type="Sprite2D" parent="." unique_id=2038513278]
-position = Vector2(196.35101, 175.35101)
-scale = Vector2(0.24091995, 0.24091995)
-texture = ExtResource("2_fvvip")
+[node name="chef_2" parent="." unique_id=1623982612 instance=ExtResource("2_fvvip")]
+position = Vector2(73.000015, 455.99997)
+scale = Vector2(0.4, 0.4)
 
-[node name="Sprite2D9" type="Sprite2D" parent="." unique_id=1747553108]
-position = Vector2(455.351, 170.35104)
-scale = Vector2(0.24091995, 0.24091995)
-texture = ExtResource("3_xfuro")
+[node name="chef_13" parent="." unique_id=1896735086 instance=ExtResource("2_fvvip")]
+position = Vector2(501, 469.99997)
+scale = Vector2(0.4, 0.4)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=149467100]
-position = Vector2(944.9999, 298)
-scale = Vector2(0.4092308, 0.4092308)
-texture = ExtResource("1_31vpn")
+[node name="chef_3" parent="." unique_id=1520690260 instance=ExtResource("3_xfuro")]
+position = Vector2(357, 453)
+scale = Vector2(0.4, 0.4)
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=894236318]
-position = Vector2(598.99994, 322)
-scale = Vector2(0.4092308, 0.4092308)
-texture = ExtResource("2_fvvip")
+[node name="chef_14" parent="." unique_id=201236598 instance=ExtResource("3_xfuro")]
+position = Vector2(629, 473)
+scale = Vector2(0.4, 0.4)
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1175378651]
-position = Vector2(1057.5262, 315.5262)
-scale = Vector2(0.4092308, 0.4092308)
-texture = ExtResource("3_xfuro")
+[node name="chef_4" parent="." unique_id=1362468211 instance=ExtResource("1_31vpn")]
+position = Vector2(769, 470)
+scale = Vector2(0.4, 0.4)
 
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1939482094]
-position = Vector2(269.52618, 304.52618)
-scale = Vector2(0.4092308, 0.4092308)
-texture = ExtResource("1_31vpn")
+[node name="chef_5" parent="." unique_id=2126484861 instance=ExtResource("2_fvvip")]
+position = Vector2(919.99994, 463)
+scale = Vector2(0.4, 0.4)
 
-[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=39695804]
-position = Vector2(123.52617, 327.52618)
-scale = Vector2(0.4092308, 0.4092308)
-texture = ExtResource("2_fvvip")
+[node name="chef_6" parent="." unique_id=10606131 instance=ExtResource("3_xfuro")]
+position = Vector2(1063, 464)
+scale = Vector2(0.4, 0.4)
 
-[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=715666646]
-position = Vector2(382.52618, 322.5262)
-scale = Vector2(0.4092308, 0.4092308)
-texture = ExtResource("3_xfuro")
+[node name="chef_7" parent="." unique_id=583105576 instance=ExtResource("1_31vpn")]
+z_index = -335
+position = Vector2(986, 328.00003)
+scale = Vector2(0.3, 0.3)
+
+[node name="chef_8" parent="." unique_id=1893683446 instance=ExtResource("2_fvvip")]
+z_index = -335
+position = Vector2(1140, 349.00003)
+scale = Vector2(0.3, 0.3)
+
+[node name="chef_9" parent="." unique_id=1790216922 instance=ExtResource("3_xfuro")]
+z_index = -335
+position = Vector2(842, 349)
+scale = Vector2(0.3, 0.3)
+
+[node name="chef_10" parent="." unique_id=976508796 instance=ExtResource("1_31vpn")]
+z_index = -335
+position = Vector2(389, 337)
+scale = Vector2(0.3, 0.3)
+
+[node name="chef_11" parent="." unique_id=1390975055 instance=ExtResource("2_fvvip")]
+z_index = -335
+position = Vector2(149, 297)
+scale = Vector2(0.3, 0.3)
+
+[node name="chef_12" parent="." unique_id=2006001197 instance=ExtResource("3_xfuro")]
+z_index = -335
+position = Vector2(281, 327)
+scale = Vector2(0.3, 0.3)
+
+[node name="chef_15" parent="." unique_id=317616510 instance=ExtResource("1_31vpn")]
+z_index = -397
+position = Vector2(445, 235.99998)
+scale = Vector2(0.2, 0.2)
+
+[node name="chef_16" parent="." unique_id=1917647043 instance=ExtResource("2_fvvip")]
+z_index = -397
+position = Vector2(326, 230.00002)
+scale = Vector2(0.2, 0.2)
+
+[node name="chef_17" parent="." unique_id=1684519441 instance=ExtResource("3_xfuro")]
+z_index = -397
+position = Vector2(237.00005, 223.00002)
+scale = Vector2(0.2, 0.2)

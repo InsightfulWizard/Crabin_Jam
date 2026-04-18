@@ -1,9 +1,16 @@
 [gd_scene format=3 uid="uid://c7bl7hg3ofusn"]
 
 [ext_resource type="PackedScene" uid="uid://fc168jipbmh0" path="res://scenes/crab.tscn" id="1_e1qhi"]
+[ext_resource type="Texture2D" uid="uid://vxnxcb620a4i" path="res://art/stage.png" id="1_h6vvc"]
 [ext_resource type="Texture2D" uid="uid://cxvdxv6jl5qdm" path="res://art/podium.png" id="2_h6vvc"]
 
 [node name="speaker" type="CanvasLayer" unique_id=151915602]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1644161732]
+z_index = -2406
+position = Vector2(589.935, 563.985)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("1_h6vvc")
 
 [node name="crab" parent="." unique_id=226795867 instance=ExtResource("1_e1qhi")]
 position = Vector2(760.7798, 497.77982)

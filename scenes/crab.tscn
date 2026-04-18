@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ed0xrltdlng" path="res://art/crab/body_3.png" id="3_1uom6"]
 [ext_resource type="Texture2D" uid="uid://by3bwxu3r6rmv" path="res://art/crab/body_4.png" id="4_yk2cj"]
 [ext_resource type="Texture2D" uid="uid://beeqav87bg3a8" path="res://art/crab/arm_1.png" id="5_q4iun"]
-[ext_resource type="PackedScene" path="res://scenes/crab_leg.tscn" id="5_rftv6"]
+[ext_resource type="PackedScene" uid="uid://cmsxdw2sok750" path="res://scenes/crab_leg.tscn" id="5_rftv6"]
 [ext_resource type="Texture2D" uid="uid://blpvhh5div3o" path="res://art/crab/arm_2.png" id="6_kykk4"]
 [ext_resource type="Texture2D" uid="uid://cppabp8tk2hmu" path="res://art/crab/arm_3.png" id="7_ve55g"]
 [ext_resource type="Texture2D" uid="uid://b076jmkq5ci7p" path="res://art/crab/arm_4.png" id="8_dbjn5"]
@@ -103,6 +103,7 @@ animations = [{
 [node name="body" type="AnimatedSprite2D" parent="." unique_id=1461163562]
 scale = Vector2(0.3127897, 0.3127897)
 sprite_frames = SubResource("SpriteFrames_hj1h3")
+autoplay = "default"
 
 [node name="arm_r" type="AnimatedSprite2D" parent="body" unique_id=1258083662]
 z_index = -10
@@ -110,6 +111,7 @@ position = Vector2(191.82224, -131.07846)
 rotation = 1.0011095
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_ljolo")
+autoplay = "default"
 offset = Vector2(0, -220)
 
 [node name="claw_r" type="AnimatedSprite2D" parent="body/arm_r" unique_id=1376850472]
@@ -117,6 +119,7 @@ position = Vector2(-31.970276, -501.93472)
 rotation = -1.823604
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_gmyah")
+autoplay = "default"
 frame_progress = 0.9702093
 offset = Vector2(79.77, -300.46)
 
@@ -125,6 +128,7 @@ z_index = -1
 position = Vector2(105.50214, -367.65918)
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_cabm5")
+autoplay = "default"
 offset = Vector2(25.14, -148.415)
 
 [node name="arm_l" type="AnimatedSprite2D" parent="body" unique_id=1625697970]
@@ -133,6 +137,7 @@ position = Vector2(-175.83698, -159.8518)
 rotation = -1.1320156
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_ljolo")
+autoplay = "default"
 offset = Vector2(0, -220)
 
 [node name="claw_l" type="AnimatedSprite2D" parent="body/arm_l" unique_id=89314397]
@@ -140,6 +145,7 @@ position = Vector2(-31.970276, -501.93472)
 rotation = -1.823604
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_gmyah")
+autoplay = "default"
 offset = Vector2(79.77, -300.46)
 
 [node name="pincher_l" type="AnimatedSprite2D" parent="body/arm_l/claw_l" unique_id=857340964]
@@ -147,6 +153,7 @@ z_index = -1
 position = Vector2(105.50214, -367.65918)
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_cabm5")
+autoplay = "default"
 offset = Vector2(25.14, -148.415)
 
 [node name="leg_1" parent="." unique_id=175528995 instance=ExtResource("5_rftv6")]

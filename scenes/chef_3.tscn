@@ -27,3 +27,4 @@ animations = [{
 
 [node name="chef_3" type="AnimatedSprite2D" unique_id=1520690260]
 sprite_frames = SubResource("SpriteFrames_oybqy")
+autoplay = "default"
