@@ -30,21 +30,16 @@ func _ready():
 func _register_tile(tile):
 	current_tile_count += 1 # Count this new tile
 
-	# If it leaves (fades or slots), count goes down
-	#dont need to check if placed in slot since we already decremented on pick up
-	tile.tree_exited.connect(_on_tile_removed)
-	tile.picked_up.connect(_on_tile_removed)
-	tile.placed_in_slot.connect(_on_tile_returned) #TODO: this seems wrong, check after update
-	tile.returned_to_field.connect(_on_tile_returned)
+	tile.faded_out.connect(_on_tile_removed)
+	tile.picked_up_from_field.connect(_on_tile_removed)
+	tile.placed_in_field.connect(_on_tile_returned)
 
 
 func _on_tile_removed():
-	print("Active tiles: ", current_tile_count)
 	current_tile_count = max(0, current_tile_count - 1)
 
 
 func _on_tile_returned():
-	print("Active tiles: ", current_tile_count)
 	current_tile_count += 1
 
 

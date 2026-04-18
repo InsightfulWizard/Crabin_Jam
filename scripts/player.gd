@@ -16,7 +16,7 @@ func _input(event):
 			#tile to mouse, clamped to viewport
 			var size: Vector2 = get_viewport().size
 			var pos: Vector2 = event.position
-			pos = Vector2( clampf(pos.x, 0, size.x), clampf(pos.y, 0, size.y) )
+			pos = Vector2(clampf(pos.x, 0, size.x), clampf(pos.y, 0, size.y))
 			GameState.current_tile.position = pos
 	if event.is_action_pressed("test"):
 		Util.hud.submit_output_trays()
@@ -35,18 +35,13 @@ func drop_tile():
 	if !tile:
 		return
 	var snap = Util.get_closest(tile.global_position, 'tile_snap', 65.0)
-	#var snap = GameState.hovered_snap
 
 	if snap:
 		snap.to_snap(tile)
 		tile.place_in_slot()
-		# var vals = Util.hud.get_output_values()
-		# print("vals: ", vals)
-		# Debugging
-		# Util.hud.score_solution()
 	else:
-		# tile dropped elsewhere, fade
-		tile.drop_to_field()
+		# tile dropped to field
+		tile.place_in_field()
 	GameState.current_tile = null
 
 
