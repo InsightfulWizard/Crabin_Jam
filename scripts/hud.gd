@@ -18,7 +18,7 @@ var cycling_output_tray: bool = false
 func _ready() -> void:
 	Util.hud = self
 	output_tray_2.position.x = get_viewport().size.x
-	rules_engine.connect('score_changed', _on_score_change)
+	output_tray_2.set_snaps_active(false)
 
 
 func to_hud_space(n: Node2D):
@@ -38,7 +38,7 @@ func submit_output_trays():
 func grade_output_tray():
 	var solution = "".join(output_trays[current_output_tray].get_output_values())
 	rules_engine.evaluate_solution(solution)
-	print("Solution: '%s' | Score: %d" % [solution, rules_engine.get_current_score()])
+	print("Solution: '%s' | Score: %d" % [solution, GameState.get_current_score()])
 	# print("vals: ", vals)
 	#grading logic
 
@@ -50,7 +50,9 @@ func cycle_output_trays():
 	var current = output_trays[current_output_tray]
 	var next = output_trays[(current_output_tray + 1) % 2]
 	var size_x = get_viewport().size.x
-
+	
+	current.set_snaps_active(false)
+	
 	var tween: Tween = Util.tween_2d(current, "position", current.position - Vector2(size_x, 0), .6)
 
 	Util.tween_2d(next, "position", next.position - Vector2(size_x, 0), .6)
@@ -58,16 +60,6 @@ func cycle_output_trays():
 	await tween.finished
 	current.position.x = size_x
 	current.reset()
+	next.set_snaps_active(true)
 	current_output_tray = (current_output_tray + 1) % 2
 	cycling_output_tray = false
-
-
-func _on_score_change():
-	pass
-	#var tween = get_tree().create_tween()
-	#tween.set_trans(Tween.TRANS_QUAD)
-	#tween.set_ease(Tween.EASE_IN_OUT)
-	#tween.tween_property(obj, param, target, time)
-	#return tween
-	#
-	#score.progress

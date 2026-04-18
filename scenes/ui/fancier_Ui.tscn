@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cxmd67w0o1i63"]
+
+[ext_resource type="Texture2D" uid="uid://bmoeevxjkqvh8" path="res://art/ui_fancy_back.png" id="1_dk5s7"]
+[ext_resource type="Texture2D" uid="uid://c8i7xu7iwrl6" path="res://art/ui_fancy_front.png" id="2_3aqx4"]
+
+[node name="fancier_ui" type="Control" unique_id=1759600616]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 666.25385
+offset_bottom = 433.33337
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2040373196]
+self_modulate = Color(0.055670485, 0.24501422, 0.23374763, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_dk5s7")
+region_rect = Rect2(59.987, 60.530403, 902.7195, 903.0831)
+patch_margin_left = 113
+patch_margin_top = 122
+patch_margin_right = 112
+patch_margin_bottom = 122
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="." unique_id=751854450]
+self_modulate = Color(0.20637682, 0.51784354, 0.52004665, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3aqx4")
+region_rect = Rect2(59.987, 60.530403, 902.7195, 903.0831)
+patch_margin_left = 113
+patch_margin_top = 122
+patch_margin_right = 112
+patch_margin_bottom = 122

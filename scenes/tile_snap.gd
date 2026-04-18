@@ -3,6 +3,7 @@ extends Node2D
 @onready var col = $Area2D
 
 var snapped_tile: Node2D
+var active: bool = true
 
 
 func _ready():

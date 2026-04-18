@@ -7,25 +7,46 @@
 script = ExtResource("1_ao8oj")
 
 [node name="tile_snap" parent="." unique_id=2083315615 instance=ExtResource("2_wsewi")]
-position = Vector2(87, 573)
+position = Vector2(66, 604)
 
-[node name="tile_snap2" parent="." unique_id=1228542789 instance=ExtResource("2_wsewi")]
-position = Vector2(227, 573)
+[node name="tile_snap2" parent="." unique_id=831510342 instance=ExtResource("2_wsewi")]
+position = Vector2(139, 604)
 
-[node name="tile_snap3" parent="." unique_id=1436435221 instance=ExtResource("2_wsewi")]
-position = Vector2(365, 573)
+[node name="tile_snap3" parent="." unique_id=1619636639 instance=ExtResource("2_wsewi")]
+position = Vector2(211, 604)
 
-[node name="tile_snap4" parent="." unique_id=1314855194 instance=ExtResource("2_wsewi")]
-position = Vector2(505, 573)
+[node name="tile_snap4" parent="." unique_id=513082609 instance=ExtResource("2_wsewi")]
+position = Vector2(284, 604)
 
-[node name="tile_snap5" parent="." unique_id=1360862657 instance=ExtResource("2_wsewi")]
-position = Vector2(643, 573)
+[node name="tile_snap5" parent="." unique_id=712868191 instance=ExtResource("2_wsewi")]
+position = Vector2(358, 604)
 
-[node name="tile_snap6" parent="." unique_id=1960033356 instance=ExtResource("2_wsewi")]
-position = Vector2(783, 573)
+[node name="tile_snap6" parent="." unique_id=592435628 instance=ExtResource("2_wsewi")]
+position = Vector2(431, 604)
 
-[node name="tile_snap7" parent="." unique_id=1647938077 instance=ExtResource("2_wsewi")]
-position = Vector2(922, 573)
+[node name="tile_snap7" parent="." unique_id=1877858494 instance=ExtResource("2_wsewi")]
+position = Vector2(503, 604)
 
-[node name="tile_snap8" parent="." unique_id=1399908778 instance=ExtResource("2_wsewi")]
-position = Vector2(1062, 573)
+[node name="tile_snap8" parent="." unique_id=1610410854 instance=ExtResource("2_wsewi")]
+position = Vector2(576, 604)
+
+[node name="tile_snap9" parent="." unique_id=966513522 instance=ExtResource("2_wsewi")]
+position = Vector2(649, 604)
+
+[node name="tile_snap10" parent="." unique_id=2049994680 instance=ExtResource("2_wsewi")]
+position = Vector2(722, 604)
+
+[node name="tile_snap11" parent="." unique_id=2127357930 instance=ExtResource("2_wsewi")]
+position = Vector2(794, 604)
+
+[node name="tile_snap12" parent="." unique_id=1852843441 instance=ExtResource("2_wsewi")]
+position = Vector2(867, 604)
+
+[node name="tile_snap13" parent="." unique_id=2123855001 instance=ExtResource("2_wsewi")]
+position = Vector2(941, 604)
+
+[node name="tile_snap14" parent="." unique_id=860486008 instance=ExtResource("2_wsewi")]
+position = Vector2(1014, 604)
+
+[node name="tile_snap15" parent="." unique_id=564937307 instance=ExtResource("2_wsewi")]
+position = Vector2(1086, 604)

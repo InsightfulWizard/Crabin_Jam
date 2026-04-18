@@ -14,7 +14,7 @@ const MAX_SOLUTION_LENGTH = 10
 
 const MIN_SCORE = 0
 
-const MAX_SCORE = 100
+const MAX_SCORE = 500
 
 const MIN_RULES = 1
 

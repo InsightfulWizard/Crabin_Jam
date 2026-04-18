@@ -3,25 +3,13 @@ extends Node
 
 var _ruleset: Array[Rule] = []
 
-var _current_score: int = 0
-
-
-signal score_changed(score: int)
+#var _current_score: int = 0
 
 
 func _init() -> void:
 	# generate_ruleset()
 	generate_static_ruleset() # TODO: remove this and uncomment the above for actual gameplay
 	print_ruleset()
-
-
-func get_current_score() -> int:
-	return _current_score
-
-
-func set_current_score(score:int):
-	_current_score = score
-	emit_signal('score_changed', score)
 
 
 func get_ruleset() -> Array[Rule]:
@@ -35,8 +23,7 @@ func evaluate_solution(solution: String) -> void:
 		var matches = rule.pattern.search_all(solution)
 		total_score += matches.size() * rule.score
 	
-	total_score = clamp(total_score, Constants.MIN_SCORE, Constants.MAX_SCORE)
-	set_current_score(total_score)
+	GameState.set_current_score(total_score)
 
 
 func generate_rule() -> Rule:
