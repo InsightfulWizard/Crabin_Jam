@@ -4,12 +4,13 @@
 [ext_resource type="Script" uid="uid://5lnis0f7vybe" path="res://scripts/tile.gd" id="1_ywnoi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy7pm"]
-size = Vector2(128, 128)
+size = Vector2(64, 64)
 
 [node name="tile" type="Node2D" unique_id=350684231 groups=["tile"]]
 script = ExtResource("1_ywnoi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1188515814]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_3dk36")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=19403124]

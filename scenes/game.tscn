@@ -6,10 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://dbtdlkgw2f541" path="res://art/chef_2_nutural_1.png" id="3_vtaks"]
 [ext_resource type="Texture2D" uid="uid://cxrlokfux1jfv" path="res://art/chef_3_nutural_1.png" id="4_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://cxvdxv6jl5qdm" path="res://art/podium.png" id="5_dinhu"]
-[ext_resource type="Texture2D" uid="uid://bvabuks3svu72" path="res://art/body.png" id="6_kvuet"]
+[ext_resource type="PackedScene" uid="uid://6gigoejmr1m2" path="res://scenes/crab.tscn" id="6_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://brgm757thyuvh" path="res://scenes/output_tray.tscn" id="10_kvpfn"]
-[ext_resource type="Texture2D" uid="uid://emy22c0bm086" path="res://art/ui_fancy.png" id="11_dinhu"]
-[ext_resource type="PackedScene" uid="uid://drqnvg2myetut" path="res://scenes/tile_cloud.tscn" id="12_kvuet"]
+[ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="11_dinhu"]
+[ext_resource type="Script" uid="uid://b5xenegjrrkvn" path="res://scripts/score_bar.gd" id="11_kvuet"]
+[ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="12_trtic"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
+texture = ExtResource("11_dinhu")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
 
 [node name="game" type="Node2D" unique_id=504948786]
 script = ExtResource("1_lbhrr")
@@ -37,7 +43,7 @@ scale = Vector2(0.4092308, 0.4092308)
 texture = ExtResource("2_0tnpc")
 
 [node name="Sprite2D2" type="Sprite2D" parent="crowd" unique_id=1768706815]
-position = Vector2(798.52625, 320.52618)
+position = Vector2(598.99994, 322)
 scale = Vector2(0.4092308, 0.4092308)
 texture = ExtResource("3_vtaks")
 
@@ -63,37 +69,17 @@ texture = ExtResource("4_kvpfn")
 
 [node name="speaker" type="CanvasLayer" parent="." unique_id=379233023]
 
-[node name="Sprite2D" type="Sprite2D" parent="speaker" unique_id=672842468]
-position = Vector2(602.7798, 511.1482)
+[node name="crab" parent="speaker" unique_id=226795867 instance=ExtResource("6_kvpfn")]
+position = Vector2(760.7798, 497.77982)
+scale = Vector2(0.7869104, 0.7869104)
+
+[node name="podium" type="Sprite2D" parent="speaker" unique_id=672842468]
+z_index = -1000
+position = Vector2(716.7798, 549.7798)
 scale = Vector2(0.3960543, 0.3960543)
 texture = ExtResource("5_dinhu")
 
-[node name="crab" type="Node2D" parent="speaker" unique_id=541179186]
-
-[node name="Sprite2D2" type="Sprite2D" parent="speaker/crab" unique_id=251198952]
-position = Vector2(606.7797, 436.14835)
-scale = Vector2(0.3127897, 0.3127897)
-texture = ExtResource("6_kvuet")
-
-[node name="Sprite2D3" type="Sprite2D" parent="speaker/crab" unique_id=823912478]
-position = Vector2(606.7797, 436.14835)
-scale = Vector2(0.3127897, 0.3127897)
-texture = ExtResource("6_kvuet")
-
-[node name="Sprite2D4" type="Sprite2D" parent="speaker/crab" unique_id=2065280920]
-position = Vector2(606.7797, 436.14835)
-scale = Vector2(0.3127897, 0.3127897)
-texture = ExtResource("6_kvuet")
-
-[node name="Sprite2D5" type="Sprite2D" parent="speaker/crab" unique_id=651455470]
-position = Vector2(606.7797, 436.14835)
-scale = Vector2(0.3127897, 0.3127897)
-texture = ExtResource("6_kvuet")
-
-[node name="Sprite2D6" type="Sprite2D" parent="speaker/crab" unique_id=609686004]
-position = Vector2(606.7797, 436.14835)
-scale = Vector2(0.3127897, 0.3127897)
-texture = ExtResource("6_kvuet")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=701444802]
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=455043324]
 script = ExtResource("2_iywne")
@@ -102,126 +88,23 @@ script = ExtResource("2_iywne")
 z_index = 100
 position = Vector2(598, 151)
 
-[node name="ColorRect14" type="ColorRect" parent="hud" unique_id=238982238]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 562.0
-offset_bottom = 562.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.1502757, 0.015276081, 0.10984173, 1)
+[node name="tile" parent="hud" unique_id=350684231 instance=ExtResource("3_p57ef")]
+position = Vector2(514, 183)
 
-[node name="MarginContainer" type="MarginContainer" parent="hud/ColorRect14" unique_id=1756846983]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
+[node name="tile2" parent="hud" unique_id=847190004 instance=ExtResource("3_p57ef")]
+position = Vector2(592, 52)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="hud/ColorRect14/MarginContainer" unique_id=648046495]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 13
+[node name="tile3" parent="hud" unique_id=37917058 instance=ExtResource("3_p57ef")]
+position = Vector2(650, 139)
 
-[node name="ColorRect" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=508302421]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+[node name="tile4" parent="hud" unique_id=86400651 instance=ExtResource("3_p57ef")]
+position = Vector2(396, 50)
 
-[node name="ColorRect2" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1039475273]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
+[node name="tile5" parent="hud" unique_id=1293893547 instance=ExtResource("3_p57ef")]
+position = Vector2(814, 159)
 
-[node name="ColorRect3" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=970535216]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=363306742]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=812558034]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect6" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1177529840]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect7" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1390553846]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect8" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1613705304]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect9" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1380878272]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect10" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1063623609]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect11" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1691642642]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect12" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1103531941]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect13" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1405033496]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect14" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=854707110]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect15" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1358911932]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="ColorRect16" type="ColorRect" parent="hud/ColorRect14/MarginContainer/HBoxContainer" unique_id=1502678579]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-color = Color(0.2625675, 0.012154194, 0.1276482, 1)
-
-[node name="col rect" type="ColorRect" parent="hud" unique_id=160027287]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -5.0
-offset_top = 701.0
-offset_right = -5.0
-offset_bottom = 204.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.1502757, 0.015276081, 0.10984173, 1)
+[node name="tile6" parent="hud" unique_id=1053744406 instance=ExtResource("3_p57ef")]
+position = Vector2(737, 61)
 
 [node name="output_tray_1" parent="hud" unique_id=962911779 instance=ExtResource("10_kvpfn")]
 z_index = -100
@@ -230,16 +113,61 @@ z_index = -100
 z_index = -100
 position = Vector2(1152, 0)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="hud" unique_id=295407089]
-modulate = Color(0.16729349, 0.49846756, 0.63298106, 1)
-offset_left = 671.0
-offset_top = -251.0
-offset_right = 1173.0
-offset_bottom = 93.0
-scale = Vector2(1.1389862, 1.2648782)
-texture = ExtResource("11_dinhu")
-region_rect = Rect2(60.402893, 60.238457, 902.717, 903.3642)
-patch_margin_left = 114
-patch_margin_top = 123
-patch_margin_right = 113
-patch_margin_bottom = 123
+[node name="score" type="Node2D" parent="hud" unique_id=934108434]
+script = ExtResource("11_kvuet")
+
+[node name="ProgressBar" type="ProgressBar" parent="hud/score" unique_id=792538805]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1080.0
+offset_top = 149.0
+offset_right = 1138.0
+offset_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxTexture_kvuet")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="facier_ui" parent="hud/score" unique_id=1759600616 instance=ExtResource("12_trtic")]
+z_index = -968
+offset_left = 1058.0
+offset_top = 122.0
+offset_right = 1718.9307
+offset_bottom = 1911.5969
+scale = Vector2(0.19669233, 0.19669233)
+
+[node name="facier_ui2" parent="hud" unique_id=932650435 instance=ExtResource("12_trtic")]
+z_index = -769
+offset_left = 14.0
+offset_top = 143.0
+offset_right = 700.3511
+offset_bottom = 1378.4319
+scale = Vector2(0.19669233, 0.19669233)
+
+[node name="facier_ui5" parent="hud" unique_id=1632173333 instance=ExtResource("12_trtic")]
+z_index = -769
+offset_left = 96.0
+offset_top = 327.0
+offset_right = 517.97876
+offset_bottom = 738.81067
+scale = Vector2(0.19669233, 0.19669233)
+
+[node name="facier_ui3" parent="hud" unique_id=788711545 instance=ExtResource("12_trtic")]
+z_index = -1000
+offset_left = -24.0
+offset_top = 532.99994
+offset_right = 6081.983
+offset_bottom = 1280.3601
+scale = Vector2(0.19669233, 0.19669233)
+
+[node name="facier_ui4" parent="hud" unique_id=333094619 instance=ExtResource("12_trtic")]
+z_index = -1000
+offset_left = -6.999999
+offset_top = 549.0
+offset_right = 5921.0396
+offset_bottom = 1215.0144
+scale = Vector2(0.19669233, 0.19669233)
