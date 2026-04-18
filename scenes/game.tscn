@@ -129,6 +129,11 @@ value = 100.0
 fill_mode = 3
 show_percentage = false
 
+[node name="water_surface" type="Sprite2D" parent="hud/score/ProgressBar" unique_id=1618109269]
+position = Vector2(29, 0)
+scale = Vector2(0.49218708, 0.093749955)
+texture = ExtResource("11_dinhu")
+
 [node name="facier_ui" parent="hud/score" unique_id=1759600616 instance=ExtResource("12_trtic")]
 z_index = -968
 offset_left = 1058.0
