@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://o03bhcag80i6"]
+
+[ext_resource type="Texture2D" uid="uid://bc3mr6uy8lbxe" path="res://art/chefs/chef_3_1.png" id="1_olbmt"]
+[ext_resource type="Texture2D" uid="uid://cgeikotjrfsto" path="res://art/chefs/chef_3_2.png" id="2_l6llp"]
+[ext_resource type="Texture2D" uid="uid://b4ri5hbb60pkj" path="res://art/chefs/chef_3_3.png" id="3_ass8m"]
+[ext_resource type="Texture2D" uid="uid://btdh40yfsi8ud" path="res://art/chefs/chef_3_4.png" id="4_ysaln"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oybqy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_olbmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_l6llp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ass8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ysaln")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="chef_3" type="AnimatedSprite2D" unique_id=1520690260]
+sprite_frames = SubResource("SpriteFrames_oybqy")

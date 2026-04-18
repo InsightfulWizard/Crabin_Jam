@@ -21,6 +21,10 @@ GameState="*uid://b5iqda06mpdl5"
 Util="*uid://bkb36hki0c3lr"
 Constants="*uid://bh3nqgckshdbf"
 
+[display]
+
+window/size/mode=3
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
