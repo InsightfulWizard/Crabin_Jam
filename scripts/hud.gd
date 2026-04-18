@@ -29,29 +29,6 @@ func to_hud_space(n: Node2D):
 	n.global_transform = glob_xform
 
 
-func get_output_values():
-	var vals: Array[String] = []
-	#for n in output_trays[current_output_tray].get_children():
-	for n in output_tray_1.get_children():
-		if !n.is_in_group('tile_snap'):
-			continue
-		if !n.snapped_tile:
-			vals.append(Constants.EMPTY_TILE_VALUE)
-			continue
-		vals.append(n.snapped_tile.to_string())
-	return vals
-
-
-func get_solution():
-	return "".join(get_output_values())
-
-
-func score_solution():
-	var solution = get_solution()
-	rules_engine.evaluate_solution(solution)
-	print("Solution: '%s' | Score: %d" % [solution, rules_engine.get_current_score()])
-
-
 func submit_output_trays():
 	grade_output_tray()
 	cycle_output_trays()

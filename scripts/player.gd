@@ -15,7 +15,7 @@ func _input(event):
 		if GameState.current_tile:
 			GameState.current_tile.position = event.position
 	if event.is_action_pressed("test"):
-		Util.hud.cycle_output_trays()
+		Util.hud.submit_output_trays()
 
 
 func pickup_tile(tile: Node2D):
