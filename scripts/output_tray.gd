@@ -1,16 +1,14 @@
 extends Node2D
 
-
 func get_output_values():
-	var vals:Array[int] = []
+	var vals: Array[String] = []
 	for n in get_children():
-	#for n in output_tray_1.get_children():
 		if !n.is_in_group('tile_snap'):
 			continue
 		if !n.snapped_tile:
-			vals.append(-1)
+			vals.append(Constants.EMPTY_TILE_VALUE)
 			continue
-		vals.append(n.snapped_tile.value)
+		vals.append(n.snapped_tile.to_string())
 	return vals
 
 
