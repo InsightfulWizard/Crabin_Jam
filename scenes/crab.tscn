@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://6gigoejmr1m2"]
+
+[ext_resource type="Texture2D" uid="uid://bvabuks3svu72" path="res://art/body.png" id="1_ow7wl"]
+[ext_resource type="Texture2D" uid="uid://cyntg4fcsflxa" path="res://art/arm_right.png" id="2_83q5x"]
+[ext_resource type="Texture2D" uid="uid://ctbh7h6urvdy7" path="res://art/claw_right.png" id="3_rftv6"]
+[ext_resource type="Texture2D" uid="uid://cb5o02vsmjtwy" path="res://art/pincher_right.png" id="4_hj1h3"]
+[ext_resource type="PackedScene" uid="uid://bi2t882ghu04g" path="res://scenes/crab_leg.tscn" id="5_rftv6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hj1h3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ow7wl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ljolo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_83q5x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gmyah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rftv6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cabm5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hj1h3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="crab" type="Node2D" unique_id=226795867]
+
+[node name="body" type="AnimatedSprite2D" parent="." unique_id=1461163562]
+scale = Vector2(0.3127897, 0.3127897)
+sprite_frames = SubResource("SpriteFrames_hj1h3")
+
+[node name="arm_r" type="AnimatedSprite2D" parent="body" unique_id=1258083662]
+z_index = -10
+position = Vector2(191.82224, -131.07846)
+rotation = 1.0011095
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_ljolo")
+offset = Vector2(0, -220)
+
+[node name="claw_r" type="AnimatedSprite2D" parent="body/arm_r" unique_id=1376850472]
+position = Vector2(-31.970276, -501.93472)
+rotation = -1.823604
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_gmyah")
+offset = Vector2(79.77, -300.46)
+
+[node name="pincher_r" type="AnimatedSprite2D" parent="body/arm_r/claw_r" unique_id=201083596]
+z_index = -1
+position = Vector2(105.50214, -367.65918)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_cabm5")
+offset = Vector2(25.14, -148.415)
+
+[node name="arm_l" type="AnimatedSprite2D" parent="body" unique_id=1625697970]
+z_index = -10
+position = Vector2(-175.83698, -159.8518)
+rotation = -1.1320156
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_ljolo")
+offset = Vector2(0, -220)
+
+[node name="claw_l" type="AnimatedSprite2D" parent="body/arm_l" unique_id=89314397]
+position = Vector2(-31.970276, -501.93472)
+rotation = -1.823604
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_gmyah")
+offset = Vector2(79.77, -300.46)
+
+[node name="pincher_l" type="AnimatedSprite2D" parent="body/arm_l/claw_l" unique_id=857340964]
+z_index = -1
+position = Vector2(105.50214, -367.65918)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_cabm5")
+offset = Vector2(25.14, -148.415)
+
+[node name="leg_1" parent="." unique_id=175528995 instance=ExtResource("5_rftv6")]
+position = Vector2(81.606476, 35.27353)
+
+[node name="leg_2" parent="." unique_id=1700419121 instance=ExtResource("5_rftv6")]
+position = Vector2(40.606476, 64.27353)
+
+[node name="leg_3" parent="." unique_id=1207014613 instance=ExtResource("5_rftv6")]
+position = Vector2(78.00001, 23)
+rotation = 1.3661985
+scale = Vector2(0.3127897, -0.313)
+
+[node name="leg_4" parent="." unique_id=1223542898 instance=ExtResource("5_rftv6")]
+position = Vector2(79, -11.999993)
+rotation = 1.3007474
+scale = Vector2(0.3127897, -0.313)
+
+[node name="leg_5" parent="." unique_id=585576489 instance=ExtResource("5_rftv6")]
+position = Vector2(-111, 21)
+rotation = -2.4172826
+scale = Vector2(0.3127903, -0.3127902)
+
+[node name="leg_6" parent="." unique_id=303064597 instance=ExtResource("5_rftv6")]
+position = Vector2(-84, 55)
+rotation = -2.4172826
+scale = Vector2(0.3127903, -0.3127902)
+
+[node name="leg_7" parent="." unique_id=1526468624 instance=ExtResource("5_rftv6")]
+position = Vector2(-119.887695, 5.7131042)
+rotation = 1.7753948
+scale = Vector2(0.31278974, 0.313001)
+
+[node name="leg_8" parent="." unique_id=254043777 instance=ExtResource("5_rftv6")]
+position = Vector2(-90.887695, -23.286896)
+rotation = 1.8408462
+scale = Vector2(0.3127898, 0.31300104)

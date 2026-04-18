@@ -18,6 +18,7 @@ var cycling_output_tray: bool = false
 func _ready() -> void:
 	Util.hud = self
 	output_tray_2.position.x = get_viewport().size.x
+	rules_engine.connect('score_changed', _on_score_change)
 
 
 func to_hud_space(n: Node2D):
@@ -59,3 +60,14 @@ func cycle_output_trays():
 	current.reset()
 	current_output_tray = (current_output_tray + 1) % 2
 	cycling_output_tray = false
+
+
+func _on_score_change():
+	pass
+	#var tween = get_tree().create_tween()
+	#tween.set_trans(Tween.TRANS_QUAD)
+	#tween.set_ease(Tween.EASE_IN_OUT)
+	#tween.tween_property(obj, param, target, time)
+	#return tween
+	#
+	#score.progress

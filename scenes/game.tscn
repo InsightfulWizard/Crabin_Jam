@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c5pwfbxuhugw4" path="res://scenes/tile.tscn" id="3_p57ef"]
 [ext_resource type="Texture2D" uid="uid://dbtdlkgw2f541" path="res://art/chef_2_nutural_1.png" id="3_vtaks"]
 [ext_resource type="Texture2D" uid="uid://cxrlokfux1jfv" path="res://art/chef_3_nutural_1.png" id="4_kvpfn"]
-[ext_resource type="PackedScene" uid="uid://1ytxmmop8hgq" path="res://scenes/tile_snap.tscn" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://cxvdxv6jl5qdm" path="res://art/podium.png" id="5_dinhu"]
-[ext_resource type="Texture2D" uid="uid://bvabuks3svu72" path="res://art/body.png" id="6_kvuet"]
+[ext_resource type="PackedScene" uid="uid://6gigoejmr1m2" path="res://scenes/crab.tscn" id="6_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://brgm757thyuvh" path="res://scenes/output_tray.tscn" id="10_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://emy22c0bm086" path="res://art/ui_fancy.png" id="11_dinhu"]
 
@@ -38,7 +37,7 @@ scale = Vector2(0.4092308, 0.4092308)
 texture = ExtResource("2_0tnpc")
 
 [node name="Sprite2D2" type="Sprite2D" parent="crowd" unique_id=1768706815]
-position = Vector2(798.52625, 320.52618)
+position = Vector2(598.99994, 322)
 scale = Vector2(0.4092308, 0.4092308)
 texture = ExtResource("3_vtaks")
 
@@ -64,37 +63,15 @@ texture = ExtResource("4_kvpfn")
 
 [node name="speaker" type="CanvasLayer" parent="." unique_id=379233023]
 
-[node name="Sprite2D" type="Sprite2D" parent="speaker" unique_id=672842468]
-position = Vector2(602.7798, 511.1482)
+[node name="crab" parent="speaker" unique_id=226795867 instance=ExtResource("6_kvpfn")]
+position = Vector2(756, 450.00003)
+scale = Vector2(0.7869104, 0.7869104)
+
+[node name="podium" type="Sprite2D" parent="speaker" unique_id=672842468]
+z_index = -1000
+position = Vector2(712, 502)
 scale = Vector2(0.3960543, 0.3960543)
 texture = ExtResource("5_dinhu")
-
-[node name="crab" type="Node2D" parent="speaker" unique_id=541179186]
-
-[node name="Sprite2D2" type="Sprite2D" parent="speaker/crab" unique_id=251198952]
-position = Vector2(606.7797, 436.14835)
-scale = Vector2(0.3127897, 0.3127897)
-texture = ExtResource("6_kvuet")
-
-[node name="Sprite2D3" type="Sprite2D" parent="speaker/crab" unique_id=823912478]
-position = Vector2(606.7797, 436.14835)
-scale = Vector2(0.3127897, 0.3127897)
-texture = ExtResource("6_kvuet")
-
-[node name="Sprite2D4" type="Sprite2D" parent="speaker/crab" unique_id=2065280920]
-position = Vector2(606.7797, 436.14835)
-scale = Vector2(0.3127897, 0.3127897)
-texture = ExtResource("6_kvuet")
-
-[node name="Sprite2D5" type="Sprite2D" parent="speaker/crab" unique_id=651455470]
-position = Vector2(606.7797, 436.14835)
-scale = Vector2(0.3127897, 0.3127897)
-texture = ExtResource("6_kvuet")
-
-[node name="Sprite2D6" type="Sprite2D" parent="speaker/crab" unique_id=609686004]
-position = Vector2(606.7797, 436.14835)
-scale = Vector2(0.3127897, 0.3127897)
-texture = ExtResource("6_kvuet")
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=455043324]
 script = ExtResource("2_iywne")
@@ -220,17 +197,23 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1502757, 0.015276081, 0.10984173, 1)
 
-[node name="tile_snap9" parent="hud" unique_id=443787678 instance=ExtResource("4_u5sy4")]
-position = Vector2(693, 186)
-
 [node name="tile" parent="hud" unique_id=350684231 instance=ExtResource("3_p57ef")]
-position = Vector2(122, 114)
+position = Vector2(458, 47)
 
 [node name="tile2" parent="hud" unique_id=847190004 instance=ExtResource("3_p57ef")]
-position = Vector2(217, 278)
+position = Vector2(592, 52)
 
 [node name="tile3" parent="hud" unique_id=37917058 instance=ExtResource("3_p57ef")]
-position = Vector2(382, 332)
+position = Vector2(733, 57)
+
+[node name="tile4" parent="hud" unique_id=86400651 instance=ExtResource("3_p57ef")]
+position = Vector2(89, 49)
+
+[node name="tile5" parent="hud" unique_id=1293893547 instance=ExtResource("3_p57ef")]
+position = Vector2(983, 47)
+
+[node name="tile6" parent="hud" unique_id=1053744406 instance=ExtResource("3_p57ef")]
+position = Vector2(849, 68)
 
 [node name="output_tray_1" parent="hud" unique_id=962911779 instance=ExtResource("10_kvpfn")]
 z_index = -100
@@ -241,14 +224,42 @@ position = Vector2(1152, 0)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="hud" unique_id=295407089]
 modulate = Color(0.16729349, 0.49846756, 0.63298106, 1)
-offset_left = 671.0
-offset_top = -251.0
-offset_right = 1173.0
-offset_bottom = 93.0
-scale = Vector2(1.1389862, 1.2648782)
+offset_left = 25.0
+offset_top = 206.0
+offset_right = 509.5683
+offset_bottom = 815.98517
+scale = Vector2(0.40448374, 0.44919124)
 texture = ExtResource("11_dinhu")
 region_rect = Rect2(60.402893, 60.238457, 902.717, 903.3642)
 patch_margin_left = 114
 patch_margin_top = 123
 patch_margin_right = 113
 patch_margin_bottom = 123
+
+[node name="score" type="Node2D" parent="hud" unique_id=934108434]
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="hud/score" unique_id=471600551]
+modulate = Color(0.16729349, 0.49846756, 0.63298106, 1)
+offset_left = 951.99994
+offset_top = 165.0
+offset_right = 1436.5682
+offset_bottom = 774.98517
+scale = Vector2(0.40448374, 0.44919124)
+texture = ExtResource("11_dinhu")
+region_rect = Rect2(60.402893, 60.238457, 902.717, 903.3642)
+patch_margin_left = 114
+patch_margin_top = 123
+patch_margin_right = 113
+patch_margin_bottom = 123
+
+[node name="ProgressBar" type="ProgressBar" parent="hud/score" unique_id=792538805]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 984.0
+offset_top = 212.0
+offset_right = 1121.0
+offset_bottom = 399.5
+grow_horizontal = 2
+grow_vertical = 2
