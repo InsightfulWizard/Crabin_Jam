@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("select"):
 		pass
@@ -17,7 +16,7 @@ func _input(event):
 			GameState.current_tile.position = event.position
 
 
-func pickup_tile(tile:Node2D):
+func pickup_tile(tile: Node2D):
 	GameState.current_tile = tile
 	if tile.snap:
 		tile.snap.unsnap()
@@ -32,7 +31,8 @@ func drop_tile():
 	#var snap = GameState.hovered_snap
 	if snap:
 		snap.to_snap(tile)
-		var vals = Util.hud.get_output_values()
-		print("vals: ", vals)
-	
+		# var vals = Util.hud.get_output_values()
+		# print("vals: ", vals)
+		Util.hud.score_solution()
+
 	GameState.current_tile = null
