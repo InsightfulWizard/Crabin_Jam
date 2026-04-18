@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://brgm757thyuvh"]
+
+[ext_resource type="Script" uid="uid://bvbu73swi4hak" path="res://scripts/output_tray.gd" id="1_ao8oj"]
+[ext_resource type="PackedScene" uid="uid://1ytxmmop8hgq" path="res://scenes/tile_snap.tscn" id="2_wsewi"]
+
+[node name="output_tray_1" type="Node2D" unique_id=962911779]
+script = ExtResource("1_ao8oj")
+
+[node name="tile_snap" parent="." unique_id=2083315615 instance=ExtResource("2_wsewi")]
+position = Vector2(87, 573)
+
+[node name="tile_snap2" parent="." unique_id=1228542789 instance=ExtResource("2_wsewi")]
+position = Vector2(227, 573)
+
+[node name="tile_snap3" parent="." unique_id=1436435221 instance=ExtResource("2_wsewi")]
+position = Vector2(365, 573)
+
+[node name="tile_snap4" parent="." unique_id=1314855194 instance=ExtResource("2_wsewi")]
+position = Vector2(505, 573)
+
+[node name="tile_snap5" parent="." unique_id=1360862657 instance=ExtResource("2_wsewi")]
+position = Vector2(643, 573)
+
+[node name="tile_snap6" parent="." unique_id=1960033356 instance=ExtResource("2_wsewi")]
+position = Vector2(783, 573)
+
+[node name="tile_snap7" parent="." unique_id=1647938077 instance=ExtResource("2_wsewi")]
+position = Vector2(922, 573)
+
+[node name="tile_snap8" parent="." unique_id=1399908778 instance=ExtResource("2_wsewi")]
+position = Vector2(1062, 573)

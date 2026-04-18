@@ -21,10 +21,10 @@ func on_mouse_exited():
 
 func to_snap(tile:Node2D):
 	if !snapped_tile:
-		#tile.get_parent().remove_child(tile)
-		#add_child(tile)
-		#tile.position = Vector2.ZERO
-		tile.global_position = global_position
+		tile.get_parent().remove_child(tile)
+		add_child(tile)
+		tile.position = Vector2.ZERO
+		#tile.global_position = global_position
 		#tile.global_position.y -= 100
 		tile.snap = self
 		snapped_tile = tile
@@ -32,9 +32,14 @@ func to_snap(tile:Node2D):
 
 func unsnap():
 	if !snapped_tile:
-		printerr('no snapped tile')
 		return
 	Util.hud.to_hud_space(snapped_tile)
 	snapped_tile.snap = null
 	snapped_tile = null
-	
+
+
+func delete_tile():
+	if !snapped_tile:
+		return
+	snapped_tile.delete()
+	snapped_tile = null

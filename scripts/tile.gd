@@ -21,3 +21,8 @@ func on_mouse_exited():
 	if GameState.hovered_tile == self:
 		GameState.clear_hovered_tile()
 		scale = Vector2.ONE
+
+
+func delete():
+	queue_free()
+	#toto add shrinking juice

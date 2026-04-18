@@ -15,6 +15,8 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		if GameState.current_tile:
 			GameState.current_tile.position = event.position
+	if event.is_action_pressed("test"):
+		Util.hud.cycle_output_trays()
 
 
 func pickup_tile(tile:Node2D):
@@ -32,7 +34,5 @@ func drop_tile():
 	#var snap = GameState.hovered_snap
 	if snap:
 		snap.to_snap(tile)
-		var vals = Util.hud.get_output_values()
-		print("vals: ", vals)
 	
 	GameState.current_tile = null

@@ -16,3 +16,10 @@ func get_closest(p:Vector2, g:String, thresh: float = 20.0):
 	if closest_d < thresh:
 		return closest
 		
+
+func tween_2d(obj:Node2D, param:String, target:Vector2, time:float = .6):
+	var tween = get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(obj, param, target, time)
+	return tween
