@@ -18,6 +18,9 @@ func _input(event):
 			var pos: Vector2 = event.position
 			pos = Vector2(clampf(pos.x, 0, size.x), clampf(pos.y, 0, size.y))
 			GameState.current_tile.position = pos
+			#shuffle other tiles
+			
+			
 	if event.is_action_pressed("test"):
 		Util.hud.submit_output_trays()
 	if event.is_action_pressed("escape"):

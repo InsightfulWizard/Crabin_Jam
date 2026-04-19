@@ -6,11 +6,22 @@
 [ext_resource type="Script" uid="uid://b5xenegjrrkvn" path="res://scripts/score_bar.gd" id="4_0i1j5"]
 [ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="5_mphia"]
 [ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="6_0m4u7"]
+[ext_resource type="Script" path="res://scripts/speech_timer_bar.gd" id="7_5pdws"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
 texture = ExtResource("5_mphia")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd3ao"]
+bg_color = Color(0.16069785, 0.40153843, 0.44576257, 0.627451)
+corner_radius_top_left = 164
+corner_radius_bottom_right = 277
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pdws"]
+bg_color = Color(0.70972514, 0.5894324, 0.3813395, 1)
+corner_radius_top_left = 86
+corner_radius_bottom_right = 150
 
 [node name="hud" type="CanvasLayer" unique_id=1041986312]
 script = ExtResource("1_047uy")
@@ -89,3 +100,17 @@ offset_top = 549.0
 offset_right = 5921.0396
 offset_bottom = 1215.0144
 scale = Vector2(0.19669233, 0.19669233)
+
+[node name="speech_timer_bar" type="Node2D" parent="." unique_id=1750161086]
+script = ExtResource("7_5pdws")
+
+[node name="ProgressBar" type="ProgressBar" parent="speech_timer_bar" unique_id=179710779]
+offset_left = 23.0
+offset_top = 542.0
+offset_right = 1130.0
+offset_bottom = 548.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hd3ao")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5pdws")
+value = 14.97
+show_percentage = false
+metadata/_edit_use_anchors_ = true

@@ -6,7 +6,16 @@ var current_tile = null
 var hovered_snap = null
 var current_snap = null
 
-var current_score: int = 0
+var current_score: int = Constants.MAX_SCORE * .6
+var recent_score: int = 0
+var time_per_phrase: float = 15.0
+
+enum {
+	DREAD,
+	STRESSED,
+	CHILLIN
+}
+var state := STRESSED
 
 signal score_changed(score: int)
 
@@ -16,9 +25,18 @@ func get_current_score() -> int:
 
 
 func set_current_score(score:int):
-	score = clamp(score, Constants.MIN_SCORE, Constants.MAX_SCORE)
-	current_score = score
-	emit_signal('score_changed', score)
+	recent_score = score
+	current_score = clamp( current_score + score, Constants.MIN_SCORE, Constants.MAX_SCORE )
+	if score == Constants.MAX_SCORE:
+		win()
+	if score > Constants.CHILLIN_THRESH:
+		state = CHILLIN
+	elif score < Constants.DREAD_THRESH:
+		state = DREAD
+	else:
+		state = STRESSED
+		
+	emit_signal('score_changed', current_score)
 
 
 func set_hovered_tile(tile:Node2D):

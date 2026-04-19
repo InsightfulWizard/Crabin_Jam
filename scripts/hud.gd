@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var output_tray_1: Node2D = $output_tray_1
 @onready var output_tray_2: Node2D = $output_tray_2
+@onready var speech_timer_bar: Node2D = $speech_timer_bar
 
 var rules_engine: RulesEngine = RulesEngine.new()
 
@@ -31,12 +32,13 @@ func to_hud_space(n: Node2D):
 func submit_output_trays():
 	grade_output_tray()
 	cycle_output_trays()
+	speech_timer_bar.start_timer()
 
 
 func grade_output_tray():
 	var solution = "".join(output_trays[current_output_tray].get_output_values())
 	rules_engine.evaluate_solution(solution)
-	print("Solution: '%s' | Score: %d" % [solution, GameState.get_current_score()])
+	print("Solution: '%s' | Score: %d" % [solution, GameState.recent_score])
 	# print("vals: ", vals)
 	#grading logic
 
