@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qh2ycjkq7k3p"
+path="res://.godot/imported/Crabin Jam_Item Pickup_4_v1.mp3-55bb98bdad32679ffa4e99a046b2298a.mp3str"
+
+[deps]
+
+source_file="res://audio/Sound/UI Sounds/Item Pickup Sounds/Crabin Jam_Item Pickup_4_v1.mp3"
+dest_files=["res://.godot/imported/Crabin Jam_Item Pickup_4_v1.mp3-55bb98bdad32679ffa4e99a046b2298a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

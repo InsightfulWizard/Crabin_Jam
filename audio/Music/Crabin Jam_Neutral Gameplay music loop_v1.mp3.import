@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bg2c1wdybkpoc"
+path="res://.godot/imported/Crabin Jam_Neutral Gameplay music loop_v1.mp3-e25cb35bac7115357dd759e0202fbe49.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/Crabin Jam_Neutral Gameplay music loop_v1.mp3"
+dest_files=["res://.godot/imported/Crabin Jam_Neutral Gameplay music loop_v1.mp3-e25cb35bac7115357dd759e0202fbe49.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

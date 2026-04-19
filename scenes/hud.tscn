@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="5_mphia"]
 [ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="6_0m4u7"]
 [ext_resource type="Texture2D" uid="uid://cvyi6h8sx4uuq" path="res://art/friend/friend_1.png" id="7_3swnk"]
-[ext_resource type="Script" path="res://scripts/speech_timer_bar.gd" id="7_5pdws"]
+[ext_resource type="Script" uid="uid://c2qummvstpvif" path="res://scripts/speech_timer_bar.gd" id="7_5pdws"]
+[ext_resource type="Script" uid="uid://dkh33eecnjqin" path="res://scenes/ui/rule_hub.gd" id="7_qkknv"]
 [ext_resource type="Texture2D" uid="uid://gwr2otiqj3u8" path="res://art/friend/friend_2.png" id="8_qkknv"]
 [ext_resource type="Texture2D" uid="uid://dpib830qtyqak" path="res://art/friend/friend_3.png" id="9_uxdf7"]
 [ext_resource type="Texture2D" uid="uid://70gruji4iakh" path="res://art/friend/friend_4.png" id="10_5357l"]
@@ -110,6 +111,7 @@ offset_bottom = 1911.5969
 scale = Vector2(0.19669233, 0.19669233)
 
 [node name="score_label" type="Label" parent="score" unique_id=1133529709]
+visible = false
 offset_left = 1085.0
 offset_top = 98.0
 offset_right = 1125.0
@@ -122,6 +124,14 @@ offset_top = 143.0
 offset_right = 700.3511
 offset_bottom = 1378.4319
 scale = Vector2(0.19669233, 0.19669233)
+script = ExtResource("7_qkknv")
+rule_start_position = Vector2(-28, 4)
+rule_vertical_offset = 54.0
+max_visible_rules = 3
+rule_ui_scale = Vector2(0.6, 0.6)
+rule_symbol_scale = Vector2(0.4, 0.4)
+
+[node name="PatternLayer" type="Node2D" parent="facier_ui2" unique_id=525479246]
 
 [node name="facier_ui5" parent="." unique_id=1190896814 instance=ExtResource("6_0m4u7")]
 z_index = -769

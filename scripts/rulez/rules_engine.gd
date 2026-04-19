@@ -3,12 +3,9 @@ extends Node
 
 var _ruleset: Array[Rule] = []
 
-#var _current_score: int = 0
-
 
 func _init() -> void:
-	# generate_ruleset()
-	generate_static_ruleset() # TODO: remove this and uncomment the above for actual gameplay
+	generate_ruleset()
 	print_ruleset()
 
 
@@ -22,7 +19,7 @@ func evaluate_solution(solution: String) -> void:
 	for rule in _ruleset:
 		var matches = rule.pattern.search_all(solution)
 		total_score += matches.size() * rule.score
-	
+
 	GameState.set_current_score(total_score)
 
 
@@ -61,27 +58,6 @@ func generate_solution() -> String:
 	for i in range(length):
 		solution += Constants.ALPHABET[randi() % Constants.ALPHABET.length()]
 	return solution
-
-# ---
-
-
-# Internal Class to represent a scoring rule
-class Rule:
-	var id: int
-	var pattern: RegEx
-	var score: int
-
-
-	func _init(_id: int, _pattern: String, _score: int=) -> void:
-		self.id = _id
-		self.pattern = RegEx.create_from_string(_pattern)
-		self.score = _score
-
-
-	func _to_string() -> String:
-		return "Rule(id: %d, pattern: '%s', score: %d)" % [id, pattern.get_pattern(), score]
-
-# --- Testing functions
 
 
 # For testing and debugging purposes, we can generate a static ruleset instead of a random one.
