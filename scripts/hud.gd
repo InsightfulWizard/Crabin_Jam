@@ -38,7 +38,7 @@ func submit_output_trays():
 func grade_output_tray():
 	var solution = "".join(output_trays[current_output_tray].get_output_values())
 	rules_engine.evaluate_solution(solution)
-	print("Solution: '%s' | Score: %d" % [solution, GameState.get_current_score()])
+	print("Solution: '%s' | Score: %d" % [solution, GameState.recent_score])
 	# print("vals: ", vals)
 	#grading logic
 
