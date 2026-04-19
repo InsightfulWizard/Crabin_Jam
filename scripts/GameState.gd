@@ -15,6 +15,8 @@ var is_menu_open := true
 var game_started := false
 var rules_engine: RulesEngine = RulesEngine.new()
 
+var potential_score = 0
+
 enum {
 	DREAD,
 	STRESSED,
@@ -27,6 +29,7 @@ signal state_changed(new_state: int)
 signal menu_opened
 signal menu_closed
 signal half_timer
+signal potential_score_changed(score: int)
 
 
 func _input(_event):
@@ -100,3 +103,7 @@ func exit_game():
 
 func win():
 	print('You\'ve convinced them!  Your shell did not crack under the pressure!')
+
+
+func update_potential_score():
+	Util.hud.grade_output_tray_potential()

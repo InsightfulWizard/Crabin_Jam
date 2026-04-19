@@ -74,6 +74,7 @@ func drop_tile():
 
 	if snap and snap.to_snap(tile):
 		tile.place_in_slot()
+		GameState.update_potential_score()
 	else:
 		var attempted_occupied_snap = nearest_any_snap != null
 		if attempted_occupied_snap:

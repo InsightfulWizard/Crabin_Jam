@@ -23,6 +23,17 @@ func evaluate_solution(solution: String) -> void:
 	GameState.set_current_score(total_score)
 
 
+func evaluate_potential_score(solution: String) -> void:
+	var total_score = 0
+
+	for rule in _ruleset:
+		var matches = rule.pattern.search_all(solution)
+		total_score += matches.size() * rule.score
+
+	GameState.potential_score = total_score
+	GameState.emit_signal('potential_score_changed', total_score)
+
+
 func generate_rule() -> Rule:
 	var id = randi()
 	var length = randi_range(Constants.MIN_RULE_LENGTH, Constants.MAX_RULE_LENGTH)
