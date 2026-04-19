@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="5_mphia"]
 [ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="6_0m4u7"]
 [ext_resource type="Texture2D" uid="uid://cvyi6h8sx4uuq" path="res://art/friend/friend_1.png" id="7_3swnk"]
-[ext_resource type="Script" path="res://scripts/speech_timer_bar.gd" id="7_5pdws"]
 [ext_resource type="Texture2D" uid="uid://gwr2otiqj3u8" path="res://art/friend/friend_2.png" id="8_qkknv"]
 [ext_resource type="Texture2D" uid="uid://dpib830qtyqak" path="res://art/friend/friend_3.png" id="9_uxdf7"]
 [ext_resource type="Texture2D" uid="uid://70gruji4iakh" path="res://art/friend/friend_4.png" id="10_5357l"]
@@ -15,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://ctln2g6jsk81g" path="res://art/friend/friend_6.png" id="12_qpprf"]
 [ext_resource type="Texture2D" uid="uid://cbnniog8n446h" path="res://art/friend/friend_7.png" id="13_3xg78"]
 [ext_resource type="Texture2D" uid="uid://dkgfgbcjow8x0" path="res://art/friend/friend_8.png" id="14_48y67"]
+[ext_resource type="Script" uid="uid://c2qummvstpvif" path="res://scripts/speech_timer_bar.gd" id="7_5pdws"]
+[ext_resource type="PackedScene" uid="uid://dlshyi32r1ehd" path="res://scenes/ui/rule.tscn" id="7_hd3ao"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
 texture = ExtResource("5_mphia")
@@ -122,6 +123,30 @@ offset_top = 143.0
 offset_right = 700.3511
 offset_bottom = 1378.4319
 scale = Vector2(0.19669233, 0.19669233)
+
+[node name="rule" parent="facier_ui2" unique_id=898091513 instance=ExtResource("7_hd3ao")]
+layout_mode = 0
+offset_left = -127.102066
+offset_top = 20.336327
+offset_right = 832.89795
+offset_bottom = 432.33633
+scale = Vector2(0.5789921, 0.5789921)
+
+[node name="rule2" parent="facier_ui2" unique_id=2106367527 instance=ExtResource("7_hd3ao")]
+layout_mode = 0
+offset_left = -132.18613
+offset_top = 289.7927
+offset_right = 827.81384
+offset_bottom = 701.7926
+scale = Vector2(0.5789921, 0.5789921)
+
+[node name="rule3" parent="facier_ui2" unique_id=1314007584 instance=ExtResource("7_hd3ao")]
+layout_mode = 0
+offset_left = -127.10204
+offset_top = 564.3331
+offset_right = 832.8979
+offset_bottom = 976.33307
+scale = Vector2(0.5789921, 0.5789921)
 
 [node name="facier_ui5" parent="." unique_id=1190896814 instance=ExtResource("6_0m4u7")]
 z_index = -769

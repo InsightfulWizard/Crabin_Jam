@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dlshyi32r1ehd"]
 
+[ext_resource type="Script" uid="uid://ebblf18e2pqw" path="res://scenes/ui/rule_ui.gd" id="1_h4hxd"]
 [ext_resource type="Texture2D" uid="uid://cu6dg53upak3y" path="res://art/ui/rule_background.png" id="1_mta7y"]
 [ext_resource type="Texture2D" uid="uid://c36tou00yoo1s" path="res://art/ui/rule_boil_1.png" id="2_h4hxd"]
 [ext_resource type="Texture2D" uid="uid://tpy17ios7ram" path="res://art/ui/rule_boil_2.png" id="3_cgqjk"]
@@ -118,9 +119,16 @@ _data = {
 [node name="rule" type="Control" unique_id=1759600616]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 960.0
-offset_bottom = 412.0
+offset_left = -480.0
+offset_top = -205.0
+offset_right = 480.0
+offset_bottom = 207.0
+pivot_offset = Vector2(480, 206)
 mouse_filter = 2
+script = ExtResource("1_h4hxd")
+
+[node name="PatternLayer" type="Node2D" parent="." unique_id=1218660509]
+position = Vector2(480, 205)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2040373196]
 self_modulate = Color(0.85178214, 0.77828765, 0.8506736, 1)
