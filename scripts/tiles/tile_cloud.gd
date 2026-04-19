@@ -10,13 +10,17 @@ var tile_size = Vector2.ZERO
 
 
 func _ready():
-	#Get the size of the SVG from the scene
+	# Seed a fallback tile footprint from the tile scene's UI/control size.
 	var temp_tile = tile_scene.instantiate()
-	for child in temp_tile.get_children():
-		if child is Sprite2D and child.texture:
-			# Use rendered sprite size, not raw texture pixels, for spacing math.
-			tile_size = child.texture.get_size() * child.scale.abs()
-			break
+	var thought_ui = temp_tile.get_node_or_null("fancier_ui")
+	if thought_ui is Control:
+		tile_size = thought_ui.size * thought_ui.scale.abs()
+	else:
+		for child in temp_tile.get_children():
+			if child is Sprite2D and child.texture:
+				# Legacy fallback for older tile scenes.
+				tile_size = child.texture.get_size() * child.scale.abs()
+				break
 	temp_tile.queue_free()
 
 	# Start the spawn loop
@@ -116,6 +120,9 @@ func spawn_tile(tile: Node2D, center_pos: Vector2):
 
 
 func _get_tile_half_extents(tile: Node2D) -> Vector2:
+	if tile.has_method("get_drag_half_extents"):
+		return tile.get_drag_half_extents()
+
 	var slot_length = 1
 	if tile.has_method("get_slot_length"):
 		slot_length = max(1, tile.get_slot_length())
@@ -123,8 +130,14 @@ func _get_tile_half_extents(tile: Node2D) -> Vector2:
 	var node_gap = tile.get("slot_gap")
 	if typeof(node_gap) in [TYPE_FLOAT, TYPE_INT]:
 		slot_gap = float(node_gap)
-	var width = tile_size.x + (float(slot_length - 1) * slot_gap)
-	return Vector2(width * 0.5, tile_size.y * 0.5)
+
+	var base_size = tile_size
+	var tile_thought = tile.get_node_or_null("fancier_ui")
+	if tile_thought is Control:
+		base_size = tile_thought.size * tile_thought.scale.abs()
+
+	var width = base_size.x + (float(slot_length - 1) * slot_gap)
+	return Vector2(width * 0.5, base_size.y * 0.5)
 
 
 func _get_tile_center(tile: Node2D) -> Vector2:

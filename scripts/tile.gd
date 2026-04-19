@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var col = $Area2D
 @onready var pattern_layer = $PatternLayer
-@onready var background_sprite: Sprite2D = $Sprite2D
+@onready var thought_ui: Control = $fancier_ui
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 
 var image_map = {
@@ -12,13 +12,12 @@ var image_map = {
 }
 
 const HOVER_SCALE_FACTOR := 1.2
-const SYMBOL_BASE_SCALE := Vector2(0.12, 0.12)
+const SYMBOL_BASE_SCALE := Vector2(0.095, 0.095)
 const TILE_GROUP_Z_INDEX := 20
 
 var snap: Node2D
-# var value: String = Constants.EMPTY_TILE_VALUE
 var group_values: Array[String] = _generate_group_values()
-var slot_gap: float = 72.0
+var slot_gap: float = 50
 var is_fading_out: bool = false
 var fade_tween: Tween
 signal placed_in_field
@@ -29,7 +28,8 @@ signal faded_out
 var is_in_slot: bool = false
 var last_field_global_position: Vector2 = Vector2.ZERO
 var is_hovered_visual: bool = false
-var background_base_scale: Vector2 = Vector2.ONE
+var thought_base_size: Vector2 = Vector2.ZERO
+var thought_base_scale: Vector2 = Vector2.ONE
 
 
 func _ready():
@@ -39,9 +39,10 @@ func _ready():
 	# value = group_values[0]
 	z_as_relative = false
 	z_index = TILE_GROUP_Z_INDEX
-	background_base_scale = background_sprite.scale
-	_set_base_scale(background_sprite, background_base_scale)
+	thought_base_size = thought_ui.size
+	thought_base_scale = thought_ui.scale
 	_build_symbol_pattern()
+	_update_thought_bubble_width()
 	_update_interaction_bounds()
 
 	#TODO: JUICE POINT
@@ -55,18 +56,7 @@ func _build_symbol_pattern():
 	for c in pattern_layer.get_children():
 		c.queue_free()
 
-	background_sprite.scale = background_base_scale
-	_set_base_scale(background_sprite, background_base_scale)
-
 	for i in range(group_values.size()):
-		if i > 0 and background_sprite and background_sprite.texture:
-			var bg = Sprite2D.new()
-			bg.texture = background_sprite.texture
-			bg.position = Vector2(slot_gap * i, 0)
-			bg.scale = background_base_scale
-			_set_base_scale(bg, background_base_scale)
-			pattern_layer.add_child(bg)
-
 		var symbol = group_values[i]
 		if !image_map.has(symbol):
 			continue
@@ -81,8 +71,6 @@ func _build_symbol_pattern():
 
 
 func _for_each_visual_sprite(callable: Callable):
-	if background_sprite:
-		callable.call(background_sprite)
 	for child in pattern_layer.get_children():
 		if child is Sprite2D:
 			callable.call(child)
@@ -95,6 +83,11 @@ func _set_base_scale(sprite: Sprite2D, base_scale: Vector2):
 
 
 func _apply_hover_scale_to_visuals():
+	if thought_ui:
+		var thought_factor = HOVER_SCALE_FACTOR if is_hovered_visual else 1.0
+		thought_ui.scale = thought_base_scale * thought_factor
+		_recenter_thought_bubble()
+
 	_for_each_visual_sprite(
 		func(sprite: Sprite2D):
 			if !sprite.has_meta("base_scale"):
@@ -110,10 +103,39 @@ func set_hover_visual(hovered: bool):
 	_apply_hover_scale_to_visuals()
 
 
+func _recenter_thought_bubble():
+	if !thought_ui:
+		return
+	var group_center = get_group_center_offset()
+	var half_size = (thought_ui.size * thought_ui.scale) * 0.5
+	thought_ui.position = group_center - half_size
+
+
+func _update_thought_bubble_width():
+	if !thought_ui:
+		return
+	if thought_base_size == Vector2.ZERO:
+		thought_base_size = thought_ui.size
+
+	var extra_width = max(0.0, float(get_slot_length() - 1) * slot_gap)
+	var scale_x = absf(thought_base_scale.x)
+	if is_zero_approx(scale_x):
+		scale_x = 1.0
+
+	thought_ui.size = Vector2(thought_base_size.x + (extra_width / scale_x), thought_base_size.y)
+	_recenter_thought_bubble()
+
+
+func _get_base_tile_size() -> Vector2:
+	if !thought_ui:
+		return Vector2(64, 64)
+	if thought_base_size == Vector2.ZERO:
+		thought_base_size = thought_ui.size
+	return thought_base_size * thought_base_scale.abs()
+
+
 func _update_interaction_bounds():
 	if !collision_shape:
-		return
-	if !background_sprite or !background_sprite.texture:
 		return
 
 	if collision_shape.shape:
@@ -123,7 +145,7 @@ func _update_interaction_bounds():
 	if !rect_shape:
 		return
 
-	var tile_size = background_sprite.texture.get_size() * background_base_scale.abs()
+	var tile_size = _get_base_tile_size()
 	var extra_width = max(0.0, float(get_slot_length() - 1) * slot_gap)
 	rect_shape.size = Vector2(tile_size.x + extra_width, tile_size.y)
 	collision_shape.position = Vector2(extra_width * 0.5, 0)
@@ -185,13 +207,12 @@ func get_slot_value(index: int) -> String:
 func set_slot_gap(gap: float):
 	slot_gap = gap
 	_build_symbol_pattern()
+	_update_thought_bubble_width()
 	_update_interaction_bounds()
 
 
 func get_drag_half_extents() -> Vector2:
-	if !background_sprite or !background_sprite.texture:
-		return Vector2(32, 32)
-	var tile_size = background_sprite.texture.get_size() * background_sprite.scale.abs()
+	var tile_size = _get_base_tile_size()
 	var width = tile_size.x + (max(0, get_slot_length() - 1) * slot_gap)
 	return Vector2(width * 0.5, tile_size.y * 0.5)
 
@@ -219,10 +240,6 @@ func place_in_field(return_to_field: bool = false):
 		last_field_global_position = global_position
 	emit_signal("placed_in_field")
 	attempt_fade_out()
-
-# func get_neighbor_tile_pos(direction: Vector2) -> Vector2:
-# 	var neighbor_pos = snap.global_position + direction * snap.get_node("Sprite").texture.get_size() * snap.scale
-# 	return neighbor_pos
 
 
 func pickup_from_field():
