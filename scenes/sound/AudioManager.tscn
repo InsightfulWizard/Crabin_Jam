@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dkg68k0a52yaw"]
+
+[ext_resource type="Script" uid="uid://cvrkrtys0r3st" path="res://scripts/AudioManager.gd" id="1_raosv"]
+[ext_resource type="Script" uid="uid://dxerr0krfyxrt" path="res://scripts/audio_fader.gd" id="2_bqdh5"]
+[ext_resource type="AudioStream" uid="uid://bg2c1wdybkpoc" path="res://audio/Music/Crabin Jam_Neutral Gameplay music loop_v1.mp3" id="2_lbipy"]
+
+[node name="AudioManager" type="Node2D" unique_id=1501773681]
+script = ExtResource("1_raosv")
+
+[node name="music" type="Node" parent="." unique_id=639598489]
+
+[node name="chillin" type="AudioStreamPlayer" parent="music" unique_id=1784487438]
+stream = ExtResource("2_lbipy")
+pitch_scale = 3.04
+autoplay = true
+script = ExtResource("2_bqdh5")
+
+[node name="stressed" type="AudioStreamPlayer" parent="music" unique_id=126747923]
+stream = ExtResource("2_lbipy")
+autoplay = true
+script = ExtResource("2_bqdh5")
+start_low_volume = false
+
+[node name="dread" type="AudioStreamPlayer" parent="music" unique_id=1464535576]
+stream = ExtResource("2_lbipy")
+pitch_scale = 0.4
+autoplay = true
+script = ExtResource("2_bqdh5")
