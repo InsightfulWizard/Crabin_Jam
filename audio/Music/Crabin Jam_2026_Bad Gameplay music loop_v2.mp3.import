@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://cjgshbjlbyuu4"
+uid="uid://db61iraouj8rt"
 path="res://.godot/imported/Crabin Jam_2026_Bad Gameplay music loop_v2.mp3-ead003e403baffb1185bcb334d1e5115.mp3str"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Crabin Jam_2026_Bad Gameplay music loop_v2.mp
 
 [params]
 
-loop=true
-loop_offset=0.0
-bpm=0.0
+loop=false
+loop_offset=0
+bpm=0
 beat_count=0
 bar_beats=4

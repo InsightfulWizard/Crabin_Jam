@@ -33,6 +33,7 @@ func to_hud_space(n: Node2D):
 func submit_output_trays():
 	grade_output_tray()
 	cycle_output_trays()
+	reset_potential()
 	speech_timer_bar.start_timer()
 
 
@@ -44,6 +45,16 @@ func grade_output_tray():
 	#grading logic
 
 
+func grade_output_tray_potential():
+	var solution = "".join(output_trays[current_output_tray].get_output_values())
+	rules_engine.evaluate_potential_score(solution)
+
+
+func reset_potential():
+	var solution = "________________"
+	rules_engine.evaluate_potential_score(solution)
+
+
 func cycle_output_trays():
 	if cycling_output_tray:
 		return
@@ -51,9 +62,9 @@ func cycle_output_trays():
 	var current = output_trays[current_output_tray]
 	var next = output_trays[(current_output_tray + 1) % 2]
 	var size_x = get_viewport().get_visible_rect().size.x
-	
+
 	current.set_snaps_active(false)
-	
+
 	var tween: Tween = Util.tween_2d(current, "position", current.position - Vector2(size_x, 0), .6)
 
 	Util.tween_2d(next, "position", next.position - Vector2(size_x, 0), .6)
