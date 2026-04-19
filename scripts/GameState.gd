@@ -11,6 +11,10 @@ var recent_score: int = 0
 var time_per_phrase: float = 15.0
 var score_decrement_per_round: int = Constants.SCORE_DECREMENT_PER_ROUND_INITIAL
 
+
+var is_menu_open := true
+var game_started:= false
+
 enum {
 	DREAD,
 	STRESSED,
@@ -19,6 +23,32 @@ enum {
 var state := STRESSED
 
 signal score_changed(score: int)
+signal menu_opened
+signal menu_closed
+
+
+func _input(_event):
+	if Input.is_action_just_pressed('escape'):
+		toggle_menu_open()
+
+func toggle_menu_open():
+	is_menu_open = !is_menu_open
+	
+	if is_menu_open:
+		#get_tree().paused = true
+		emit_signal('menu_opened')
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		#get_tree().paused = false
+		emit_signal('menu_closed')
+		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func start_game():
+	game_started = true
+	print('game_started')
+	Util.hud.speech_timer_bar.resume()
+	
 
 
 func get_current_score() -> int:

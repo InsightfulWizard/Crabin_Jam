@@ -8,13 +8,25 @@ var jitter_factor: float = 0.0
 const MAX_JITTER := 3.0
 var pos_initial: Vector2
 
+
 func _ready() -> void:
 	pos_initial = position
-	start_timer()
-	
+	GameState.connect('menu_opened', _on_menu_open)
+	GameState.connect('menu_closed', _on_menu_closed)
+	progress_bar.value = 0.0
+	#start_timer()
 
 
-func _physics_process(delta: float) -> void:
+func _on_menu_open():
+	pause()
+
+
+func _on_menu_closed():
+	if GameState.game_started:
+		resume()
+
+
+func _physics_process(_delta: float) -> void:
 	if timing:
 		position = pos_initial + jitter_factor * Vector2( randf_range(-MAX_JITTER, MAX_JITTER), randf_range(-MAX_JITTER, MAX_JITTER) )
 
@@ -36,3 +48,17 @@ func start_timer(time: float = GameState.time_per_phrase):
 	timing = false
 	Util.hud.submit_output_trays()
 	start_timer()
+
+
+func resume():
+	if !timing or !tween:
+		start_timer()
+	else:
+		tween.play()
+
+
+func pause():
+	if !timing or !tween:
+		return
+	else:
+		tween.pause()

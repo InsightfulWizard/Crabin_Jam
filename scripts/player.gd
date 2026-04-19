@@ -34,9 +34,6 @@ func _input(event):
 	if event.is_action_pressed("t2"):
 		GameState.set_current_score(-50)
 		
-		
-	if event.is_action_pressed("escape"):
-		get_tree().quit()
 
 
 func pickup_tile(tile: Node2D):
