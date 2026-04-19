@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drybwe4yca6ob"
+path="res://.godot/imported/Crabin Jam_2026_Start Game Menu Select_v1.mp3-729518567470aebb574ab0c349675738.mp3str"
+
+[deps]
+
+source_file="res://audio/Sound/UI Sounds/Crabin Jam_2026_Start Game Menu Select_v1.mp3"
+dest_files=["res://.godot/imported/Crabin Jam_2026_Start Game Menu Select_v1.mp3-729518567470aebb574ab0c349675738.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
