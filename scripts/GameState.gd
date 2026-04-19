@@ -6,7 +6,7 @@ var current_tile = null
 var hovered_snap = null
 var current_snap = null
 
-var current_score: int = Constants.MAX_SCORE * .6
+var current_score: int = roundi( float(Constants.MAX_SCORE) * .6 )
 var recent_score: int = 0
 var time_per_phrase: float = 15.0
 var score_decrement_per_round: int = Constants.SCORE_DECREMENT_PER_ROUND_INITIAL
@@ -88,6 +88,8 @@ func clear_hovered_tile():
 		hovered_tile.set_hover_visual(false)
 	hovered_tile = null
 
+func exit_game():
+	get_tree().quit()
 
 func win():
 	print('You\'ve convinced them!  Your shell did not crack under the pressure!')
