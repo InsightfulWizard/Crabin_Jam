@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://fc168jipbmh0"]
 
-[ext_resource type="Script" uid="uid://xmdoggyejrjt" path="res://scripts/crab.gd" id="1_1uom6"]
+[ext_resource type="Script" path="res://scripts/crab.gd" id="1_1uom6"]
 [ext_resource type="Texture2D" uid="uid://b82f27jdqvrg1" path="res://art/crab/body_1.png" id="1_cupma"]
 [ext_resource type="Texture2D" uid="uid://dggf50xtku7kd" path="res://art/crab/body_2.png" id="2_aupet"]
 [ext_resource type="Texture2D" uid="uid://ed0xrltdlng" path="res://art/crab/body_3.png" id="3_1uom6"]
@@ -29,6 +29,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mxkv7"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = true
+
+>>>>>>> main
 [sub_resource type="Curve" id="Curve_q4iun"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.023688663, 0.782258), 7.447076, 7.447076, 0, 0, Vector2(0.118443325, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
@@ -93,10 +100,11 @@ position = Vector2(271.7481, -54.349613)
 rotation = -1.5501809
 
 [node name="sweat" type="CPUParticles2D" parent="." unique_id=1301874861]
+material = SubResource("CanvasItemMaterial_mxkv7")
 position = Vector2(-8, -32)
 emitting = false
 amount = 15
-texture = ExtResource("17_yk2cj")
+texture = ExtResource("19_drpxh")
 lifetime = 1.41
 randomness = 0.52
 local_coords = true
@@ -111,3 +119,5 @@ initial_velocity_max = 24.92
 scale_amount_min = 0.2
 scale_amount_max = 0.2
 scale_amount_curve = SubResource("Curve_q4iun")
+anim_speed_min = 1.0
+anim_speed_max = 1.61
