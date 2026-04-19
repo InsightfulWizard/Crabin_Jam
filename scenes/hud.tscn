@@ -4,12 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://drqnvg2myetut" path="res://scenes/tile_cloud.tscn" id="2_5pdws"]
 [ext_resource type="PackedScene" uid="uid://brgm757thyuvh" path="res://scenes/output_tray.tscn" id="3_hd3ao"]
 [ext_resource type="Script" uid="uid://b5xenegjrrkvn" path="res://scripts/score_bar.gd" id="4_0i1j5"]
-[ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="5_mphia"]
+[ext_resource type="Texture2D" uid="uid://ewmssh2wxotx" path="res://art/ui/score_bar/score_fill.png" id="5_3xg78"]
 [ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="6_0m4u7"]
+[ext_resource type="Texture2D" uid="uid://uciumne8l2x6" path="res://art/ui/score_bar/Untitled_Artwork-1 2.png" id="6_qpprf"]
 [ext_resource type="Texture2D" uid="uid://cvyi6h8sx4uuq" path="res://art/friend/friend_1.png" id="7_3swnk"]
+[ext_resource type="Texture2D" uid="uid://c5cgwkotw37tc" path="res://art/ui/score_bar/Untitled_Artwork-2 2.png" id="7_3xg78"]
 [ext_resource type="Script" uid="uid://c2qummvstpvif" path="res://scripts/speech_timer_bar.gd" id="7_5pdws"]
 [ext_resource type="Script" uid="uid://dkh33eecnjqin" path="res://scenes/ui/rule_hub.gd" id="7_qkknv"]
+[ext_resource type="Texture2D" uid="uid://c84eqdhkst8v7" path="res://art/ui/score_bar/Untitled_Artwork-3 2.png" id="8_48y67"]
 [ext_resource type="Texture2D" uid="uid://gwr2otiqj3u8" path="res://art/friend/friend_2.png" id="8_qkknv"]
+[ext_resource type="Texture2D" uid="uid://ciaw34bq061sw" path="res://art/ui/score_bar/Untitled_Artwork-4 2.png" id="9_084dp"]
 [ext_resource type="Texture2D" uid="uid://dpib830qtyqak" path="res://art/friend/friend_3.png" id="9_uxdf7"]
 [ext_resource type="Texture2D" uid="uid://70gruji4iakh" path="res://art/friend/friend_4.png" id="10_5357l"]
 [ext_resource type="Texture2D" uid="uid://dqpxr63s6ht2x" path="res://art/friend/friend_5.png" id="11_iypfu"]
@@ -18,9 +22,30 @@
 [ext_resource type="Texture2D" uid="uid://dkgfgbcjow8x0" path="res://art/friend/friend_8.png" id="14_48y67"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
-texture = ExtResource("5_mphia")
+texture = ExtResource("5_3xg78")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 1
+modulate_color = Color(0.27450982, 0.6745098, 0.78431374, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gltyx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_qpprf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3xg78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_48y67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_084dp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_084dp"]
 animations = [{
@@ -92,15 +117,18 @@ offset_right = 1138.0
 offset_bottom = 449.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/fill = SubResource("StyleBoxTexture_kvuet")
 value = 100.0
 fill_mode = 3
 show_percentage = false
 
-[node name="water_surface" type="Sprite2D" parent="score/ProgressBar" unique_id=1117442419]
-position = Vector2(28.999983, 0.99999994)
-scale = Vector2(0.49999967, 0.14062499)
-texture = ExtResource("5_mphia")
+[node name="water_surface" type="AnimatedSprite2D" parent="score/ProgressBar" unique_id=369665519]
+position = Vector2(29, -15.499985)
+scale = Vector2(0.11328125, 0.060546815)
+sprite_frames = SubResource("SpriteFrames_gltyx")
+autoplay = "default"
+frame_progress = 0.4410972
 
 [node name="facier_ui" parent="score" unique_id=1759600616 instance=ExtResource("6_0m4u7")]
 z_index = -968
