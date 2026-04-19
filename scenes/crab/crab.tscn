@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ed0xrltdlng" path="res://art/crab/body_3.png" id="3_1uom6"]
 [ext_resource type="Texture2D" uid="uid://by3bwxu3r6rmv" path="res://art/crab/body_4.png" id="4_yk2cj"]
 [ext_resource type="PackedScene" uid="uid://bgscpilwx2vn7" path="res://scenes/crab/crab_arm.tscn" id="6_mxkv7"]
+[ext_resource type="Texture2D" uid="uid://qa0tmssc6h2d" path="res://art/crab/sweat/crab_sweat.png" id="8_ts84e"]
 [ext_resource type="PackedScene" uid="uid://dh5rw7h5ncb56" path="res://scenes/crab/crab_leg_code_animated.tscn" id="9_7e7f6"]
-[ext_resource type="Texture2D" uid="uid://ld0uuxbfpw6d" path="res://art/crab/sweat.png" id="17_yk2cj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hj1h3"]
 animations = [{
@@ -129,7 +129,7 @@ material = SubResource("CanvasItemMaterial_mxkv7")
 position = Vector2(-8, -32)
 emitting = false
 amount = 15
-texture = ExtResource("17_yk2cj")
+texture = ExtResource("8_ts84e")
 lifetime = 1.41
 randomness = 0.52
 local_coords = true
