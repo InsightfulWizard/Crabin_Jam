@@ -17,7 +17,7 @@ const TILE_GROUP_Z_INDEX := 20
 
 var snap: Node2D
 var group_values: Array[String] = _generate_group_values()
-var slot_gap: float = 50
+var slot_gap: float = 64
 var is_fading_out: bool = false
 var fade_tween: Tween
 signal placed_in_field
