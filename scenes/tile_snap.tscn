@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1ytxmmop8hgq"]
 
-[ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="1_0txt4"]
 [ext_resource type="Script" uid="uid://ct4xrylhroeih" path="res://scenes/tile_snap.gd" id="1_6do8e"]
+[ext_resource type="Texture2D" uid="uid://bpuyeuao1bce" path="res://art/tiles/background.png" id="2_6do8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_763ff"]
 size = Vector2(64, 64)
@@ -12,8 +12,8 @@ script = ExtResource("1_6do8e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=444957237]
 modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_0txt4")
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_6do8e")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=637244395]
 

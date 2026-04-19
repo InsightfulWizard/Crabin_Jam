@@ -20,6 +20,10 @@ const MIN_RULES = 1
 
 const MAX_RULES = 3
 
+const MIN_VALUE_LENGTH = 1
+
+const MAX_VALUE_LENGTH = 3
+
 const MIN_RULE_LENGTH = 2
 
 const MAX_RULE_LENGTH = 3
