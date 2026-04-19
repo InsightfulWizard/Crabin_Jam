@@ -10,6 +10,7 @@ var rule_start_position := Vector2(-28.0, 4.0)
 var rule_ui_scale := Vector2(0.6, 0.6)
 
 var rule_vertical_offset := 54.0
+var rule_fade_duration := 0.35
 
 var max_visible_rules := 3
 
@@ -18,6 +19,8 @@ var max_visible_rules := 3
 func _ready() -> void:
 	ruleset = GameState.rules_engine.get_ruleset()
 	_rebuild_rule_rows()
+	_connect_menu_signals()
+	_sync_rows_with_menu_state(false)
 
 
 func _rebuild_rule_rows() -> void:
@@ -38,6 +41,55 @@ func _rebuild_rule_rows() -> void:
 		displayed_count += 1
 
 	_layout_rule_rows()
+	_sync_rows_with_menu_state(false)
+
+
+func _connect_menu_signals() -> void:
+	if !GameState:
+		return
+
+	if !GameState.has_signal("menu_opened") or !GameState.has_signal("menu_closed"):
+		return
+
+	if !GameState.menu_opened.is_connected(_on_menu_opened):
+		GameState.menu_opened.connect(_on_menu_opened)
+
+	if !GameState.menu_closed.is_connected(_on_menu_closed):
+		GameState.menu_closed.connect(_on_menu_closed)
+
+
+func _on_menu_opened() -> void:
+	for child in pattern_layer.get_children():
+		var rule_ui := child as RuleUI
+		if rule_ui == null:
+			continue
+		rule_ui.fade_out(rule_fade_duration)
+
+
+func _on_menu_closed() -> void:
+	for child in pattern_layer.get_children():
+		var rule_ui := child as RuleUI
+		if rule_ui == null:
+			continue
+		rule_ui.fade_in(rule_fade_duration)
+
+
+func _sync_rows_with_menu_state(animated: bool = true) -> void:
+	if !GameState:
+		return
+
+	if GameState.is_menu_open:
+		for child in pattern_layer.get_children():
+			var rule_ui := child as RuleUI
+			if rule_ui == null:
+				continue
+			rule_ui.fade_out(rule_fade_duration if animated else 0.0)
+	else:
+		for child in pattern_layer.get_children():
+			var rule_ui := child as RuleUI
+			if rule_ui == null:
+				continue
+			rule_ui.fade_in(rule_fade_duration if animated else 0.0)
 
 
 func _layout_rule_rows() -> void:

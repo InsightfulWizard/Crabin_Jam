@@ -5,6 +5,10 @@ var dragged_tile_has_original_z_index: bool = false
 
 
 func _physics_process(_delta: float) -> void:
+	if GameState.is_menu_open:
+		if GameState.current_tile:
+			drop_tile()
+		return
 	if Input.is_action_pressed("select"):
 		pass
 	if Input.is_action_just_released("select"):
@@ -13,10 +17,10 @@ func _physics_process(_delta: float) -> void:
 
 func _input(event):
 	if event.is_action_pressed("select"):
-		if GameState.hovered_tile:
+		if not GameState.is_menu_open and GameState.hovered_tile:
 			pickup_tile(GameState.hovered_tile)
 	if event is InputEventMouseMotion:
-		if GameState.current_tile:
+		if GameState.current_tile and not GameState.is_menu_open:
 			#tile to mouse, clamped to viewport
 			var size: Vector2 = get_viewport().get_visible_rect().size
 			var pos: Vector2 = event.position
@@ -38,11 +42,10 @@ func _input(event):
 	if event.is_action_pressed("t2"):
 		GameState.set_current_score(-50)
 
-	if event.is_action_pressed("escape"):
-		get_tree().quit()
-
 
 func pickup_tile(tile: Node2D):
+	if GameState.is_menu_open:
+		return
 	if GameState.current_tile and GameState.current_tile != tile:
 		_restore_dragged_tile_z(GameState.current_tile)
 

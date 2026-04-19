@@ -30,6 +30,7 @@ var last_field_global_position: Vector2 = Vector2.ZERO
 var is_hovered_visual: bool = false
 var thought_base_size: Vector2 = Vector2.ZERO
 var thought_base_scale: Vector2 = Vector2.ONE
+var is_menu_blocking_fade: bool = false
 
 
 func _ready():
@@ -48,6 +49,13 @@ func _ready():
 	#TODO: JUICE POINT
 	modulate.a = 1.0
 	last_field_global_position = global_position
+
+	if GameState and GameState.has_signal("menu_opened") and GameState.has_signal("menu_closed"):
+		GameState.menu_opened.connect(_on_menu_opened)
+		GameState.menu_closed.connect(_on_menu_closed)
+		is_menu_blocking_fade = GameState.is_menu_open
+
+	_set_interaction_enabled(not is_menu_blocking_fade)
 
 	attempt_fade_out()
 
@@ -155,6 +163,9 @@ func attempt_fade_out() -> void:
 	if is_in_slot:
 		return
 
+	if is_menu_blocking_fade:
+		return
+
 	if GameState.current_tile == self:
 		get_tree().create_timer(1.0).timeout.connect(attempt_fade_out)
 		return
@@ -188,6 +199,27 @@ func interrupt_fade():
 
 	#TODO: JUICE POINT
 	modulate.a = 1.0 # Snap back to fully visible
+
+
+func _on_menu_opened():
+	is_menu_blocking_fade = true
+	_set_interaction_enabled(false)
+	if not is_in_slot:
+		interrupt_fade()
+
+
+func _on_menu_closed():
+	is_menu_blocking_fade = false
+	_set_interaction_enabled(true)
+	if not is_in_slot:
+		attempt_fade_out()
+
+
+func _set_interaction_enabled(enabled: bool):
+	if col:
+		col.input_pickable = enabled
+	if not enabled and GameState.hovered_tile == self:
+		GameState.clear_hovered_tile()
 
 
 func _to_string() -> String:
@@ -241,10 +273,6 @@ func place_in_field(return_to_field: bool = false):
 	emit_signal("placed_in_field")
 	attempt_fade_out()
 
-# func get_neighbor_tile_pos(direction: Vector2) -> Vector2:
-# 	var neighbor_pos = snap.global_position + direction * snap.get_node("Sprite").texture.get_size() * snap.scale
-# 	return neighbor_pos
-
 
 func pickup_from_field():
 	last_field_global_position = global_position
@@ -273,6 +301,8 @@ func _generate_group_values() -> Array[String]:
 
 
 func on_mouse_entered():
+	if is_menu_blocking_fade:
+		return
 	GameState.set_hovered_tile(self)
 	print('hovered: ', name)
 

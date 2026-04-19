@@ -110,13 +110,6 @@ offset_right = 1718.9307
 offset_bottom = 1911.5969
 scale = Vector2(0.19669233, 0.19669233)
 
-[node name="score_label" type="Label" parent="score" unique_id=1133529709]
-visible = false
-offset_left = 1085.0
-offset_top = 98.0
-offset_right = 1125.0
-offset_bottom = 121.0
-
 [node name="facier_ui2" parent="." unique_id=1788682475 instance=ExtResource("6_0m4u7")]
 z_index = -769
 offset_left = 14.0
@@ -125,11 +118,6 @@ offset_right = 700.3511
 offset_bottom = 1378.4319
 scale = Vector2(0.19669233, 0.19669233)
 script = ExtResource("7_qkknv")
-rule_start_position = Vector2(-28, 4)
-rule_vertical_offset = 54.0
-max_visible_rules = 3
-rule_ui_scale = Vector2(0.6, 0.6)
-rule_symbol_scale = Vector2(0.4, 0.4)
 
 [node name="PatternLayer" type="Node2D" parent="facier_ui2" unique_id=525479246]
 

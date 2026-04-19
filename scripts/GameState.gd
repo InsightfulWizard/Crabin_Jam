@@ -55,19 +55,26 @@ func get_current_score() -> int:
 	return current_score
 
 
-func set_current_score(score: int):
+func set_current_score(score: int): # replace the other one
 	recent_score = score
 	current_score = clamp(current_score + score, Constants.MIN_SCORE, Constants.MAX_SCORE)
-	if score == Constants.MAX_SCORE:
+	if current_score == Constants.MAX_SCORE:
 		win()
-	if score > Constants.CHILLIN_THRESH:
-		state = CHILLIN
-	elif score < Constants.DREAD_THRESH:
-		state = DREAD
+	if current_score > Constants.CHILLIN_THRESH:
+		change_state(CHILLIN)
+	elif current_score < Constants.DREAD_THRESH:
+		change_state(DREAD)
 	else:
-		state = STRESSED
+		change_state(STRESSED)
 
 	emit_signal('score_changed', current_score)
+
+
+func change_state(s: int):
+	if state == s:
+		return
+	state = s
+	emit_signal('state_changed', s)
 
 
 func set_hovered_tile(tile: Node2D):

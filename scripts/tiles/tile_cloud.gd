@@ -7,6 +7,8 @@ extends Node2D
 
 var current_tile_count: int = 0
 var tile_size = Vector2.ZERO
+var spawn_timer: Timer
+var is_spawning_enabled: bool = true
 
 
 func _ready():
@@ -24,11 +26,16 @@ func _ready():
 	temp_tile.queue_free()
 
 	# Start the spawn loop
-	var timer = Timer.new()
-	add_child(timer)
-	timer.wait_time = polling_interval #how often to check for spawning a new tile
-	timer.timeout.connect(_on_timer_timeout)
-	timer.start()
+	spawn_timer = Timer.new()
+	add_child(spawn_timer)
+	spawn_timer.wait_time = polling_interval #how often to check for spawning a new tile
+	spawn_timer.timeout.connect(_on_timer_timeout)
+	spawn_timer.start()
+
+	if GameState and GameState.has_signal("menu_opened") and GameState.has_signal("menu_closed"):
+		GameState.menu_opened.connect(_on_menu_opened)
+		GameState.menu_closed.connect(_on_menu_closed)
+		set_spawning_enabled(not GameState.is_menu_open)
 
 
 # Create a helper to handle all the signal connections in one place
@@ -52,7 +59,29 @@ func _on_timer_timeout():
 	check_and_spawn_tile()
 
 
+func set_spawning_enabled(enabled: bool):
+	is_spawning_enabled = enabled
+	if spawn_timer == null:
+		return
+
+	if is_spawning_enabled:
+		spawn_timer.start()
+		check_and_spawn_tile()
+	else:
+		spawn_timer.stop()
+
+
+func _on_menu_opened():
+	set_spawning_enabled(false)
+
+
+func _on_menu_closed():
+	set_spawning_enabled(true)
+
+
 func check_and_spawn_tile():
+	if not is_spawning_enabled:
+		return
 	if current_tile_count < max_tiles:
 		var tile = tile_scene.instantiate()
 		var candidate_extents = _get_tile_half_extents(tile)
