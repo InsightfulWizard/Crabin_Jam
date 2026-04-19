@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://fc168jipbmh0"]
 
+[ext_resource type="Script" path="res://scripts/crab.gd" id="1_1uom6"]
 [ext_resource type="Texture2D" uid="uid://b82f27jdqvrg1" path="res://art/crab/body_1.png" id="1_cupma"]
 [ext_resource type="Texture2D" uid="uid://dggf50xtku7kd" path="res://art/crab/body_2.png" id="2_aupet"]
 [ext_resource type="Texture2D" uid="uid://ed0xrltdlng" path="res://art/crab/body_3.png" id="3_1uom6"]
 [ext_resource type="Texture2D" uid="uid://by3bwxu3r6rmv" path="res://art/crab/body_4.png" id="4_yk2cj"]
 [ext_resource type="Texture2D" uid="uid://beeqav87bg3a8" path="res://art/crab/arm_1.png" id="5_q4iun"]
-[ext_resource type="PackedScene" uid="uid://cmsxdw2sok750" path="res://scenes/crab_leg.tscn" id="5_rftv6"]
+[ext_resource type="PackedScene" uid="uid://cmsxdw2sok750" path="res://scenes/crab/crab_leg.tscn" id="5_rftv6"]
 [ext_resource type="Texture2D" uid="uid://blpvhh5div3o" path="res://art/crab/arm_2.png" id="6_kykk4"]
 [ext_resource type="Texture2D" uid="uid://cppabp8tk2hmu" path="res://art/crab/arm_3.png" id="7_ve55g"]
 [ext_resource type="Texture2D" uid="uid://b076jmkq5ci7p" path="res://art/crab/arm_4.png" id="8_dbjn5"]
@@ -17,6 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://b16pusbfmkjyj" path="res://art/crab/pincher_2.png" id="14_a0g53"]
 [ext_resource type="Texture2D" uid="uid://dtaxcgq3bgfqg" path="res://art/crab/pincher_3.png" id="15_cxbpn"]
 [ext_resource type="Texture2D" uid="uid://dn3wtwe88p5rr" path="res://art/crab/pincher_4.png" id="16_bidcb"]
+[ext_resource type="Texture2D" uid="uid://itltvhbswnge" path="res://art/crab/sweat.png" id="17_yk2cj"]
+[ext_resource type="Texture2D" uid="uid://c7rh0xwldw1gr" path="res://art/crab/sweat_boil_1.png" id="19_jcmn2"]
+[ext_resource type="Texture2D" uid="uid://b3iwcwsl2oj4d" path="res://art/crab/sweat_boil_2.png" id="20_gnick"]
+[ext_resource type="Texture2D" uid="uid://po37oh3dbdsv" path="res://art/crab/sweat_boil_3.png" id="21_epd8f"]
+[ext_resource type="Texture2D" uid="uid://s5kxadrxdijx" path="res://art/crab/sweat_boil_4.png" id="22_4d8es"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hj1h3"]
 animations = [{
@@ -98,7 +104,32 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2txc7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_jcmn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_gnick")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_epd8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_4d8es")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve" id="Curve_q4iun"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.023688663, 0.782258), 7.447076, 7.447076, 0, 0, Vector2(0.118443325, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
 [node name="crab" type="Node2D" unique_id=226795867]
+script = ExtResource("1_1uom6")
 
 [node name="body" type="AnimatedSprite2D" parent="." unique_id=1461163562]
 scale = Vector2(0.3127897, 0.3127897)
@@ -191,3 +222,22 @@ scale = Vector2(0.31278974, 0.313001)
 position = Vector2(-90.887695, -23.286896)
 rotation = 1.8408462
 scale = Vector2(0.3127898, 0.31300104)
+
+[node name="sweat" type="CPUParticles2D" parent="." unique_id=1301874861]
+position = Vector2(-8, -32)
+amount = 15
+texture = ExtResource("17_yk2cj")
+lifetime = 1.41
+randomness = 0.52
+local_coords = true
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 85.33
+direction = Vector2(-0.2, 1)
+spread = 20.26
+gravity = Vector2(0, 36.945)
+initial_velocity_min = 24.92
+initial_velocity_max = 24.92
+scale_amount_min = 0.2
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_q4iun")

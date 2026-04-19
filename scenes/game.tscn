@@ -15,3 +15,5 @@ script = ExtResource("1_lbhrr")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=701444802]
 
 [node name="hud" parent="." unique_id=1041986312 instance=ExtResource("4_p57ef")]
+
+[editable path="hud"]

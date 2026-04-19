@@ -6,17 +6,14 @@ extends Node2D
 
 func _ready() -> void:
 	GameState.connect('score_changed', _on_score_change)
-	progress_bar.value = 60.0
+	progress_bar.value = 100.0 - 100.0 * float(GameState.current_score) / float(Constants.MAX_SCORE)
 	water_surface.position.y = get_water_surface_pos_y(progress_bar.value)
 
 
 func _on_score_change(score:int):
-	print('score: ', score)
-	var score_percent: float = progress_bar.value - (float(score) / float(Constants.MAX_SCORE) * 100.0)
-	if score_percent < 0.0:
-		score_percent = 0.0
-		GameState.win()
-		
+	var score_percent: float = 100.0 - 100.0 * float(GameState.current_score) / float(Constants.MAX_SCORE)
+	print('score_percent: ', score_percent)
+	print('GameState.current_score: ', GameState.current_score)
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_IN_OUT)

@@ -82,6 +82,7 @@ autoplay = "default"
 offset = Vector2(18.845, 135.29)
 
 [node name="leg_2" type="AnimatedSprite2D" parent="." unique_id=1689741322]
+z_index = -1
 position = Vector2(54.34967, 274.94513)
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_ecw22")
@@ -89,6 +90,7 @@ autoplay = "default"
 offset = Vector2(-1.305, 37.55)
 
 [node name="leg_3" type="AnimatedSprite2D" parent="leg_2" unique_id=487970612]
+z_index = -2
 position = Vector2(-12.7881775, 92.71403)
 rotation = 3.822271
 scale = Vector2(1.0000002, 1.0000002)
