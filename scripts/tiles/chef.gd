@@ -30,6 +30,9 @@ func _on_score_changed(score: int) -> void:
 
 
 func update_mood_from_score(score: int) -> void:
+	if (GameState.state == GameState.CHILLIN && current_mood == Mood.ANGRY) || (GameState.state == GameState.DREAD && current_mood == Mood.HAPPY):
+		set_mood(Mood.NEUTRAL, true)
+		return
 	if GameState.state == GameState.CHILLIN:
 		set_mood(Mood.HAPPY)
 	if GameState.state == GameState.STRESSED:
@@ -43,11 +46,11 @@ func set_character(new_character: CharacterType) -> void:
 	play_current_animation()
 
 
-func set_mood(new_mood: Mood) -> void:
+func set_mood(new_mood: Mood, force: bool = false) -> void:
 	if current_mood == new_mood:
 		return
 		
-	if randf() > switch_chance:
+	if randf() > switch_chance && !force:
 		return
 
 	current_mood = new_mood
