@@ -43,6 +43,7 @@ func _input(event):
 
 
 func pickup_tile(tile: Node2D):
+	AudioManager.play_sfx_from_array(AudioManager.item_pickup_sfx, -10)
 	if GameState.current_tile and GameState.current_tile != tile:
 		_restore_dragged_tile_z(GameState.current_tile)
 
@@ -63,6 +64,7 @@ func pickup_tile(tile: Node2D):
 
 
 func drop_tile():
+	AudioManager.play_sfx_from_array(AudioManager.item_drop_sfx, -10)
 	var tile = GameState.current_tile
 	if !tile:
 		return
