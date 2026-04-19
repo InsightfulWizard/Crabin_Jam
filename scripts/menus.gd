@@ -63,6 +63,8 @@ func _on_menu_closed():
 
 
 func _resume():
+	AudioManager.fade_title()
+	AudioManager.play_sfx(AudioManager.start_game)
 	GameState.toggle_menu_open()
 
 func _open_settings():

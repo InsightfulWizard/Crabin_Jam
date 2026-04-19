@@ -27,6 +27,11 @@ func _on_menu_open():
 func _on_menu_closed():
 	move(initial_pos, 4.0)
 	await moving_tween.finished
+	var audio = AudioManager.play_sfx_from_array(AudioManager.throat_clear, 20)
+	if audio:
+		await audio.finished
+		
+	
 	GameState.start_game()
 
 

@@ -34,7 +34,7 @@ func fade_in(time := 2.0):
 	fade_tween = get_tree().create_tween()
 	fade_tween.set_trans(Tween.TRANS_QUAD)
 	fade_tween.set_ease(Tween.EASE_OUT)
-	fade_tween.tween_property(self, "volume_db", 0, time)
+	fade_tween.tween_property(self, "volume_db", -6.0, time)
 	await fade_tween.finished
 	state = ON
 

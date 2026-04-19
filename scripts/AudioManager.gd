@@ -1,13 +1,11 @@
 extends Node2D
 
-#3D, once
-var spatial_one_shots: Array[AudioStreamPlayer3D] = []
-var max_spatial_one_shots: int = 20
-@onready var sfxs = [
-	dread,
-	stressed,
-	chillin
-]
+@onready var sfx_node: Node2D = $sfx
+var sfx_players: Array[AudioStreamPlayer] = []
+var sfx_stamps: PackedInt32Array = []
+var newest_sfx_stamp: int = -1
+var max_sfx_players: int = 10
+
 
 @onready var item_drop_sfx = [
 	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_Item Drop_1_v1.mp3"),
@@ -24,8 +22,26 @@ var max_spatial_one_shots: int = 20
 	preload("res://audio/Sound/UI Sounds/Item Pickup Sounds/Crabin Jam_Item Pickup_3_v1.mp3"),
 	preload("res://audio/Sound/UI Sounds/Item Pickup Sounds/Crabin Jam_Item Pickup_4_v1.mp3"),
 	preload("res://audio/Sound/UI Sounds/Item Pickup Sounds/Crabin Jam_Item Pickup_5_v1.mp3")
-
 ]
+
+@onready var stutter = [
+	preload("res://audio/Sound/Crab Stutters/Crabin Jam_2026_Stutter_1_v1.mp3"),
+	preload("res://audio/Sound/Crab Stutters/Crabin Jam_2026_Stutter_2_v1.mp3"),
+	preload("res://audio/Sound/Crab Stutters/Crabin Jam_2026_Stutter_3_v1.mp3")
+]
+
+@onready var throat_clear = [
+	preload("res://audio/Sound/Crab Throat Clears/Crabin Jam_Throat Clear_1_v1.mp3"),
+	preload("res://audio/Sound/Crab Throat Clears/Crabin Jam_Throat Clear_2_v1.mp3"),
+	preload("res://audio/Sound/Crab Throat Clears/Crabin Jam_Throat Clear_3_v1.mp3"),
+	preload("res://audio/Sound/Crab Throat Clears/Crabin Jam_Throat Clear_4_v1.mp3")
+]
+
+@onready var start_game = preload("res://audio/Sound/UI Sounds/Crabin Jam_2026_Start Game Menu Select_v1.mp3")
+
+@onready var call_start = preload("res://audio/Sound/Friend Call Sounds/Crabin Jam_underwater friend call_start_1_v1.mp3")
+@onready var call_end = preload("res://audio/Sound/Friend Call Sounds/Crabin Jam_underwater friend call_ending signal drop_1_v1.mp3")
+
 
 
 #non 3D, looping
@@ -33,26 +49,24 @@ var max_spatial_one_shots: int = 20
 @onready var stressed: AudioStreamPlayer = $music/stressed
 @onready var chillin: AudioStreamPlayer = $music/chillin
 
-@onready var music_node: Node = $music
-var music_players: Array[AudioStreamPlayer] = []
-var music_stamps: PackedInt32Array = []
-var newest_music_stamp: int = -1
-var max_music_players: int = 3
+@onready var title: AudioStreamPlayer = $music/title
 
+@onready var music_node: Node = $music
+
+func fade_title():
+	title.fade_out()
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	for i in range(max_spatial_one_shots):
-		spatial_one_shots.append(AudioStreamPlayer3D.new())
 		
-	for i in range(max_music_players):
+	for i in range(max_sfx_players):
 		var p := AudioStreamPlayer.new()
-		music_players.append(p)
-		music_stamps.append(-1)
-		music_node.add_child(p)
+		sfx_players.append(p)
+		sfx_stamps.append(-1)
+		sfx_node.add_child(p)
 		
 	GameState.connect('state_changed', _on_state_change)
-	_on_state_change(GameState.state)
+	#_on_state_change(GameState.state)
 
 
 func _on_state_change(s):
@@ -100,7 +114,8 @@ func play_spatial_one_shot():
 
 
 func play_sfx_from_array(arr:Array, volume:float = 0.0):
-	play_sfx( get_rand(arr), volume )
+	var a = play_sfx( get_rand(arr), volume )
+	return a
 
 
 
@@ -108,25 +123,26 @@ func play_sfx(sound:AudioStreamMP3, volume:float = 0.0 ):
 	var next_player: AudioStreamPlayer = null
 	var next_player_index:int = 0
 	
-	var oldest_index_value: int = music_stamps[0]
+	var oldest_index_value: int = sfx_stamps[0]
 	var oldest_index:int = 0
-	for i in range(max_music_players):
-		if !music_players[i].playing:
-			next_player = music_players[i]
+	for i in range(max_sfx_players):
+		if !sfx_players[i].playing:
+			next_player = sfx_players[i]
 			next_player_index = i
 			break
 		else:
-			if music_stamps[i] < oldest_index_value:
-				oldest_index_value = music_stamps[i]
+			if sfx_stamps[i] < oldest_index_value:
+				oldest_index_value = sfx_stamps[i]
 				oldest_index = i
 	if !next_player:
-		next_player = music_players[oldest_index]
+		next_player = sfx_players[oldest_index]
 		next_player_index = oldest_index
-	newest_music_stamp += 1
-	music_stamps[next_player_index] = newest_music_stamp
+	newest_sfx_stamp += 1
+	sfx_stamps[next_player_index] = newest_sfx_stamp
 	next_player.stream = sound
 	next_player.volume_db = volume
 	next_player.play()
+	return next_player
 
 
 func play_music(song:String, volume:float = 0.0 ):

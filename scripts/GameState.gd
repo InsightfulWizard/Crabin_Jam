@@ -48,8 +48,9 @@ func toggle_menu_open():
 
 
 func start_game():
-	game_started = true
-	print('game_started')
+	if !game_started:
+		game_started = true
+		AudioManager._on_state_change(state)
 	Util.hud.speech_timer_bar.resume()
 
 

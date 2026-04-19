@@ -44,7 +44,7 @@ func _input(event):
 
 
 func pickup_tile(tile: Node2D):
-	AudioManager.play_sfx_from_array(AudioManager.item_pickup_sfx, -10)
+	AudioManager.play_sfx_from_array(AudioManager.item_pickup_sfx, 2.0)
 	if GameState.current_tile and GameState.current_tile != tile:
 		_restore_dragged_tile_z(GameState.current_tile)
 
@@ -65,7 +65,6 @@ func pickup_tile(tile: Node2D):
 
 
 func drop_tile():
-	AudioManager.play_sfx_from_array(AudioManager.item_drop_sfx, -10)
 	var tile = GameState.current_tile
 	if !tile:
 		return
@@ -74,6 +73,7 @@ func drop_tile():
 
 	if snap and snap.to_snap(tile):
 		tile.place_in_slot()
+		AudioManager.play_sfx_from_array(AudioManager.item_drop_sfx, 10.0)
 	else:
 		var attempted_occupied_snap = nearest_any_snap != null
 		if attempted_occupied_snap:

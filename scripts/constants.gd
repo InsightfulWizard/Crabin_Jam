@@ -32,6 +32,8 @@ const MAX_RULE_LENGTH = 2
 
 const USE_SPEECH_TIMER := true
 
+const USE_SPEECH_TIME := 30.0
+
 const CHILLIN_THRESH := 300
 
 const DREAD_THRESH := 200
