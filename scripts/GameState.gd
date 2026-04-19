@@ -7,6 +7,7 @@ var hovered_snap = null
 var current_snap = null
 
 var current_score: int = 0
+var time_per_phrase: float = 15.0
 
 signal score_changed(score: int)
 

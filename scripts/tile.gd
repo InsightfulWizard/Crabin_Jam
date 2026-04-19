@@ -107,6 +107,7 @@ func _generate_value() -> String:
 
 func on_mouse_entered():
 	GameState.set_hovered_tile(self)
+	print('hovered: ', name)
 
 
 func on_mouse_exited():

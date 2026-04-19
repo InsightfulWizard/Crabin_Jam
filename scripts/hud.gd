@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var output_tray_1: Node2D = $output_tray_1
 @onready var output_tray_2: Node2D = $output_tray_2
+@onready var speech_timer_bar: Node2D = $speech_timer_bar
 
 var rules_engine: RulesEngine = RulesEngine.new()
 
@@ -31,6 +32,7 @@ func to_hud_space(n: Node2D):
 func submit_output_trays():
 	grade_output_tray()
 	cycle_output_trays()
+	speech_timer_bar.start_timer()
 
 
 func grade_output_tray():
