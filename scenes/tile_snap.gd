@@ -20,15 +20,17 @@ func on_mouse_exited():
 		GameState.hovered_snap = null
 
 
-func to_snap(tile:Node2D):
-	if !snapped_tile:
-		tile.get_parent().remove_child(tile)
-		add_child(tile)
-		tile.position = Vector2.ZERO
-		#tile.global_position = global_position
-		#tile.global_position.y -= 100
-		tile.snap = self
-		snapped_tile = tile
+func to_snap(tile: Node2D) -> bool:
+	if snapped_tile:
+		return false
+	tile.get_parent().remove_child(tile)
+	add_child(tile)
+	tile.position = Vector2.ZERO
+	#tile.global_position = global_position
+	#tile.global_position.y -= 100
+	tile.snap = self
+	snapped_tile = tile
+	return true
 
 
 func unsnap():
