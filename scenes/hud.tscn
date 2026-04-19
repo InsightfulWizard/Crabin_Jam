@@ -6,12 +6,53 @@
 [ext_resource type="Script" uid="uid://b5xenegjrrkvn" path="res://scripts/score_bar.gd" id="4_0i1j5"]
 [ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="5_mphia"]
 [ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="6_0m4u7"]
+[ext_resource type="Texture2D" uid="uid://cvyi6h8sx4uuq" path="res://art/friend/friend_1.png" id="7_3swnk"]
 [ext_resource type="Script" uid="uid://c2qummvstpvif" path="res://scripts/speech_timer_bar.gd" id="7_5pdws"]
+[ext_resource type="Script" uid="uid://dkh33eecnjqin" path="res://scenes/ui/rule_hub.gd" id="7_qkknv"]
+[ext_resource type="Texture2D" uid="uid://gwr2otiqj3u8" path="res://art/friend/friend_2.png" id="8_qkknv"]
+[ext_resource type="Texture2D" uid="uid://dpib830qtyqak" path="res://art/friend/friend_3.png" id="9_uxdf7"]
+[ext_resource type="Texture2D" uid="uid://70gruji4iakh" path="res://art/friend/friend_4.png" id="10_5357l"]
+[ext_resource type="Texture2D" uid="uid://dqpxr63s6ht2x" path="res://art/friend/friend_5.png" id="11_iypfu"]
+[ext_resource type="Texture2D" uid="uid://ctln2g6jsk81g" path="res://art/friend/friend_6.png" id="12_qpprf"]
+[ext_resource type="Texture2D" uid="uid://cbnniog8n446h" path="res://art/friend/friend_7.png" id="13_3xg78"]
+[ext_resource type="Texture2D" uid="uid://dkgfgbcjow8x0" path="res://art/friend/friend_8.png" id="14_48y67"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
 texture = ExtResource("5_mphia")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_084dp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_3swnk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qkknv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uxdf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5357l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_iypfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qpprf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3xg78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_48y67")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd3ao"]
 bg_color = Color(0.16069785, 0.40153843, 0.44576257, 0.627451)
@@ -83,6 +124,14 @@ offset_top = 143.0
 offset_right = 700.3511
 offset_bottom = 1378.4319
 scale = Vector2(0.19669233, 0.19669233)
+script = ExtResource("7_qkknv")
+rule_start_position = Vector2(-28, 4)
+rule_vertical_offset = 54.0
+max_visible_rules = 3
+rule_ui_scale = Vector2(0.6, 0.6)
+rule_symbol_scale = Vector2(0.4, 0.4)
+
+[node name="PatternLayer" type="Node2D" parent="facier_ui2" unique_id=525479246]
 
 [node name="facier_ui5" parent="." unique_id=1190896814 instance=ExtResource("6_0m4u7")]
 z_index = -769
@@ -91,6 +140,13 @@ offset_top = 327.0
 offset_right = 517.97876
 offset_bottom = 738.81067
 scale = Vector2(0.19669233, 0.19669233)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="facier_ui5" unique_id=1427625320]
+position = Vector2(213.53145, 203.36324)
+scale = Vector2(0.7167027, 0.9152995)
+sprite_frames = SubResource("SpriteFrames_084dp")
+autoplay = "default"
+frame_progress = 0.44666743
 
 [node name="facier_ui3" parent="." unique_id=1249275422 instance=ExtResource("6_0m4u7")]
 z_index = -1000

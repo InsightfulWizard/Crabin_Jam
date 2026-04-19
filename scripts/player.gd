@@ -1,5 +1,9 @@
 extends Node2D
 
+var dragged_tile_original_z_index: int = 0
+var dragged_tile_has_original_z_index: bool = false
+
+
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("select"):
 		pass
@@ -33,11 +37,21 @@ func _input(event):
 		GameState.set_current_score(70)
 	if event.is_action_pressed("t2"):
 		GameState.set_current_score(-50)
-		
+
+	if event.is_action_pressed("escape"):
+		get_tree().quit()
 
 
 func pickup_tile(tile: Node2D):
+	if GameState.current_tile and GameState.current_tile != tile:
+		_restore_dragged_tile_z(GameState.current_tile)
+
 	GameState.current_tile = tile
+	if !dragged_tile_has_original_z_index:
+		dragged_tile_original_z_index = tile.z_index
+		dragged_tile_has_original_z_index = true
+	tile.z_index = _get_max_tile_z_index() + 1
+
 	tile.pickup()
 	if tile.snap:
 		tile.snap.unsnap()
@@ -64,10 +78,26 @@ func drop_tile():
 		else:
 			tile.place_in_field()
 
-		if GameState.hovered_tile == tile:
-			tile.scale = Vector2.ONE
-			GameState.clear_hovered_tile()
+	tile.scale = Vector2.ONE
+	if GameState.hovered_tile == tile:
+		GameState.clear_hovered_tile()
+
+	_restore_dragged_tile_z(tile)
 	GameState.current_tile = null
+
+
+func _get_max_tile_z_index() -> int:
+	var max_z: int = 0
+	for n in get_tree().get_nodes_in_group("tile"):
+		if n is Node2D:
+			max_z = maxi(max_z, n.z_index)
+	return max_z
+
+
+func _restore_dragged_tile_z(tile: Node2D):
+	if tile and dragged_tile_has_original_z_index:
+		tile.z_index = dragged_tile_original_z_index
+	dragged_tile_has_original_z_index = false
 
 
 func _get_nearest_valid_snap(tile: Node2D, thresh: float) -> Node2D:
