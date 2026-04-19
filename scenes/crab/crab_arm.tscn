@@ -1,52 +1,33 @@
 [gd_scene format=3 uid="uid://bgscpilwx2vn7"]
 
-[ext_resource type="Texture2D" uid="uid://beeqav87bg3a8" path="res://art/crab/arm_1.png" id="1_1wuh5"]
-[ext_resource type="Texture2D" uid="uid://blpvhh5div3o" path="res://art/crab/arm_2.png" id="2_k8pbi"]
-[ext_resource type="Texture2D" uid="uid://cppabp8tk2hmu" path="res://art/crab/arm_3.png" id="3_g7ylj"]
-[ext_resource type="Texture2D" uid="uid://b076jmkq5ci7p" path="res://art/crab/arm_4.png" id="4_do7q4"]
-[ext_resource type="Texture2D" uid="uid://bhxdn61mc8syb" path="res://art/crab/claw_1.png" id="5_6alba"]
-[ext_resource type="Texture2D" uid="uid://bt071j4etj5ky" path="res://art/crab/claw_2.png" id="6_oq2dm"]
-[ext_resource type="Texture2D" uid="uid://bbaq1inp1otni" path="res://art/crab/claw_3.png" id="7_8hsim"]
-[ext_resource type="Texture2D" uid="uid://cebxih4261p5g" path="res://art/crab/claw_4.png" id="8_jenld"]
-[ext_resource type="Texture2D" uid="uid://du1gg4xkwpmjh" path="res://art/crab/pincher_1.png" id="9_3uwkq"]
-[ext_resource type="Texture2D" uid="uid://b16pusbfmkjyj" path="res://art/crab/pincher_2.png" id="10_70jg4"]
-[ext_resource type="Texture2D" uid="uid://dtaxcgq3bgfqg" path="res://art/crab/pincher_3.png" id="11_dyh14"]
-[ext_resource type="Texture2D" uid="uid://dn3wtwe88p5rr" path="res://art/crab/pincher_4.png" id="12_jdlv7"]
+[ext_resource type="Texture2D" uid="uid://beeqav87bg3a8" path="res://art/crab/arm/arm_1.png" id="1_1wuh5"]
+[ext_resource type="Script" uid="uid://db4hj5t80ygbx" path="res://scripts/crab_leg.gd" id="1_k8pbi"]
+[ext_resource type="Texture2D" uid="uid://blpvhh5div3o" path="res://art/crab/arm/arm_2.png" id="2_k8pbi"]
+[ext_resource type="Texture2D" uid="uid://cppabp8tk2hmu" path="res://art/crab/arm/arm_3.png" id="3_g7ylj"]
+[ext_resource type="Texture2D" uid="uid://b076jmkq5ci7p" path="res://art/crab/arm/arm_4.png" id="4_do7q4"]
+[ext_resource type="Texture2D" uid="uid://bhxdn61mc8syb" path="res://art/crab/arm/claw_1.png" id="5_6alba"]
+[ext_resource type="Texture2D" uid="uid://bt071j4etj5ky" path="res://art/crab/arm/claw_2.png" id="6_oq2dm"]
+[ext_resource type="Texture2D" uid="uid://bbaq1inp1otni" path="res://art/crab/arm/claw_3.png" id="7_8hsim"]
+[ext_resource type="Texture2D" uid="uid://cebxih4261p5g" path="res://art/crab/arm/claw_4.png" id="8_jenld"]
+[ext_resource type="Texture2D" uid="uid://du1gg4xkwpmjh" path="res://art/crab/arm/pincher_1.png" id="9_3uwkq"]
+[ext_resource type="Texture2D" uid="uid://b16pusbfmkjyj" path="res://art/crab/arm/pincher_2.png" id="10_70jg4"]
+[ext_resource type="Texture2D" uid="uid://dtaxcgq3bgfqg" path="res://art/crab/arm/pincher_3.png" id="11_dyh14"]
+[ext_resource type="Texture2D" uid="uid://dn3wtwe88p5rr" path="res://art/crab/arm/pincher_4.png" id="12_jdlv7"]
 
-[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_1wuh5"]
-target_nodepath = NodePath("target")
-tip_nodepath = NodePath("1/2/3")
-ccdik_data_chain_length = 2
-joint_data/0/bone_index = 0
-joint_data/0/bone2d_node = NodePath("1")
-joint_data/0/rotate_from_joint = false
-joint_data/0/enable_constraint = false
-joint_data/0/editor_draw_gizmo = true
-joint_data/1/bone_index = 1
-joint_data/1/bone2d_node = NodePath("1/2")
-joint_data/1/rotate_from_joint = false
-joint_data/1/enable_constraint = false
-joint_data/1/editor_draw_gizmo = true
-
-[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_k8pbi"]
-enabled = true
-modification_count = 1
-modifications/0 = SubResource("SkeletonModification2DCCDIK_1wuh5")
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ljolo"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_cabm5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_1wuh5")
+"texture": ExtResource("9_3uwkq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_k8pbi")
+"texture": ExtResource("10_70jg4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_g7ylj")
+"texture": ExtResource("11_dyh14")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_do7q4")
+"texture": ExtResource("12_jdlv7")
 }],
 "loop": true,
 "name": &"default",
@@ -73,20 +54,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_cabm5"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ljolo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_3uwkq")
+"texture": ExtResource("1_1wuh5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_70jg4")
+"texture": ExtResource("2_k8pbi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_dyh14")
+"texture": ExtResource("3_g7ylj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_jdlv7")
+"texture": ExtResource("4_do7q4")
 }],
 "loop": true,
 "name": &"default",
@@ -94,52 +75,38 @@ animations = [{
 }]
 
 [node name="arm" type="Node2D" unique_id=1186130729]
+script = ExtResource("1_k8pbi")
 
-[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=181289538]
-scale = Vector2(0.99999994, 0.99999994)
-modification_stack = SubResource("SkeletonModificationStack2D_k8pbi")
+[node name="l1" type="Node2D" parent="." unique_id=2124060351 groups=["arm"]]
 
-[node name="1" type="Bone2D" parent="Skeleton2D" unique_id=1245615026]
-rest = Transform2D(1, 0, 0, 1, 0, 0)
-metadata/_local_pose_override_enabled_ = true
+[node name="l2" type="Node2D" parent="l1" unique_id=1353268825 groups=["arm"]]
+position = Vector2(394, -263)
 
-[node name="arm_r" type="AnimatedSprite2D" parent="Skeleton2D/1" unique_id=263597788]
-z_index = -10
-sprite_frames = SubResource("SpriteFrames_ljolo")
+[node name="l3" type="Node2D" parent="l1/l2" unique_id=467805011 groups=["arm"]]
+position = Vector2(-250, -307)
+
+[node name="pincher_r" type="AnimatedSprite2D" parent="l1/l2/l3" unique_id=1907490627]
+z_index = -1
+position = Vector2(-2.716095, 3.6912842)
+rotation = -1.0201507
+scale = Vector2(0.99997383, 0.99997383)
+sprite_frames = SubResource("SpriteFrames_cabm5")
 autoplay = "default"
-offset = Vector2(0, -220)
+offset = Vector2(25.14, -148.415)
 
-[node name="2" type="Bone2D" parent="Skeleton2D/1" unique_id=1611608031]
-position = Vector2(-24.611328, -495.53436)
-rest = Transform2D(1, 0, 0, 1, -24.611328, -495.53436)
-metadata/_local_pose_override_enabled_ = true
-
-[node name="claw_r" type="AnimatedSprite2D" parent="Skeleton2D/1/2" unique_id=1921417583]
-position = Vector2(-7.3589478, -6.4003296)
-rotation = -1.823604
-scale = Vector2(0.9999999, 0.9999999)
+[node name="claw_r" type="AnimatedSprite2D" parent="l1/l2" unique_id=1921417583]
+position = Vector2(19.228058, -19.74173)
+rotation = -1.0739908
+scale = Vector2(0.99999505, 0.99999505)
 sprite_frames = SubResource("SpriteFrames_gmyah")
 autoplay = "default"
 frame_progress = 0.9702093
 offset = Vector2(79.77, -300.46)
 
-[node name="3" type="Bone2D" parent="Skeleton2D/1/2" unique_id=839759634]
-position = Vector2(-388.3119, -27.84317)
-rotation = -0.1324557
-scale = Vector2(0.99997866, 0.99997866)
-rest = Transform2D(0.99121946, -0.13206592, 0.13206592, 0.99121946, -388.3119, -27.84317)
-auto_calculate_length_and_angle = false
-length = 273.01
-bone_angle = -189.41096
-
-[node name="pincher_r" type="AnimatedSprite2D" parent="Skeleton2D/1/2/3" unique_id=1907490627]
-z_index = -1
-position = Vector2(-11.101379, -2.3104858)
-rotation = -1.6373081
-scale = Vector2(0.9999998, 0.9999998)
-sprite_frames = SubResource("SpriteFrames_cabm5")
+[node name="arm_r" type="AnimatedSprite2D" parent="l1" unique_id=263597788]
+z_index = -10
+rotation = 1.0376616
+scale = Vector2(0.9999954, 0.9999954)
+sprite_frames = SubResource("SpriteFrames_ljolo")
 autoplay = "default"
-offset = Vector2(25.14, -148.415)
-
-[node name="target" type="Node2D" parent="Skeleton2D" unique_id=2010012109]
-position = Vector2(149, -558.00006)
+offset = Vector2(0, -220)

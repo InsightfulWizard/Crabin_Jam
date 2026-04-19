@@ -278,7 +278,7 @@ func on_mouse_entered():
 
 
 func on_mouse_exited():
-	if GameState.hovered_tile == self:
+	if GameState.hovered_tile == self and GameState.current_tile != self:
 		GameState.clear_hovered_tile()
 
 

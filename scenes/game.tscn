@@ -5,16 +5,118 @@
 [ext_resource type="PackedScene" uid="uid://c7bl7hg3ofusn" path="res://scenes/speaker.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://bjmdq8hl4rsy7" path="res://scenes/hud.tscn" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://c7mdbbn2ya1tf" path="res://scenes/town.tscn" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://cw4wuqlrscoq0" path="res://art/Town/barrel.png" id="6_80sem"]
+[ext_resource type="Script" uid="uid://blv80jcr7dq44" path="res://scripts/menus.gd" id="7_u5sy4"]
 
-[node name="game" type="Node2D" unique_id=504948786]
+[node name="game" type="Node2D" unique_id=552060712]
 script = ExtResource("1_lbhrr")
 
-[node name="crowd" parent="." unique_id=2082014096 instance=ExtResource("2_lbhrr")]
+[node name="crowd" parent="." unique_id=76042844 instance=ExtResource("2_lbhrr")]
 
-[node name="speaker" parent="." unique_id=151915602 instance=ExtResource("3_iywne")]
+[node name="speaker" parent="." unique_id=117416959 instance=ExtResource("3_iywne")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=701444802]
+[node name="crab" parent="speaker" index="1" unique_id=226795867]
+position = Vector2(614, 444)
 
-[node name="hud" parent="." unique_id=1041986312 instance=ExtResource("4_p57ef")]
+[node name="Sprite2D2" parent="speaker" index="4" unique_id=756710099]
+position = Vector2(739.855, 480.105)
+scale = Vector2(0.191123, 0.181846)
 
-[node name="Town" parent="." unique_id=810502582 instance=ExtResource("5_iywne")]
+[node name="Sprite2D3" parent="speaker" index="6" unique_id=1726266390]
+position = Vector2(794, 334)
+scale = Vector2(0.102031, 0.103252)
+
+[node name="Sprite2D6" type="Sprite2D" parent="speaker" unique_id=125973888]
+z_index = -1839
+position = Vector2(788, 412)
+scale = Vector2(0.165938, 0.153242)
+texture = ExtResource("6_80sem")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1856900204]
+
+[node name="hud" parent="." unique_id=1599357327 instance=ExtResource("4_p57ef")]
+
+[node name="Town" parent="." unique_id=1083058813 instance=ExtResource("5_iywne")]
+
+[node name="menus" type="CanvasLayer" parent="." unique_id=853265317 node_paths=PackedStringArray("main_menu", "settings", "m_play", "m_settings", "m_exit", "s_main_menu")]
+script = ExtResource("7_u5sy4")
+main_menu = NodePath("main_menu")
+settings = NodePath("settings_menu")
+m_play = NodePath("main_menu/play")
+m_settings = NodePath("main_menu/settings")
+m_exit = NodePath("main_menu/exit")
+s_main_menu = NodePath("settings_menu/to_main")
+
+[node name="main_menu" type="Control" parent="menus" unique_id=449298868]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="play" type="Button" parent="menus/main_menu" unique_id=793605512]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 453.0
+offset_top = 115.0
+offset_right = 736.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Enter the Stage"
+
+[node name="exit" type="Button" parent="menus/main_menu" unique_id=194063492]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 508.0
+offset_top = 206.0
+offset_right = 645.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Go Home"
+
+[node name="settings" type="Button" parent="menus/main_menu" unique_id=1771844275]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 652.0
+offset_top = 206.0
+offset_right = 688.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "⚙"
+
+[node name="settings_menu" type="Control" parent="menus" unique_id=1464376805]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="to_main" type="Button" parent="menus/settings_menu" unique_id=2059271361]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 453.0
+offset_top = 115.0
+offset_right = 736.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "I think I'm ready..."
+
+[editable path="speaker"]

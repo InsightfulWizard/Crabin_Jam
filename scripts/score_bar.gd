@@ -29,3 +29,7 @@ func _on_score_change(score:int):
 func get_water_surface_pos_y(progress_value: float) -> float:
 	var height: float = progress_bar.size.y
 	return height * (100.0 - progress_value)/100.0
+
+
+func get_progress(): #returns 0 - 1 progress
+	return progress_bar.value /  100.0
