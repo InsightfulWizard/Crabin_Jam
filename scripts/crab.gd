@@ -5,6 +5,7 @@ extends Node2D
 
 func _ready() -> void:
 	GameState.connect('score_changed', _on_score_changed)
+	_on_score_changed(GameState.current_score)
 
 
 func _on_score_changed(_score: int):
