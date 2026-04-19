@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bmoeevxjkqvh8" path="res://art/ui_fancy_back.png" id="1_dk5s7"]
 [ext_resource type="Texture2D" uid="uid://c8i7xu7iwrl6" path="res://art/ui_fancy_front.png" id="2_3aqx4"]
 
-[node name="fancier_ui" type="Control" unique_id=1759600616]
+[node name="fancier_Ui" type="Control" unique_id=1759600616]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 666.25385

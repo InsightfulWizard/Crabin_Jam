@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="1_3dk36"]
 [ext_resource type="Script" uid="uid://5lnis0f7vybe" path="res://scripts/tile.gd" id="1_ywnoi"]
+[ext_resource type="PackedScene" uid="uid://dyp8kc45yelgr" path="res://scenes/ui/thought.tscn" id="3_jy7pm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy7pm"]
 size = Vector2(64, 64)
@@ -10,10 +11,19 @@ size = Vector2(64, 64)
 script = ExtResource("1_ywnoi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1188515814]
+visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_3dk36")
+
+[node name="fancier_ui" parent="." unique_id=1759600616 instance=ExtResource("3_jy7pm")]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 287.99997
+offset_bottom = 287.99997
+scale = Vector2(0.2, 0.2)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=19403124]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=953105362]
 shape = SubResource("RectangleShape2D_jy7pm")
+debug_color = Color(0, 0.6, 0.69803923, 0)
