@@ -12,6 +12,7 @@ signal placed_in_slot
 signal picked_up_from_slot
 signal faded_out
 var is_in_slot: bool = false
+var last_field_global_position: Vector2 = Vector2.ZERO
 
 
 func _ready():
@@ -22,6 +23,7 @@ func _ready():
 
 	#TODO: JUICE POINT
 	modulate.a = 1.0
+	last_field_global_position = global_position
 
 	attempt_fade_out()
 
@@ -76,12 +78,21 @@ func pickup():
 		pickup_from_field()
 
 
-func place_in_field():
+func place_in_field(return_to_field: bool = false):
+	# if return_to_field:
+	# 	global_position = Vector2()
+	# else:
+	# 	last_field_global_position = global_position
 	emit_signal("placed_in_field")
 	attempt_fade_out()
 
+# func get_neighbor_tile_pos(direction: Vector2) -> Vector2:
+# 	var neighbor_pos = snap.global_position + direction * snap.get_node("Sprite").texture.get_size() * snap.scale
+# 	return neighbor_pos
+
 
 func pickup_from_field():
+	# last_field_global_position = global_position
 	emit_signal("picked_up_from_field")
 	interrupt_fade()
 
