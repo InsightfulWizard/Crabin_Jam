@@ -3,8 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://fc168jipbmh0" path="res://scenes/crab/crab.tscn" id="1_e1qhi"]
 [ext_resource type="Texture2D" uid="uid://vxnxcb620a4i" path="res://art/stage.png" id="1_h6vvc"]
 [ext_resource type="Texture2D" uid="uid://bsuicm2w546ey" path="res://art/Town/post.png" id="3_h6vvc"]
-[ext_resource type="Texture2D" uid="uid://camb5gasxffk0" path="res://art/Town/crate.png" id="4_tgnwo"]
-[ext_resource type="Texture2D" uid="uid://cw4wuqlrscoq0" path="res://art/Town/barrel.png" id="6_s2obc"]
 
 [node name="speaker" type="CanvasLayer" unique_id=151915602]
 
@@ -24,33 +22,3 @@ z_index = -1000
 position = Vector2(603, 597)
 scale = Vector2(0.3960543, 0.3960543)
 texture = ExtResource("3_h6vvc")
-
-[node name="podium2" type="Sprite2D" parent="." unique_id=178115160]
-z_index = -1844
-position = Vector2(804.61127, 363.48627)
-scale = Vector2(0.05978753, 0.12790282)
-texture = ExtResource("3_h6vvc")
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=756710099]
-z_index = -1784
-position = Vector2(330.1825, 694.15125)
-scale = Vector2(0.35387203, 0.29912353)
-texture = ExtResource("4_tgnwo")
-
-[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=804272208]
-z_index = -1784
-position = Vector2(102, 721)
-scale = Vector2(0.35387203, 0.29912353)
-texture = ExtResource("4_tgnwo")
-
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1726266390]
-z_index = -1858
-position = Vector2(819.29443, 308.57565)
-scale = Vector2(0.045496874, 0.05581182)
-texture = ExtResource("4_tgnwo")
-
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1171605796]
-z_index = -1839
-position = Vector2(779.99994, 457.00003)
-scale = Vector2(0.14229497, 0.14644529)
-texture = ExtResource("6_s2obc")
