@@ -35,7 +35,6 @@ particles_anim_h_frames = 2
 particles_anim_v_frames = 2
 particles_anim_loop = true
 
->>>>>>> main
 [sub_resource type="Curve" id="Curve_q4iun"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.023688663, 0.782258), 7.447076, 7.447076, 0, 0, Vector2(0.118443325, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
@@ -104,7 +103,7 @@ material = SubResource("CanvasItemMaterial_mxkv7")
 position = Vector2(-8, -32)
 emitting = false
 amount = 15
-texture = ExtResource("19_drpxh")
+texture = ExtResource("17_yk2cj")
 lifetime = 1.41
 randomness = 0.52
 local_coords = true
