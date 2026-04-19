@@ -23,6 +23,12 @@ func _input(event):
 			
 	if event.is_action_pressed("test"):
 		Util.hud.submit_output_trays()
+	if event.is_action_pressed("t1"):
+		GameState.set_current_score(70)
+	if event.is_action_pressed("t2"):
+		GameState.set_current_score(-50)
+		
+		
 	if event.is_action_pressed("escape"):
 		get_tree().quit()
 

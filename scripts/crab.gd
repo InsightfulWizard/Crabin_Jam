@@ -32,4 +32,5 @@ func toggle_stresed(b: bool):
 
 
 func toggle_dread(b: bool):
+	print('toggle_dread: ', b)
 	sweat.emitting = b

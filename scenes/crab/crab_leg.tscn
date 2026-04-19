@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cmsxdw2sok750"]
+[gd_scene load_steps=18 format=3 uid="uid://cmsxdw2sok750"]
 
 [ext_resource type="Texture2D" uid="uid://343u20yyg7r7" path="res://art/crab/leg_1_1.png" id="1_lxcon"]
 [ext_resource type="Texture2D" uid="uid://cqni4ldfp1etg" path="res://art/crab/leg_1_2.png" id="2_2ihs1"]
@@ -13,7 +13,25 @@
 [ext_resource type="Texture2D" uid="uid://cfrqh8ekur58a" path="res://art/crab/leg_3_3.png" id="11_bdsq5"]
 [ext_resource type="Texture2D" uid="uid://bcubfxvpmvxu1" path="res://art/crab/leg_3_4.png" id="12_l7qwy"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qsmu2"]
+[sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_l2v76"]
+target_nodepath = NodePath("target")
+fabrik_data_chain_length = 3
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("1")
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("1/2")
+joint_data/1/magnet_position = Vector2(0, 0)
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("1/2/3")
+joint_data/2/magnet_position = Vector2(0, 0)
+joint_data/2/use_target_rotation = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_gvyv0"]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DFABRIK_l2v76")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xc8i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -33,7 +51,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ecw22"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_503lu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -53,7 +71,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0vg73"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_fm78s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -73,27 +91,49 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="leg_1" type="AnimatedSprite2D" unique_id=175528995]
-z_index = -40
-rotation = -0.72431165
-scale = Vector2(0.3127897, 0.3127897)
-sprite_frames = SubResource("SpriteFrames_qsmu2")
-autoplay = "default"
-offset = Vector2(18.845, 135.29)
+[node name="leg" type="Node2D"]
 
-[node name="leg_2" type="AnimatedSprite2D" parent="." unique_id=1689741322]
-z_index = -1
-position = Vector2(54.34967, 274.94513)
-scale = Vector2(0.99999994, 0.99999994)
-sprite_frames = SubResource("SpriteFrames_ecw22")
-autoplay = "default"
-offset = Vector2(-1.305, 37.55)
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+modification_stack = SubResource("SkeletonModificationStack2D_gvyv0")
 
-[node name="leg_3" type="AnimatedSprite2D" parent="leg_2" unique_id=487970612]
-z_index = -2
-position = Vector2(-12.7881775, 92.71403)
-rotation = 3.822271
-scale = Vector2(1.0000002, 1.0000002)
-sprite_frames = SubResource("SpriteFrames_0vg73")
-autoplay = "default"
-offset = Vector2(18.315, -108.35)
+[node name="1" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="leg_1" type="AnimatedSprite2D" parent="Skeleton2D/1"]
+z_index = 2
+position = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_4xc8i")
+offset = Vector2(23, 147)
+
+[node name="2" type="Bone2D" parent="Skeleton2D/1"]
+position = Vector2(67, 289)
+rotation = 0.164061
+scale = Vector2(0.999999, 0.999999)
+rest = Transform2D(0.986572, 0.163326, -0.163326, 0.986572, 67, 289)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="leg_2" type="AnimatedSprite2D" parent="Skeleton2D/1/2"]
+z_index = 1
+position = Vector2(-9, 6)
+sprite_frames = SubResource("SpriteFrames_503lu")
+offset = Vector2(-5, 55)
+
+[node name="3" type="Bone2D" parent="Skeleton2D/1/2"]
+position = Vector2(-26, 123)
+rotation = 0.651008
+scale = Vector2(1, 1)
+rest = Transform2D(0.795473, 0.605988, -0.605988, 0.795473, -26, 123)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="leg_3" type="AnimatedSprite2D" parent="Skeleton2D/1/2/3"]
+position = Vector2(1, -5)
+sprite_frames = SubResource("SpriteFrames_fm78s")
+offset = Vector2(-18, 108)
+
+[node name="tip" type="Bone2D" parent="Skeleton2D/1/2/3"]
+position = Vector2(-14, 213)
+rest = Transform2D(1, 0, 0, 1, -14, 213)
+
+[node name="target" type="Node2D" parent="Skeleton2D"]
+position = Vector2(-68, 602)

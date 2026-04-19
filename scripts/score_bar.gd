@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var water_surface: Sprite2D = $ProgressBar/water_surface
+@onready var score_label: Label = $score_label
 
 
 func _ready() -> void:
@@ -11,6 +12,7 @@ func _ready() -> void:
 
 
 func _on_score_change(score:int):
+	score_label.text = str(score)
 	var score_percent: float = 100.0 - 100.0 * float(GameState.current_score) / float(Constants.MAX_SCORE)
 	print('score_percent: ', score_percent)
 	print('GameState.current_score: ', GameState.current_score)
