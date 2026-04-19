@@ -61,8 +61,9 @@ func drop_tile():
 		else:
 			tile.place_in_field()
 
-	if GameState.hovered_tile == tile:
-		GameState.clear_hovered_tile()
+		if GameState.hovered_tile == tile:
+			tile.scale = Vector2.ONE
+			GameState.clear_hovered_tile()
 	GameState.current_tile = null
 
 

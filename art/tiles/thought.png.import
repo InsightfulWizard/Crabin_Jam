@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bayftvg61js60"
-path="res://.godot/imported/leg_1_1.png-6d0517c9c9f8d76ed16ddcca5bbc4afb.ctex"
+uid="uid://jhm43kjeucn4"
+path="res://.godot/imported/thought.png-3668c0e15a82bb9fcb6457f4793ca620.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/leg_1_1.png"
-dest_files=["res://.godot/imported/leg_1_1.png-6d0517c9c9f8d76ed16ddcca5bbc4afb.ctex"]
+source_file="res://art/tiles/thought.png"
+dest_files=["res://.godot/imported/thought.png-3668c0e15a82bb9fcb6457f4793ca620.ctex"]
 
 [params]
 

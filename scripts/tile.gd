@@ -220,6 +220,10 @@ func place_in_field(return_to_field: bool = false):
 	emit_signal("placed_in_field")
 	attempt_fade_out()
 
+# func get_neighbor_tile_pos(direction: Vector2) -> Vector2:
+# 	var neighbor_pos = snap.global_position + direction * snap.get_node("Sprite").texture.get_size() * snap.scale
+# 	return neighbor_pos
+
 
 func pickup_from_field():
 	last_field_global_position = global_position

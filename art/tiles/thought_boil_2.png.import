@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cffwbbufvve5r"
-path="res://.godot/imported/claw_left.png-f28ad6166388cd84f8a3d3514a53262c.ctex"
+uid="uid://c6xcheueb6niv"
+path="res://.godot/imported/thought_boil_2.png-c7f590036f0f7c99465dbb68b6aab0dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/claw_left.png"
-dest_files=["res://.godot/imported/claw_left.png-f28ad6166388cd84f8a3d3514a53262c.ctex"]
+source_file="res://art/tiles/thought_boil_2.png"
+dest_files=["res://.godot/imported/thought_boil_2.png-c7f590036f0f7c99465dbb68b6aab0dd.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bct7mfq5wmm2a"
-path="res://.godot/imported/chef_1_nutural_1.png-56976ec933838673a91e619a960fd4a8.ctex"
+uid="uid://clreoxl7rihc2"
+path="res://.godot/imported/thought_boil_1.png-7adbe3c58a698c0f5b574c0c620c6f2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/chef_1_nutural_1.png"
-dest_files=["res://.godot/imported/chef_1_nutural_1.png-56976ec933838673a91e619a960fd4a8.ctex"]
+source_file="res://art/tiles/thought_boil_1.png"
+dest_files=["res://.godot/imported/thought_boil_1.png-7adbe3c58a698c0f5b574c0c620c6f2f.ctex"]
 
 [params]
 
