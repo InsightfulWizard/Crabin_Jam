@@ -118,7 +118,7 @@ _data = {
 [node name="thought" type="Control" unique_id=1759600616]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 723.0
+offset_right = 960.0
 offset_bottom = 412.0
 mouse_filter = 2
 
