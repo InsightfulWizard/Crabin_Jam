@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://csw065nhfxbot"]
 
-[ext_resource type="Texture2D" uid="uid://vxnxcb620a4i" path="res://art/stage.png" id="2_w6bl1"]
-[ext_resource type="PackedScene" uid="uid://fc168jipbmh0" path="res://scenes/crab/crab.tscn" id="3_g4tg5"]
-[ext_resource type="Texture2D" uid="uid://bsuicm2w546ey" path="res://art/Town/post.png" id="4_cahu5"]
 [ext_resource type="Texture2D" uid="uid://qq23rark2gxp" path="res://art/chefs/angry/Chefs_Angry-1.png" id="4_dg87l"]
 [ext_resource type="Texture2D" uid="uid://dt3infj4uuf6f" path="res://art/chefs/angry/Chefs_Angry-2.png" id="5_eyd74"]
-[ext_resource type="Texture2D" uid="uid://camb5gasxffk0" path="res://art/Town/crate.png" id="5_ps770"]
-[ext_resource type="Texture2D" uid="uid://cw4wuqlrscoq0" path="res://art/Town/barrel.png" id="6_80sem"]
 [ext_resource type="Texture2D" uid="uid://dqxppe8alutkd" path="res://art/chefs/angry/Chefs_Angry-3.png" id="6_sx74c"]
 [ext_resource type="Texture2D" uid="uid://dimkx3byw1fdi" path="res://art/chefs/angry/Chefs_Angry-4.png" id="7_w6bl1"]
 [ext_resource type="Texture2D" uid="uid://btjbc0uvw2vno" path="res://art/chefs/happy/Chefs_Happy-1.png" id="8_g4tg5"]
@@ -42,7 +37,6 @@
 [ext_resource type="Texture2D" uid="uid://b4ri5hbb60pkj" path="res://art/chefs/chef_3_3.png" id="38_b0pdo"]
 [ext_resource type="Texture2D" uid="uid://btdh40yfsi8ud" path="res://art/chefs/chef_3_4.png" id="39_i6gbh"]
 [ext_resource type="Script" uid="uid://c5qjnxirijruj" path="res://scripts/tiles/chef.gd" id="40_08er1"]
-[ext_resource type="Texture2D" uid="uid://bgjgixjauygy5" path="res://art/Town/town.png" id="41_eyd74"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u83yg"]
 animations = [{
@@ -201,63 +195,6 @@ animations = [{
 }]
 
 [node name="crowd" type="CanvasLayer" unique_id=2082014096]
-
-[node name="speaker" type="CanvasLayer" parent="." unique_id=151915602]
-
-[node name="Sprite2D" type="Sprite2D" parent="speaker" unique_id=1644161732]
-visible = false
-z_index = -2406
-position = Vector2(589.935, 563.985)
-scale = Vector2(1.15, 1.15)
-texture = ExtResource("2_w6bl1")
-
-[node name="crab" parent="speaker" unique_id=226795867 instance=ExtResource("3_g4tg5")]
-position = Vector2(619, 450)
-scale = Vector2(0.7869104, 0.7869104)
-
-[node name="podium" type="Sprite2D" parent="speaker" unique_id=336125010]
-z_index = -1000
-position = Vector2(603, 597)
-scale = Vector2(0.3960543, 0.3960543)
-texture = ExtResource("4_cahu5")
-
-[node name="podium2" type="Sprite2D" parent="speaker" unique_id=178115160]
-z_index = -1844
-position = Vector2(804.61127, 363.48627)
-scale = Vector2(0.05978753, 0.12790282)
-texture = ExtResource("4_cahu5")
-
-[node name="Sprite2D2" type="Sprite2D" parent="speaker" unique_id=756710099]
-z_index = -1784
-position = Vector2(330.1825, 694.15125)
-scale = Vector2(0.35387203, 0.29912353)
-texture = ExtResource("5_ps770")
-
-[node name="Sprite2D5" type="Sprite2D" parent="speaker" unique_id=804272208]
-z_index = -1784
-position = Vector2(102, 721)
-scale = Vector2(0.35387203, 0.29912353)
-texture = ExtResource("5_ps770")
-
-[node name="Sprite2D3" type="Sprite2D" parent="speaker" unique_id=1726266390]
-z_index = -1858
-position = Vector2(819.29443, 308.57565)
-scale = Vector2(0.045496874, 0.05581182)
-texture = ExtResource("5_ps770")
-
-[node name="Sprite2D4" type="Sprite2D" parent="speaker" unique_id=1171605796]
-z_index = -1839
-position = Vector2(779.99994, 457.00003)
-scale = Vector2(0.14229497, 0.14644529)
-texture = ExtResource("6_80sem")
-
-[node name="Town" type="Node" parent="." unique_id=810502582]
-
-[node name="Sprite2D" type="Sprite2D" parent="Town" unique_id=1946502406]
-z_index = -700
-position = Vector2(578.57, 236.405)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("41_eyd74")
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=1286777858 node_paths=PackedStringArray("animated_sprite")]
 position = Vector2(247.99998, 440.99997)
