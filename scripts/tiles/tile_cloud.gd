@@ -10,12 +10,17 @@ var tile_size = Vector2.ZERO
 
 
 func _ready():
-	#Get the size of the SVG from the scene
+	# Seed a fallback tile footprint from the tile scene's UI/control size.
 	var temp_tile = tile_scene.instantiate()
-	for child in temp_tile.get_children():
-		if child is Sprite2D and child.texture:
-			tile_size = child.texture.get_size()
-			break
+	var thought_ui = temp_tile.get_node_or_null("fancier_ui")
+	if thought_ui is Control:
+		tile_size = thought_ui.size * thought_ui.scale.abs()
+	else:
+		for child in temp_tile.get_children():
+			if child is Sprite2D and child.texture:
+				# Legacy fallback for older tile scenes.
+				tile_size = child.texture.get_size() * child.scale.abs()
+				break
 	temp_tile.queue_free()
 
 	# Start the spawn loop
@@ -49,55 +54,98 @@ func _on_timer_timeout():
 
 func check_and_spawn_tile():
 	if current_tile_count < max_tiles:
-		var pos = find_valid_pos()
-		if pos != Vector2.INF:
-			spawn_tile(pos)
+		var tile = tile_scene.instantiate()
+		var candidate_extents = _get_tile_half_extents(tile)
+		var center_pos = find_valid_pos(candidate_extents)
+		if center_pos != Vector2.INF:
+			spawn_tile(tile, center_pos)
+		else:
+			tile.queue_free()
 
 
-func find_valid_pos() -> Vector2:
+func find_valid_pos(candidate_extents: Vector2) -> Vector2:
 	var view_rect = get_viewport_rect()
 	var shape_node = $CollisionShape2D
 	var rx = (shape_node.shape.radius * shape_node.scale.x)
 	var ry = (shape_node.shape.radius * shape_node.scale.y)
 
-	# Margin to keep the SVG fully on screen w/ added buffer
-	var margin = tile_size / 2.0 + Vector2(border_buffer, border_buffer)
+	# Margin to keep full tile footprint on screen with added buffer.
+	var margin = candidate_extents + Vector2(border_buffer, border_buffer)
 
 	for attempt in range(15): # Try 15 times to find a gap
 		var theta = randf() * 2 * PI
 		var r = sqrt(randf())
-		var candidate = global_position + Vector2(r * rx * cos(theta), r * ry * sin(theta))
+		var candidate_center = global_position + Vector2(r * rx * cos(theta), r * ry * sin(theta))
 
 		# keep on screen
-		candidate.x = clamp(
-			candidate.x,
+		candidate_center.x = clamp(
+			candidate_center.x,
 			view_rect.position.x + margin.x,
 			view_rect.end.x - margin.x,
 		)
-		candidate.y = clamp(
-			candidate.y,
+		candidate_center.y = clamp(
+			candidate_center.y,
 			view_rect.position.y + margin.y,
 			view_rect.end.y - margin.y,
 		)
 
-		# Check if another tile is already at this global position
-		if is_spot_clear(candidate):
-			return candidate
+		# Check if another spawned field tile already occupies this footprint.
+		if is_spot_clear(candidate_center, candidate_extents):
+			return candidate_center
 	return Vector2.INF
 
 
-func is_spot_clear(pos: Vector2) -> bool:
-	# Simple distance check against existing tiles
+func is_spot_clear(candidate_center: Vector2, candidate_extents: Vector2) -> bool:
 	for node in get_tree().get_nodes_in_group("spawned_tiles"):
-		if pos.distance_to(node.global_position) < tile_size.x: # Use width as threshold
+		if _is_tile_in_slot(node):
+			continue
+		var center_delta = candidate_center - _get_tile_center(node)
+		var node_extents = _get_tile_half_extents(node)
+		var overlaps_x = absf(center_delta.x) < (candidate_extents.x + node_extents.x)
+		var overlaps_y = absf(center_delta.y) < (candidate_extents.y + node_extents.y)
+		if overlaps_x and overlaps_y:
 			return false
 	return true
 
 
-func spawn_tile(pos: Vector2):
-	var tile = tile_scene.instantiate()
+func spawn_tile(tile: Node2D, center_pos: Vector2):
 	# Add tile to a group so we can find it for the overlap check
 	tile.add_to_group("spawned_tiles")
 	get_parent().add_child.call_deferred(tile)
-	tile.global_position = pos
+	if tile.has_method("set_group_center_global_position"):
+		tile.set_group_center_global_position(center_pos)
+	else:
+		tile.global_position = center_pos
 	_register_tile(tile) # Connect signals to track this tile
+
+
+func _get_tile_half_extents(tile: Node2D) -> Vector2:
+	if tile.has_method("get_drag_half_extents"):
+		return tile.get_drag_half_extents()
+
+	var slot_length = 1
+	if tile.has_method("get_slot_length"):
+		slot_length = max(1, tile.get_slot_length())
+	var slot_gap = 72.0
+	var node_gap = tile.get("slot_gap")
+	if typeof(node_gap) in [TYPE_FLOAT, TYPE_INT]:
+		slot_gap = float(node_gap)
+
+	var base_size = tile_size
+	var tile_thought = tile.get_node_or_null("fancier_ui")
+	if tile_thought is Control:
+		base_size = tile_thought.size * tile_thought.scale.abs()
+
+	var width = base_size.x + (float(slot_length - 1) * slot_gap)
+	return Vector2(width * 0.5, base_size.y * 0.5)
+
+
+func _get_tile_center(tile: Node2D) -> Vector2:
+	if tile.has_method("get_group_center_offset"):
+		return tile.global_position + tile.get_group_center_offset()
+	return tile.global_position
+
+
+func _is_tile_in_slot(tile: Node2D) -> bool:
+	var in_slot = tile.get("is_in_slot")
+	return typeof(in_slot) == TYPE_BOOL and in_slot

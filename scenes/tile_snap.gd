@@ -3,6 +3,8 @@ extends Node2D
 @onready var col = $Area2D
 
 var snapped_tile: Node2D
+var snapped_index: int = -1
+var slot_index: int = -1
 var active: bool = true
 
 
@@ -21,28 +23,26 @@ func on_mouse_exited():
 
 
 func to_snap(tile: Node2D) -> bool:
-	if snapped_tile:
+	if !active:
 		return false
-	tile.get_parent().remove_child(tile)
-	add_child(tile)
-	tile.position = Vector2.ZERO
-	#tile.global_position = global_position
-	#tile.global_position.y -= 100
-	tile.snap = self
-	snapped_tile = tile
-	return true
+	return get_parent().place_at(self, tile)
+
+
+func can_snap_tile(tile: Node2D) -> bool:
+	if !active:
+		return false
+	return get_parent().can_place_at(slot_index, tile)
 
 
 func unsnap():
 	if !snapped_tile:
 		return
-	Util.hud.to_hud_space(snapped_tile)
-	snapped_tile.snap = null
-	snapped_tile = null
+	get_parent().unsnap_tile(snapped_tile)
 
 
 func delete_tile():
 	if !snapped_tile:
 		return
-	snapped_tile.delete()
-	snapped_tile = null
+	var tile = snapped_tile
+	get_parent().unsnap_tile(tile)
+	tile.delete()
