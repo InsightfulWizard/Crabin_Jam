@@ -116,6 +116,12 @@ _data = {
 &"boil": SubResource("Animation_h53y5")
 }
 
+[sub_resource type="SystemFont" id="SystemFont_h4hxd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cgqjk"]
+font = SubResource("SystemFont_h4hxd")
+font_size = 24
+
 [node name="rule" type="Control" unique_id=1759600616]
 layout_mode = 3
 anchors_preset = 0
@@ -213,3 +219,13 @@ patch_margin_bottom = 143
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2062806654]
 libraries/ = SubResource("AnimationLibrary_ywt7u")
 autoplay = &"RESET"
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=986082205]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 69.0
+offset_right = 672.0
+offset_bottom = 92.0
+scale = Vector2(5.4522, 8.239758)
+label_settings = SubResource("LabelSettings_cgqjk")
+horizontal_alignment = 2
