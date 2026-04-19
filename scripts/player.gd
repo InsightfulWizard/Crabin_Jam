@@ -38,12 +38,18 @@ func drop_tile():
 		return
 	var snap = Util.get_closest(tile.global_position, 'tile_snap', 65.0)
 
-	if snap:
-		snap.to_snap(tile)
+	if snap and snap.to_snap(tile):
 		tile.place_in_slot()
 	else:
-		# tile dropped to field
-		tile.place_in_field()
+		var attempted_occupied_snap = snap != null
+		if attempted_occupied_snap:
+			tile.place_in_field(true)
+		else:
+			tile.place_in_field()
+
+		if GameState.hovered_tile == tile:
+			tile.scale = Vector2.ONE
+			GameState.clear_hovered_tile()
 	GameState.current_tile = null
 
 
