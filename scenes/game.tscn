@@ -16,4 +16,4 @@ script = ExtResource("1_lbhrr")
 
 [node name="hud" parent="." unique_id=1041986312 instance=ExtResource("4_p57ef")]
 
-[editable path="speaker"]
+[editable path="hud"]

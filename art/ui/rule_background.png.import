@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by77503fkpy7a"
-path="res://.godot/imported/square.png-4bbd8e7755abbb0de8cca180f0dd1bcd.ctex"
+uid="uid://cu6dg53upak3y"
+path="res://.godot/imported/rule_background.png-067248b644772cafbc811d9d95629f70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tiles/square.png"
-dest_files=["res://.godot/imported/square.png-4bbd8e7755abbb0de8cca180f0dd1bcd.ctex"]
+source_file="res://art/ui/rule_background.png"
+dest_files=["res://.godot/imported/rule_background.png-067248b644772cafbc811d9d95629f70.ctex"]
 
 [params]
 

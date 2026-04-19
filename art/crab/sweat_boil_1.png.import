@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by77503fkpy7a"
-path="res://.godot/imported/square.png-4bbd8e7755abbb0de8cca180f0dd1bcd.ctex"
+uid="uid://c7rh0xwldw1gr"
+path="res://.godot/imported/sweat_boil_1.png-424d5fe9ae91c9e00d0d6d8c7a1e1ba0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tiles/square.png"
-dest_files=["res://.godot/imported/square.png-4bbd8e7755abbb0de8cca180f0dd1bcd.ctex"]
+source_file="res://art/crab/sweat_boil_1.png"
+dest_files=["res://.godot/imported/sweat_boil_1.png-424d5fe9ae91c9e00d0d6d8c7a1e1ba0.ctex"]
 
 [params]
 

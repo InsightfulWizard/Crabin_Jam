@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by77503fkpy7a"
-path="res://.godot/imported/square.png-4bbd8e7755abbb0de8cca180f0dd1bcd.ctex"
+uid="uid://c6xcheueb6niv"
+path="res://.godot/imported/thought_boil_2.png-c7f590036f0f7c99465dbb68b6aab0dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tiles/square.png"
-dest_files=["res://.godot/imported/square.png-4bbd8e7755abbb0de8cca180f0dd1bcd.ctex"]
+source_file="res://art/tiles/thought_boil_2.png"
+dest_files=["res://.godot/imported/thought_boil_2.png-c7f590036f0f7c99465dbb68b6aab0dd.ctex"]
 
 [params]
 

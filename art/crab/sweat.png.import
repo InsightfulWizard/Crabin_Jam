@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by77503fkpy7a"
-path="res://.godot/imported/square.png-4bbd8e7755abbb0de8cca180f0dd1bcd.ctex"
+uid="uid://itltvhbswnge"
+path="res://.godot/imported/sweat.png-46b5c6714d1f350559246bf21a4deb14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tiles/square.png"
-dest_files=["res://.godot/imported/square.png-4bbd8e7755abbb0de8cca180f0dd1bcd.ctex"]
+source_file="res://art/crab/sweat.png"
+dest_files=["res://.godot/imported/sweat.png-46b5c6714d1f350559246bf21a4deb14.ctex"]
 
 [params]
 
