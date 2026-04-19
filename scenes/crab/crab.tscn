@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://fc168jipbmh0"]
 
-[ext_resource type="Script" path="res://scripts/crab.gd" id="1_1uom6"]
+[ext_resource type="Script" uid="uid://xmdoggyejrjt" path="res://scripts/crab.gd" id="1_1uom6"]
 [ext_resource type="Texture2D" uid="uid://b82f27jdqvrg1" path="res://art/crab/body_1.png" id="1_cupma"]
 [ext_resource type="Texture2D" uid="uid://dggf50xtku7kd" path="res://art/crab/body_2.png" id="2_aupet"]
 [ext_resource type="Texture2D" uid="uid://ed0xrltdlng" path="res://art/crab/body_3.png" id="3_1uom6"]
@@ -19,10 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://dtaxcgq3bgfqg" path="res://art/crab/pincher_3.png" id="15_cxbpn"]
 [ext_resource type="Texture2D" uid="uid://dn3wtwe88p5rr" path="res://art/crab/pincher_4.png" id="16_bidcb"]
 [ext_resource type="Texture2D" uid="uid://itltvhbswnge" path="res://art/crab/sweat.png" id="17_yk2cj"]
-[ext_resource type="Texture2D" uid="uid://c7rh0xwldw1gr" path="res://art/crab/sweat_boil_1.png" id="19_jcmn2"]
-[ext_resource type="Texture2D" uid="uid://b3iwcwsl2oj4d" path="res://art/crab/sweat_boil_2.png" id="20_gnick"]
-[ext_resource type="Texture2D" uid="uid://po37oh3dbdsv" path="res://art/crab/sweat_boil_3.png" id="21_epd8f"]
-[ext_resource type="Texture2D" uid="uid://s5kxadrxdijx" path="res://art/crab/sweat_boil_4.png" id="22_4d8es"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hj1h3"]
 animations = [{
@@ -98,26 +94,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("16_bidcb")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2txc7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("19_jcmn2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_gnick")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_epd8f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_4d8es")
 }],
 "loop": true,
 "name": &"default",
