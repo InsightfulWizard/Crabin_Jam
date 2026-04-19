@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5pwfbxuhugw4"]
 
 [ext_resource type="Script" uid="uid://5lnis0f7vybe" path="res://scripts/tile.gd" id="1_ywnoi"]
+[ext_resource type="Texture2D" uid="uid://bpuyeuao1bce" path="res://art/tiles/background.png" id="1_3dk36"]
 [ext_resource type="PackedScene" uid="uid://dyp8kc45yelgr" path="res://scenes/ui/thought.tscn" id="3_jy7pm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy7pm"]
