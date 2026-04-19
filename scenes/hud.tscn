@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://b5xenegjrrkvn" path="res://scripts/score_bar.gd" id="4_0i1j5"]
 [ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="5_mphia"]
 [ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="6_0m4u7"]
-[ext_resource type="Script" uid="uid://c2qummvstpvif" path="res://scripts/speech_timer_bar.gd" id="7_5pdws"]
+[ext_resource type="Script" path="res://scripts/speech_timer_bar.gd" id="7_5pdws"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
 texture = ExtResource("5_mphia")
