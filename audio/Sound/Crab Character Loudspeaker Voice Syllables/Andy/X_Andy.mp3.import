@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwpmbm4aquvl8"
+path="res://.godot/imported/X_Andy.mp3-144181902fe45c588ee41a0a3c98e4ee.mp3str"
+
+[deps]
+
+source_file="res://audio/Sound/Crab Character Loudspeaker Voice Syllables/Andy/X_Andy.mp3"
+dest_files=["res://.godot/imported/X_Andy.mp3-144181902fe45c588ee41a0a3c98e4ee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
