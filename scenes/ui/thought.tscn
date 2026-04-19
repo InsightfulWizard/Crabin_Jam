@@ -123,7 +123,7 @@ offset_bottom = 412.0
 mouse_filter = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2040373196]
-self_modulate = Color(0.85178214, 0.77828765, 0.8506736, 1)
+self_modulate = Color(0.08807967, 0.37397608, 0.7675255, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -140,7 +140,7 @@ patch_margin_right = 117
 patch_margin_bottom = 120
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="." unique_id=751854450]
-self_modulate = Color(0.7992836, 0.98387367, 0.99999994, 1)
+self_modulate = Color(1, 0.7341183, 0.49044168, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -155,7 +155,7 @@ patch_margin_right = 142
 patch_margin_bottom = 146
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="." unique_id=1983421565]
-self_modulate = Color(0.7992836, 0.98387367, 0.99999994, 1)
+self_modulate = Color(1, 0.7341183, 0.49044168, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -170,7 +170,7 @@ patch_margin_right = 142
 patch_margin_bottom = 134
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="." unique_id=112354784]
-self_modulate = Color(0.7992836, 0.98387367, 0.99999994, 1)
+self_modulate = Color(1, 0.7341183, 0.49044168, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -185,7 +185,7 @@ patch_margin_right = 125
 patch_margin_bottom = 140
 
 [node name="NinePatchRect5" type="NinePatchRect" parent="." unique_id=35154474]
-self_modulate = Color(0.7992836, 0.98387367, 0.99999994, 1)
+self_modulate = Color(1, 0.7341183, 0.49044168, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
