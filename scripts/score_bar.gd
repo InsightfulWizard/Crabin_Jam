@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var progress_bar: ProgressBar = $ProgressBar
-@onready var water_surface: Sprite2D = $ProgressBar/water_surface
+@onready var water_surface: AnimatedSprite2D = $ProgressBar/water_surface
 
 
 func _ready() -> void:
