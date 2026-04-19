@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvudgxgstvfem"
-path="res://.godot/imported/triangle.png-fbf88cb1e544e801f265668a8e9ebaaf.ctex"
+uid="uid://cw4wuqlrscoq0"
+path="res://.godot/imported/barrel.png-815531be6dbdabd79f19477d521cb394.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tiles/triangle.png"
-dest_files=["res://.godot/imported/triangle.png-fbf88cb1e544e801f265668a8e9ebaaf.ctex"]
+source_file="res://art/Town/barrel.png"
+dest_files=["res://.godot/imported/barrel.png-815531be6dbdabd79f19477d521cb394.ctex"]
 
 [params]
 

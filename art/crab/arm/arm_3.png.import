@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvudgxgstvfem"
-path="res://.godot/imported/triangle.png-fbf88cb1e544e801f265668a8e9ebaaf.ctex"
+uid="uid://cppabp8tk2hmu"
+path="res://.godot/imported/arm_3.png-1c2474e7ac650db882a6d751310c7ac4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tiles/triangle.png"
-dest_files=["res://.godot/imported/triangle.png-fbf88cb1e544e801f265668a8e9ebaaf.ctex"]
+source_file="res://art/crab/arm/arm_3.png"
+dest_files=["res://.godot/imported/arm_3.png-1c2474e7ac650db882a6d751310c7ac4.ctex"]
 
 [params]
 
