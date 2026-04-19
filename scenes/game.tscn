@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://csw065nhfxbot" path="res://scenes/crowd.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c7bl7hg3ofusn" path="res://scenes/speaker.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://bjmdq8hl4rsy7" path="res://scenes/hud.tscn" id="4_p57ef"]
-[ext_resource type="Texture2D" uid="uid://cw4wuqlrscoq0" path="res://art/Town/barrel.png" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c7mdbbn2ya1tf" path="res://scenes/town.tscn" id="5_iywne"]
 
 [node name="game" type="Node2D" unique_id=504948786]
@@ -14,27 +13,8 @@ script = ExtResource("1_lbhrr")
 
 [node name="speaker" parent="." unique_id=151915602 instance=ExtResource("3_iywne")]
 
-[node name="crab" parent="speaker" index="1" unique_id=226795867]
-position = Vector2(614, 444.00003)
-
-[node name="Sprite2D2" parent="speaker" index="3" unique_id=756710099]
-position = Vector2(739.855, 480.105)
-scale = Vector2(0.19112301, 0.1818457)
-
-[node name="Sprite2D3" parent="speaker" index="4" unique_id=1726266390]
-position = Vector2(794.00006, 334)
-scale = Vector2(0.102031246, 0.10325194)
-
-[node name="Sprite2D4" type="Sprite2D" parent="speaker" unique_id=1160815706]
-z_index = -1839
-position = Vector2(788.00006, 412)
-scale = Vector2(0.16593759, 0.1532422)
-texture = ExtResource("4_u5sy4")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=701444802]
 
 [node name="hud" parent="." unique_id=1041986312 instance=ExtResource("4_p57ef")]
 
 [node name="Town" parent="." unique_id=810502582 instance=ExtResource("5_iywne")]
-
-[editable path="speaker"]
