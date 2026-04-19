@@ -16,6 +16,8 @@ const MIN_SCORE = 0
 
 const MAX_SCORE = 500
 
+const SCORE_DECREMENT_PER_ROUND_INITIAL := 20
+
 const MIN_RULES = 1
 
 const MAX_RULES = 3

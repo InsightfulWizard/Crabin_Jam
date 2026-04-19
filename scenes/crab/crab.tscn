@@ -5,20 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dggf50xtku7kd" path="res://art/crab/body_2.png" id="2_aupet"]
 [ext_resource type="Texture2D" uid="uid://ed0xrltdlng" path="res://art/crab/body_3.png" id="3_1uom6"]
 [ext_resource type="Texture2D" uid="uid://by3bwxu3r6rmv" path="res://art/crab/body_4.png" id="4_yk2cj"]
-[ext_resource type="PackedScene" uid="uid://cmsxdw2sok750" path="res://scenes/crab/crab_leg.tscn" id="5_rftv6"]
-[ext_resource type="Texture2D" uid="uid://beeqav87bg3a8" path="res://art/crab/arm/arm_1.png" id="6_drpxh"]
-[ext_resource type="Texture2D" uid="uid://blpvhh5div3o" path="res://art/crab/arm/arm_2.png" id="7_mxkv7"]
-[ext_resource type="Texture2D" uid="uid://cppabp8tk2hmu" path="res://art/crab/arm/arm_3.png" id="8_xas7m"]
-[ext_resource type="Texture2D" uid="uid://b076jmkq5ci7p" path="res://art/crab/arm/arm_4.png" id="9_erwjg"]
-[ext_resource type="Texture2D" uid="uid://bhxdn61mc8syb" path="res://art/crab/arm/claw_1.png" id="10_jcmn2"]
-[ext_resource type="Texture2D" uid="uid://bt071j4etj5ky" path="res://art/crab/arm/claw_2.png" id="11_gnick"]
-[ext_resource type="Texture2D" uid="uid://bbaq1inp1otni" path="res://art/crab/arm/claw_3.png" id="12_epd8f"]
-[ext_resource type="Texture2D" uid="uid://cebxih4261p5g" path="res://art/crab/arm/claw_4.png" id="13_4d8es"]
-[ext_resource type="Texture2D" uid="uid://du1gg4xkwpmjh" path="res://art/crab/arm/pincher_1.png" id="14_2txc7"]
-[ext_resource type="Texture2D" uid="uid://b16pusbfmkjyj" path="res://art/crab/arm/pincher_2.png" id="15_45wo2"]
-[ext_resource type="Texture2D" uid="uid://dtaxcgq3bgfqg" path="res://art/crab/arm/pincher_3.png" id="16_xjiw4"]
-[ext_resource type="Texture2D" uid="uid://dn3wtwe88p5rr" path="res://art/crab/arm/pincher_4.png" id="17_ceh4d"]
-[ext_resource type="Texture2D" uid="uid://cx316py3vud7n" path="res://art/crab/sweat/crab_sweat.png" id="19_drpxh"]
+[ext_resource type="PackedScene" uid="uid://bgscpilwx2vn7" path="res://scenes/crab/crab_arm.tscn" id="6_mxkv7"]
+[ext_resource type="Texture2D" uid="uid://itltvhbswnge" path="res://art/crab/sweat.png" id="17_yk2cj"]
+[ext_resource type="PackedScene" uid="uid://csvut57t4lh36" path="res://scenes/crab/crab_leg_no_ik.tscn" id="19_xas7m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hj1h3"]
 animations = [{
@@ -34,66 +23,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_yk2cj")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ljolo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_drpxh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_mxkv7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_xas7m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_erwjg")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gmyah"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_jcmn2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_gnick")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_epd8f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_4d8es")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cabm5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_2txc7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_45wo2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_xjiw4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_ceh4d")
 }],
 "loop": true,
 "name": &"default",
@@ -118,98 +47,63 @@ scale = Vector2(0.3127897, 0.3127897)
 sprite_frames = SubResource("SpriteFrames_hj1h3")
 autoplay = "default"
 
-[node name="arm_r" type="AnimatedSprite2D" parent="body" unique_id=1258083662]
-z_index = -10
+[node name="arm_r" parent="body" unique_id=263597788 instance=ExtResource("6_mxkv7")]
+visible = false
 position = Vector2(191.82224, -131.07846)
-rotation = 1.0011095
-scale = Vector2(0.99999994, 0.99999994)
-sprite_frames = SubResource("SpriteFrames_ljolo")
-autoplay = "default"
-offset = Vector2(0, -220)
 
-[node name="claw_r" type="AnimatedSprite2D" parent="body/arm_r" unique_id=1376850472]
-position = Vector2(-31.970276, -501.93472)
-rotation = -1.823604
-scale = Vector2(0.99999994, 0.99999994)
-sprite_frames = SubResource("SpriteFrames_gmyah")
-autoplay = "default"
-frame_progress = 0.9702093
-offset = Vector2(79.77, -300.46)
+[node name="arm" parent="body" unique_id=1186130729 instance=ExtResource("6_mxkv7")]
+visible = false
 
-[node name="pincher_r" type="AnimatedSprite2D" parent="body/arm_r/claw_r" unique_id=201083596]
-z_index = -1
-position = Vector2(105.50214, -367.65918)
-scale = Vector2(0.99999994, 0.99999994)
-sprite_frames = SubResource("SpriteFrames_cabm5")
-autoplay = "default"
-offset = Vector2(25.14, -148.415)
+[node name="leg" parent="body" unique_id=1064287738 instance=ExtResource("19_xas7m")]
+z_index = -3
+position = Vector2(169.44292, 204.61032)
+rotation = -1.2666813
 
-[node name="arm_l" type="AnimatedSprite2D" parent="body" unique_id=1625697970]
-z_index = -10
-position = Vector2(-175.83698, -159.8518)
-rotation = -1.1320156
+[node name="leg5" parent="body" unique_id=1267030715 instance=ExtResource("19_xas7m")]
+z_index = -3
+position = Vector2(-294.12732, 204.61029)
+rotation = 1.2032636
 scale = Vector2(-1, 1)
-sprite_frames = SubResource("SpriteFrames_ljolo")
-autoplay = "default"
-offset = Vector2(0, -220)
 
-[node name="claw_l" type="AnimatedSprite2D" parent="body/arm_l" unique_id=89314397]
-position = Vector2(-31.970276, -501.93472)
-rotation = -1.823604
-scale = Vector2(0.99999994, 0.99999994)
-sprite_frames = SubResource("SpriteFrames_gmyah")
-autoplay = "default"
-offset = Vector2(79.77, -300.46)
+[node name="leg6" parent="body" unique_id=1113757655 instance=ExtResource("19_xas7m")]
+z_index = -3
+position = Vector2(-358.06802, 115.09331)
+rotation = 1.2032636
+scale = Vector2(-1, 1)
 
-[node name="pincher_l" type="AnimatedSprite2D" parent="body/arm_l/claw_l" unique_id=857340964]
-z_index = -1
-position = Vector2(105.50214, -367.65918)
-scale = Vector2(0.99999994, 0.99999994)
-sprite_frames = SubResource("SpriteFrames_cabm5")
-autoplay = "default"
-offset = Vector2(25.14, -148.415)
+[node name="leg7" parent="body" unique_id=415373944 instance=ExtResource("19_xas7m")]
+z_index = -3
+position = Vector2(-383.64432, 35.167404)
+rotation = 1.2968423
+scale = Vector2(-1, 1)
 
-[node name="leg_1" parent="." unique_id=175528995 instance=ExtResource("5_rftv6")]
-position = Vector2(81.606476, 35.27353)
+[node name="leg8" parent="body" unique_id=1071851924 instance=ExtResource("19_xas7m")]
+z_index = -3
+position = Vector2(-367.65915, -47.95553)
+rotation = 1.4540297
+scale = Vector2(-1, 1)
 
-[node name="leg_2" parent="." unique_id=1700419121 instance=ExtResource("5_rftv6")]
-position = Vector2(40.606476, 64.27353)
+[node name="leg2" parent="body" unique_id=777506451 instance=ExtResource("19_xas7m")]
+z_index = -3
+position = Vector2(252.56589, 115.09331)
+rotation = -1.2666813
 
-[node name="leg_3" parent="." unique_id=1207014613 instance=ExtResource("5_rftv6")]
-position = Vector2(78.00001, 23)
-rotation = 1.3661985
-scale = Vector2(0.3127897, -0.313)
+[node name="leg3" parent="body" unique_id=1509772323 instance=ExtResource("19_xas7m")]
+z_index = -3
+position = Vector2(306.91547, 9.591087)
+rotation = -1.3092878
 
-[node name="leg_4" parent="." unique_id=1223542898 instance=ExtResource("5_rftv6")]
-position = Vector2(79, -11.999993)
-rotation = 1.3007474
-scale = Vector2(0.3127897, -0.313)
-
-[node name="leg_5" parent="." unique_id=585576489 instance=ExtResource("5_rftv6")]
-position = Vector2(-111, 21)
-rotation = -2.4172826
-scale = Vector2(0.3127903, -0.3127902)
-
-[node name="leg_6" parent="." unique_id=303064597 instance=ExtResource("5_rftv6")]
-position = Vector2(-84, 55)
-rotation = -2.4172826
-scale = Vector2(0.3127903, -0.3127902)
-
-[node name="leg_7" parent="." unique_id=1526468624 instance=ExtResource("5_rftv6")]
-position = Vector2(-119.887695, 5.7131042)
-rotation = 1.7753948
-scale = Vector2(0.31278974, 0.313001)
-
-[node name="leg_8" parent="." unique_id=254043777 instance=ExtResource("5_rftv6")]
-position = Vector2(-90.887695, -23.286896)
-rotation = 1.8408462
-scale = Vector2(0.3127898, 0.31300104)
+[node name="leg4" parent="body" unique_id=2007882796 instance=ExtResource("19_xas7m")]
+z_index = -3
+position = Vector2(271.7481, -54.349613)
+rotation = -1.5501809
 
 [node name="sweat" type="CPUParticles2D" parent="." unique_id=1301874861]
 material = SubResource("CanvasItemMaterial_mxkv7")
 position = Vector2(-8, -32)
+emitting = false
 amount = 15
-texture = ExtResource("19_drpxh")
+texture = ExtResource("17_yk2cj")
 lifetime = 1.41
 randomness = 0.52
 local_coords = true

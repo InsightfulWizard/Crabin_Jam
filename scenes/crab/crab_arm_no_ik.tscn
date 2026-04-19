@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://b8eqb4d5is8ar"]
+
+[ext_resource type="Texture2D" uid="uid://beeqav87bg3a8" path="res://art/crab/arm_1.png" id="1_ublpm"]
+[ext_resource type="Texture2D" uid="uid://blpvhh5div3o" path="res://art/crab/arm_2.png" id="2_oxe7b"]
+[ext_resource type="Texture2D" uid="uid://cppabp8tk2hmu" path="res://art/crab/arm_3.png" id="3_7vjcs"]
+[ext_resource type="Texture2D" uid="uid://b076jmkq5ci7p" path="res://art/crab/arm_4.png" id="4_dnnru"]
+[ext_resource type="Texture2D" uid="uid://bhxdn61mc8syb" path="res://art/crab/claw_1.png" id="5_rtwdv"]
+[ext_resource type="Texture2D" uid="uid://bt071j4etj5ky" path="res://art/crab/claw_2.png" id="6_7v5yk"]
+[ext_resource type="Texture2D" uid="uid://bbaq1inp1otni" path="res://art/crab/claw_3.png" id="7_tkf7b"]
+[ext_resource type="Texture2D" uid="uid://cebxih4261p5g" path="res://art/crab/claw_4.png" id="8_gw7hr"]
+[ext_resource type="Texture2D" uid="uid://du1gg4xkwpmjh" path="res://art/crab/pincher_1.png" id="9_3js0d"]
+[ext_resource type="Texture2D" uid="uid://b16pusbfmkjyj" path="res://art/crab/pincher_2.png" id="10_0nby6"]
+[ext_resource type="Texture2D" uid="uid://dtaxcgq3bgfqg" path="res://art/crab/pincher_3.png" id="11_i8hi1"]
+[ext_resource type="Texture2D" uid="uid://dn3wtwe88p5rr" path="res://art/crab/pincher_4.png" id="12_eiy6g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ljolo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ublpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oxe7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7vjcs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dnnru")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gmyah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_rtwdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7v5yk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tkf7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gw7hr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cabm5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_3js0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0nby6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_i8hi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_eiy6g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="arm_r" type="AnimatedSprite2D" unique_id=263597788]
+z_index = -10
+rotation = 1.0011095
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_ljolo")
+autoplay = "default"
+offset = Vector2(0, -220)
+
+[node name="claw_r" type="AnimatedSprite2D" parent="." unique_id=1921417583]
+position = Vector2(-31.970276, -501.93472)
+rotation = -1.823604
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_gmyah")
+autoplay = "default"
+frame_progress = 0.9702093
+offset = Vector2(79.77, -300.46)
+
+[node name="pincher_r" type="AnimatedSprite2D" parent="claw_r" unique_id=1907490627]
+z_index = -1
+position = Vector2(105.50214, -367.65918)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_cabm5")
+autoplay = "default"
+offset = Vector2(25.14, -148.415)

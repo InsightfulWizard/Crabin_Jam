@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://b5xenegjrrkvn" path="res://scripts/score_bar.gd" id="4_0i1j5"]
 [ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="5_mphia"]
 [ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="6_0m4u7"]
-[ext_resource type="Script" path="res://scripts/speech_timer_bar.gd" id="7_5pdws"]
+[ext_resource type="Script" uid="uid://c2qummvstpvif" path="res://scripts/speech_timer_bar.gd" id="7_5pdws"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
 texture = ExtResource("5_mphia")
@@ -69,6 +69,12 @@ offset_right = 1718.9307
 offset_bottom = 1911.5969
 scale = Vector2(0.19669233, 0.19669233)
 
+[node name="score_label" type="Label" parent="score" unique_id=1133529709]
+offset_left = 1085.0
+offset_top = 98.0
+offset_right = 1125.0
+offset_bottom = 121.0
+
 [node name="facier_ui2" parent="." unique_id=1788682475 instance=ExtResource("6_0m4u7")]
 z_index = -769
 offset_left = 14.0
@@ -113,4 +119,3 @@ theme_override_styles/background = SubResource("StyleBoxFlat_hd3ao")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5pdws")
 value = 14.97
 show_percentage = false
-metadata/_edit_use_anchors_ = true

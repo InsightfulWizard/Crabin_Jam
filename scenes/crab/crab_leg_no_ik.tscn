@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://csvut57t4lh36"]
+
+[ext_resource type="Texture2D" uid="uid://343u20yyg7r7" path="res://art/crab/leg_1_1.png" id="1_d2po2"]
+[ext_resource type="Texture2D" uid="uid://cqni4ldfp1etg" path="res://art/crab/leg_1_2.png" id="2_5xvbr"]
+[ext_resource type="Texture2D" uid="uid://lib2m66rsfgg" path="res://art/crab/leg_1_3.png" id="3_s5xx0"]
+[ext_resource type="Texture2D" uid="uid://qms3jbn3q28v" path="res://art/crab/leg_1_4.png" id="4_ds0dd"]
+[ext_resource type="Texture2D" uid="uid://befjed07x75sl" path="res://art/crab/leg_2_1.png" id="5_kxbiu"]
+[ext_resource type="Texture2D" uid="uid://cttcyfhyetyuk" path="res://art/crab/leg_2_2.png" id="6_fpwna"]
+[ext_resource type="Texture2D" uid="uid://yde3g5uyvvpb" path="res://art/crab/leg_2_3.png" id="7_dcome"]
+[ext_resource type="Texture2D" uid="uid://cdvkboucp75tn" path="res://art/crab/leg_2_4.png" id="8_p3sag"]
+[ext_resource type="Texture2D" uid="uid://c4xmwsgpqlcyi" path="res://art/crab/leg_3_1.png" id="9_rlqhg"]
+[ext_resource type="Texture2D" uid="uid://bkq7ikkmlctai" path="res://art/crab/leg_3_2.png" id="10_itn3m"]
+[ext_resource type="Texture2D" uid="uid://cfrqh8ekur58a" path="res://art/crab/leg_3_3.png" id="11_w56k1"]
+[ext_resource type="Texture2D" uid="uid://bcubfxvpmvxu1" path="res://art/crab/leg_3_4.png" id="12_jkwuq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xc8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d2po2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5xvbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s5xx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ds0dd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_503lu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kxbiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fpwna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dcome")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p3sag")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fm78s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_rlqhg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_itn3m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w56k1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jkwuq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_d2po2"]
+resource_name = "neutral"
+length = 0.76666665
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5xvbr"]
+_data = {
+&"neutral": SubResource("Animation_d2po2")
+}
+
+[node name="leg" type="Node2D" unique_id=1064287738]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=1641332892]
+
+[node name="1" type="Bone2D" parent="Skeleton2D" unique_id=1238035347]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="leg_1" type="AnimatedSprite2D" parent="Skeleton2D/1" unique_id=899544158]
+z_index = 2
+position = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_4xc8i")
+offset = Vector2(23, 147)
+
+[node name="2" type="Bone2D" parent="Skeleton2D/1" unique_id=860350822]
+position = Vector2(67, 289)
+rotation = 0.16406097
+scale = Vector2(0.9999993, 0.9999993)
+rest = Transform2D(0.98657155, 0.16332586, -0.16332586, 0.98657155, 67, 289)
+
+[node name="leg_2" type="AnimatedSprite2D" parent="Skeleton2D/1/2" unique_id=1835338352]
+z_index = 1
+position = Vector2(-9, 6)
+sprite_frames = SubResource("SpriteFrames_503lu")
+offset = Vector2(-5, 55)
+
+[node name="3" type="Bone2D" parent="Skeleton2D/1/2" unique_id=1150706934]
+position = Vector2(-26, 123)
+rotation = 0.65100783
+scale = Vector2(0.9999995, 0.9999995)
+rest = Transform2D(0.7954731, 0.60598814, -0.60598814, 0.7954731, -26, 123)
+
+[node name="leg_3" type="AnimatedSprite2D" parent="Skeleton2D/1/2/3" unique_id=960939747]
+position = Vector2(1, -5)
+sprite_frames = SubResource("SpriteFrames_fm78s")
+offset = Vector2(-18, 108)
+
+[node name="tip" type="Bone2D" parent="Skeleton2D/1/2/3" unique_id=1896592082]
+position = Vector2(-14, 213)
+rest = Transform2D(1, 0, 0, 1, -14, 213)
+
+[node name="target" type="Node2D" parent="Skeleton2D" unique_id=1738720705]
+position = Vector2(-241, 518)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1651220511]
+libraries/ = SubResource("AnimationLibrary_5xvbr")
