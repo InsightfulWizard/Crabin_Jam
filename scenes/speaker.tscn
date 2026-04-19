@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7bl7hg3ofusn"]
 
-[ext_resource type="PackedScene" uid="uid://fc168jipbmh0" path="res://scenes/crab.tscn" id="1_e1qhi"]
+[ext_resource type="PackedScene" uid="uid://fc168jipbmh0" path="res://scenes/crab/crab.tscn" id="1_e1qhi"]
 [ext_resource type="Texture2D" uid="uid://vxnxcb620a4i" path="res://art/stage.png" id="1_h6vvc"]
 [ext_resource type="Texture2D" uid="uid://cxvdxv6jl5qdm" path="res://art/podium.png" id="2_h6vvc"]
 

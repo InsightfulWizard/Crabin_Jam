@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bxueqrayukue2"]
+
+[ext_resource type="Texture2D" uid="uid://itltvhbswnge" path="res://art/crab/sweat.png" id="1_yoeys"]
+[ext_resource type="Texture2D" uid="uid://c7rh0xwldw1gr" path="res://art/crab/sweat_boil_1.png" id="2_fktr2"]
+[ext_resource type="Texture2D" uid="uid://b3iwcwsl2oj4d" path="res://art/crab/sweat_boil_2.png" id="3_ftons"]
+[ext_resource type="Texture2D" uid="uid://po37oh3dbdsv" path="res://art/crab/sweat_boil_3.png" id="4_fo4mh"]
+[ext_resource type="Texture2D" uid="uid://s5kxadrxdijx" path="res://art/crab/sweat_boil_4.png" id="5_wlvkc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2txc7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fktr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ftons")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fo4mh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wlvkc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="sweat" type="Sprite2D" unique_id=1635618789]
+rotation = 3.1415927
+texture = ExtResource("1_yoeys")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1962433000]
+sprite_frames = SubResource("SpriteFrames_2txc7")
+frame = 2
+frame_progress = 0.7671361
