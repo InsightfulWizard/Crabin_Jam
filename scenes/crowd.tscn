@@ -1,84 +1,408 @@
 [gd_scene format=3 uid="uid://csw065nhfxbot"]
 
-[ext_resource type="PackedScene" uid="uid://viiv7j7suowg" path="res://scenes/chef_1.tscn" id="1_31vpn"]
-[ext_resource type="PackedScene" uid="uid://bip4ohvcdadr6" path="res://scenes/chef_2.tscn" id="2_fvvip"]
-[ext_resource type="PackedScene" uid="uid://o03bhcag80i6" path="res://scenes/chef_3.tscn" id="3_xfuro"]
+[ext_resource type="Texture2D" uid="uid://vxnxcb620a4i" path="res://art/stage.png" id="2_w6bl1"]
+[ext_resource type="PackedScene" uid="uid://fc168jipbmh0" path="res://scenes/crab/crab.tscn" id="3_g4tg5"]
+[ext_resource type="Texture2D" uid="uid://bsuicm2w546ey" path="res://art/Town/post.png" id="4_cahu5"]
+[ext_resource type="Texture2D" uid="uid://qq23rark2gxp" path="res://art/chefs/angry/Chefs_Angry-1.png" id="4_dg87l"]
+[ext_resource type="Texture2D" uid="uid://dt3infj4uuf6f" path="res://art/chefs/angry/Chefs_Angry-2.png" id="5_eyd74"]
+[ext_resource type="Texture2D" uid="uid://camb5gasxffk0" path="res://art/Town/crate.png" id="5_ps770"]
+[ext_resource type="Texture2D" uid="uid://cw4wuqlrscoq0" path="res://art/Town/barrel.png" id="6_80sem"]
+[ext_resource type="Texture2D" uid="uid://dqxppe8alutkd" path="res://art/chefs/angry/Chefs_Angry-3.png" id="6_sx74c"]
+[ext_resource type="Texture2D" uid="uid://dimkx3byw1fdi" path="res://art/chefs/angry/Chefs_Angry-4.png" id="7_w6bl1"]
+[ext_resource type="Texture2D" uid="uid://btjbc0uvw2vno" path="res://art/chefs/happy/Chefs_Happy-1.png" id="8_g4tg5"]
+[ext_resource type="Texture2D" uid="uid://bydsi1fgyogkj" path="res://art/chefs/happy/Chefs_Happy-2.png" id="9_cahu5"]
+[ext_resource type="Texture2D" uid="uid://b1cciexgdam8i" path="res://art/chefs/happy/Chefs_Happy-3.png" id="10_ps770"]
+[ext_resource type="Texture2D" uid="uid://cvbad1kvky5a1" path="res://art/chefs/happy/Chefs_Happy-4.png" id="11_80sem"]
+[ext_resource type="Texture2D" uid="uid://k73de4e68pan" path="res://art/chefs/chef_1_1.png" id="12_xoe8e"]
+[ext_resource type="Texture2D" uid="uid://c2se4dhns11aa" path="res://art/chefs/chef_1_2.png" id="13_gl4e7"]
+[ext_resource type="Texture2D" uid="uid://sla6btwsrm5e" path="res://art/chefs/chef_1_3.png" id="14_ucld5"]
+[ext_resource type="Texture2D" uid="uid://dovfbtws3nufy" path="res://art/chefs/chef_1_4.png" id="15_sgvaf"]
+[ext_resource type="Texture2D" uid="uid://brwujrgvdu43a" path="res://art/chefs/angry/Chefs_Angry-5.png" id="16_nx65f"]
+[ext_resource type="Texture2D" uid="uid://dhafx18r7g58a" path="res://art/chefs/angry/Chefs_Angry-6.png" id="17_rvy7g"]
+[ext_resource type="Texture2D" uid="uid://dr3fhqjwre4m8" path="res://art/chefs/angry/Chefs_Angry-7.png" id="18_mn8ub"]
+[ext_resource type="Texture2D" uid="uid://73mlqy4ge8cg" path="res://art/chefs/angry/Chefs_Angry-8.png" id="19_ba1cr"]
+[ext_resource type="Texture2D" uid="uid://ddtmwwqixibxt" path="res://art/chefs/happy/Chefs_Happy-5.png" id="20_hys7b"]
+[ext_resource type="Texture2D" uid="uid://cvt5gthp1hyw1" path="res://art/chefs/happy/Chefs_Happy-6.png" id="21_04cct"]
+[ext_resource type="Texture2D" uid="uid://bmf2et12qrdt0" path="res://art/chefs/happy/Chefs_Happy-7.png" id="22_u0enq"]
+[ext_resource type="Texture2D" uid="uid://ip0265r2mib2" path="res://art/chefs/happy/Chefs_Happy-8.png" id="23_s5115"]
+[ext_resource type="Texture2D" uid="uid://c8ggbvdbhcq1s" path="res://art/chefs/chef_2_1.png" id="24_76mis"]
+[ext_resource type="Texture2D" uid="uid://cact7of4uqt4" path="res://art/chefs/chef_2_2.png" id="25_cxqq8"]
+[ext_resource type="Texture2D" uid="uid://25jk2v2st11l" path="res://art/chefs/chef_2_3.png" id="26_cpjmu"]
+[ext_resource type="Texture2D" uid="uid://cob213fch5rak" path="res://art/chefs/chef_2_4.png" id="27_mvksl"]
+[ext_resource type="Texture2D" uid="uid://b863da7fltxpw" path="res://art/chefs/angry/Chefs_Angry-9.png" id="28_7p6bk"]
+[ext_resource type="Texture2D" uid="uid://cunc77ebqoryp" path="res://art/chefs/angry/Chefs_Angry-10.png" id="29_g8p7m"]
+[ext_resource type="Texture2D" uid="uid://brpw4nf5uhs4j" path="res://art/chefs/angry/Chefs_Angry-11.png" id="30_8egwd"]
+[ext_resource type="Texture2D" uid="uid://cb2b7k0caa6qm" path="res://art/chefs/angry/Chefs_Angry-12.png" id="31_v308a"]
+[ext_resource type="Texture2D" uid="uid://lr1st4ly5hyk" path="res://art/chefs/happy/Chefs_Happy-9.png" id="32_7wmc2"]
+[ext_resource type="Texture2D" uid="uid://cdh8bsl8bk1dh" path="res://art/chefs/happy/Chefs_Happy-10.png" id="33_870rh"]
+[ext_resource type="Texture2D" uid="uid://cyj4m450pbplg" path="res://art/chefs/happy/Chefs_Happy-11.png" id="34_30s6c"]
+[ext_resource type="Texture2D" uid="uid://c7jvn4ywpaeex" path="res://art/chefs/happy/Chefs_Happy-12.png" id="35_a5e1q"]
+[ext_resource type="Texture2D" uid="uid://bc3mr6uy8lbxe" path="res://art/chefs/chef_3_1.png" id="36_jh5qu"]
+[ext_resource type="Texture2D" uid="uid://cgeikotjrfsto" path="res://art/chefs/chef_3_2.png" id="37_8hwh4"]
+[ext_resource type="Texture2D" uid="uid://b4ri5hbb60pkj" path="res://art/chefs/chef_3_3.png" id="38_b0pdo"]
+[ext_resource type="Texture2D" uid="uid://btdh40yfsi8ud" path="res://art/chefs/chef_3_4.png" id="39_i6gbh"]
+[ext_resource type="Script" uid="uid://c5qjnxirijruj" path="res://scripts/tiles/chef.gd" id="40_08er1"]
+[ext_resource type="Texture2D" uid="uid://bgjgixjauygy5" path="res://art/Town/town.png" id="41_eyd74"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u83yg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dg87l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eyd74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sx74c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w6bl1")
+}],
+"loop": true,
+"name": &"chef_1_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_g4tg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cahu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ps770")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_80sem")
+}],
+"loop": true,
+"name": &"chef_1_happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_xoe8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gl4e7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ucld5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_sgvaf")
+}],
+"loop": true,
+"name": &"chef_1_neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_nx65f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rvy7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_mn8ub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ba1cr")
+}],
+"loop": true,
+"name": &"chef_2_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_hys7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_04cct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_u0enq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_s5115")
+}],
+"loop": true,
+"name": &"chef_2_happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_76mis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_cxqq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_cpjmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_mvksl")
+}],
+"loop": true,
+"name": &"chef_2_neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_7p6bk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_g8p7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_8egwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_v308a")
+}],
+"loop": true,
+"name": &"chef_3_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_7wmc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_870rh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_30s6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_a5e1q")
+}],
+"loop": true,
+"name": &"chef_3_happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_jh5qu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_8hwh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_b0pdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_i6gbh")
+}],
+"loop": true,
+"name": &"chef_3_neutral",
+"speed": 5.0
+}]
 
 [node name="crowd" type="CanvasLayer" unique_id=2082014096]
 
-[node name="chef_1" parent="." unique_id=358088398 instance=ExtResource("1_31vpn")]
-position = Vector2(207.79999, 442.79996)
-scale = Vector2(0.4, 0.4)
+[node name="speaker" type="CanvasLayer" parent="." unique_id=151915602]
 
-[node name="chef_2" parent="." unique_id=1623982612 instance=ExtResource("2_fvvip")]
-position = Vector2(73.000015, 455.99997)
-scale = Vector2(0.4, 0.4)
+[node name="Sprite2D" type="Sprite2D" parent="speaker" unique_id=1644161732]
+visible = false
+z_index = -2406
+position = Vector2(589.935, 563.985)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("2_w6bl1")
 
-[node name="chef_13" parent="." unique_id=1896735086 instance=ExtResource("2_fvvip")]
-position = Vector2(501, 469.99997)
-scale = Vector2(0.4, 0.4)
+[node name="crab" parent="speaker" unique_id=226795867 instance=ExtResource("3_g4tg5")]
+position = Vector2(619, 450)
+scale = Vector2(0.7869104, 0.7869104)
 
-[node name="chef_3" parent="." unique_id=1520690260 instance=ExtResource("3_xfuro")]
-position = Vector2(357, 453)
-scale = Vector2(0.4, 0.4)
+[node name="podium" type="Sprite2D" parent="speaker" unique_id=336125010]
+z_index = -1000
+position = Vector2(603, 597)
+scale = Vector2(0.3960543, 0.3960543)
+texture = ExtResource("4_cahu5")
 
-[node name="chef_14" parent="." unique_id=201236598 instance=ExtResource("3_xfuro")]
-position = Vector2(629, 473)
-scale = Vector2(0.4, 0.4)
+[node name="podium2" type="Sprite2D" parent="speaker" unique_id=178115160]
+z_index = -1844
+position = Vector2(804.61127, 363.48627)
+scale = Vector2(0.05978753, 0.12790282)
+texture = ExtResource("4_cahu5")
 
-[node name="chef_4" parent="." unique_id=1362468211 instance=ExtResource("1_31vpn")]
-position = Vector2(769, 470)
-scale = Vector2(0.4, 0.4)
+[node name="Sprite2D2" type="Sprite2D" parent="speaker" unique_id=756710099]
+z_index = -1784
+position = Vector2(330.1825, 694.15125)
+scale = Vector2(0.35387203, 0.29912353)
+texture = ExtResource("5_ps770")
 
-[node name="chef_5" parent="." unique_id=2126484861 instance=ExtResource("2_fvvip")]
-position = Vector2(919.99994, 463)
-scale = Vector2(0.4, 0.4)
+[node name="Sprite2D5" type="Sprite2D" parent="speaker" unique_id=804272208]
+z_index = -1784
+position = Vector2(102, 721)
+scale = Vector2(0.35387203, 0.29912353)
+texture = ExtResource("5_ps770")
 
-[node name="chef_6" parent="." unique_id=10606131 instance=ExtResource("3_xfuro")]
-position = Vector2(1063, 464)
-scale = Vector2(0.4, 0.4)
+[node name="Sprite2D3" type="Sprite2D" parent="speaker" unique_id=1726266390]
+z_index = -1858
+position = Vector2(819.29443, 308.57565)
+scale = Vector2(0.045496874, 0.05581182)
+texture = ExtResource("5_ps770")
 
-[node name="chef_7" parent="." unique_id=583105576 instance=ExtResource("1_31vpn")]
-z_index = -335
-position = Vector2(986, 328.00003)
-scale = Vector2(0.3, 0.3)
+[node name="Sprite2D4" type="Sprite2D" parent="speaker" unique_id=1171605796]
+z_index = -1839
+position = Vector2(779.99994, 457.00003)
+scale = Vector2(0.14229497, 0.14644529)
+texture = ExtResource("6_80sem")
 
-[node name="chef_8" parent="." unique_id=1893683446 instance=ExtResource("2_fvvip")]
-z_index = -335
-position = Vector2(1140, 349.00003)
-scale = Vector2(0.3, 0.3)
+[node name="Town" type="Node" parent="." unique_id=810502582]
 
-[node name="chef_9" parent="." unique_id=1790216922 instance=ExtResource("3_xfuro")]
-z_index = -335
-position = Vector2(842, 349)
-scale = Vector2(0.3, 0.3)
+[node name="Sprite2D" type="Sprite2D" parent="Town" unique_id=1946502406]
+z_index = -700
+position = Vector2(578.57, 236.405)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("41_eyd74")
 
-[node name="chef_10" parent="." unique_id=976508796 instance=ExtResource("1_31vpn")]
-z_index = -335
-position = Vector2(389, 337)
-scale = Vector2(0.3, 0.3)
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=1286777858 node_paths=PackedStringArray("animated_sprite")]
+position = Vector2(247.99998, 440.99997)
+scale = Vector2(0.42578134, 0.40136722)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_3_neutral"
+script = ExtResource("40_08er1")
+character_type = 2
+animated_sprite = NodePath(".")
+switch_chance = 0.2
 
-[node name="chef_11" parent="." unique_id=1390975055 instance=ExtResource("2_fvvip")]
-z_index = -335
-position = Vector2(149, 297)
-scale = Vector2(0.3, 0.3)
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="." unique_id=45597240 node_paths=PackedStringArray("animated_sprite")]
+position = Vector2(665.00006, 420)
+scale = Vector2(0.31689444, 0.3059082)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_3_neutral"
+script = ExtResource("40_08er1")
+character_type = 2
+animated_sprite = NodePath(".")
+switch_chance = 0.2
 
-[node name="chef_12" parent="." unique_id=2006001197 instance=ExtResource("3_xfuro")]
-z_index = -335
-position = Vector2(281, 327)
-scale = Vector2(0.3, 0.3)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=796620968 node_paths=PackedStringArray("animated_sprite")]
+position = Vector2(513, 434.00003)
+scale = Vector2(0.37011722, 0.38671875)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_1_neutral"
+script = ExtResource("40_08er1")
+animated_sprite = NodePath(".")
+switch_chance = 0.2
 
-[node name="chef_15" parent="." unique_id=317616510 instance=ExtResource("1_31vpn")]
-z_index = -397
-position = Vector2(445, 235.99998)
-scale = Vector2(0.2, 0.2)
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1696688817 node_paths=PackedStringArray("animated_sprite")]
+z_index = -1
+position = Vector2(384, 427)
+scale = Vector2(0.41650394, 0.4174805)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_2_neutral"
+script = ExtResource("40_08er1")
+character_type = 1
+animated_sprite = NodePath(".")
+switch_chance = 0.2
 
-[node name="chef_16" parent="." unique_id=1917647043 instance=ExtResource("2_fvvip")]
-z_index = -397
-position = Vector2(326, 230.00002)
-scale = Vector2(0.2, 0.2)
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="." unique_id=414044484 node_paths=PackedStringArray("animated_sprite")]
+z_index = -1
+position = Vector2(579, 386)
+scale = Vector2(-0.289, 0.296)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_2_neutral"
+script = ExtResource("40_08er1")
+character_type = 1
+animated_sprite = NodePath(".")
+switch_chance = 0.2
 
-[node name="chef_17" parent="." unique_id=1684519441 instance=ExtResource("3_xfuro")]
-z_index = -397
-position = Vector2(237.00005, 223.00002)
-scale = Vector2(0.2, 0.2)
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="." unique_id=629509600 node_paths=PackedStringArray("animated_sprite")]
+z_index = -7
+position = Vector2(733.00006, 353)
+scale = Vector2(0.21313477, 0.2231445)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_1_neutral"
+script = ExtResource("40_08er1")
+animated_sprite = NodePath(".")
+switch_chance = 0.2
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="." unique_id=247531330 node_paths=PackedStringArray("animated_sprite")]
+z_index = -12
+position = Vector2(439, 379.99997)
+scale = Vector2(-0.27165163, 0.2775213)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_3_neutral"
+script = ExtResource("40_08er1")
+character_type = 2
+animated_sprite = NodePath(".")
+switch_chance = 0.2
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="." unique_id=588353872 node_paths=PackedStringArray("animated_sprite")]
+z_index = -7
+position = Vector2(548, 338.00003)
+rotation = -3.1415925
+scale = Vector2(0.20197526, -0.2141801)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_1_neutral"
+script = ExtResource("40_08er1")
+animated_sprite = NodePath(".")
+switch_chance = 0.2
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="." unique_id=1118775951 node_paths=PackedStringArray("animated_sprite")]
+z_index = -19
+position = Vector2(759, 306)
+scale = Vector2(0.16949469, 0.17474371)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_2_neutral"
+script = ExtResource("40_08er1")
+character_type = 1
+animated_sprite = NodePath(".")
+switch_chance = 0.2
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="." unique_id=1790007334 node_paths=PackedStringArray("animated_sprite")]
+z_index = -12
+position = Vector2(632.00006, 378)
+scale = Vector2(-0.222, 0.249)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_3_neutral"
+script = ExtResource("40_08er1")
+character_type = 2
+animated_sprite = NodePath(".")
+switch_chance = 0.2
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="." unique_id=1175668939 node_paths=PackedStringArray("animated_sprite")]
+z_index = -7
+position = Vector2(328.00003, 408.00003)
+rotation = -3.1415925
+scale = Vector2(-0.269, -0.272)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_1_neutral"
+script = ExtResource("40_08er1")
+animated_sprite = NodePath(".")
+switch_chance = 0.2
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="." unique_id=311242344 node_paths=PackedStringArray("animated_sprite")]
+z_index = -76
+position = Vector2(513, 322)
+scale = Vector2(0.25284573, 0.26259613)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_2_neutral"
+script = ExtResource("40_08er1")
+character_type = 1
+animated_sprite = NodePath(".")
+switch_chance = 0.2
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="." unique_id=441988543 node_paths=PackedStringArray("animated_sprite")]
+z_index = -24
+position = Vector2(681, 326)
+scale = Vector2(-0.183, 0.212)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_3_neutral"
+script = ExtResource("40_08er1")
+character_type = 2
+animated_sprite = NodePath(".")
+switch_chance = 0.2
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="." unique_id=1076381835 node_paths=PackedStringArray("animated_sprite")]
+z_index = -48
+position = Vector2(632, 326)
+scale = Vector2(0.21899414, 0.25732422)
+sprite_frames = SubResource("SpriteFrames_u83yg")
+animation = &"chef_1_neutral"
+script = ExtResource("40_08er1")
+animated_sprite = NodePath(".")
+switch_chance = 0.2

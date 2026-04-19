@@ -8,7 +8,7 @@ var current_snap = null
 
 var current_score: int = roundi(float(Constants.MAX_SCORE) * .6)
 var recent_score: int = 0
-var time_per_phrase: float = 15.0
+var time_per_phrase: float = 30.0
 var score_decrement_per_round: int = Constants.SCORE_DECREMENT_PER_ROUND_INITIAL
 
 var is_menu_open := true
@@ -23,8 +23,10 @@ enum {
 var state := STRESSED
 
 signal score_changed(score: int)
+signal state_changed(new_state:int)
 signal menu_opened
 signal menu_closed
+signal half_timer
 
 
 func _input(_event):
@@ -70,11 +72,19 @@ func set_current_score(score: int): # replace the other one
 	emit_signal('score_changed', current_score)
 
 
+<<<<<<< HEAD
 func change_state(s: int):
 	if state == s:
 		return
 	state = s
 	emit_signal('state_changed', s)
+=======
+func change_state(s:int):
+	if state == s:
+		return
+	state = s
+	emit_signal('state_changed', s )
+>>>>>>> main
 
 
 func set_hovered_tile(tile: Node2D):

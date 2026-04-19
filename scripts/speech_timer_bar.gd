@@ -9,6 +9,7 @@ const MAX_JITTER := 3.0
 var pos_initial: Vector2
 
 
+
 func _ready() -> void:
 	pos_initial = position
 	GameState.connect('menu_opened', _on_menu_open)
@@ -44,6 +45,11 @@ func start_timer(time: float = GameState.time_per_phrase):
 	tween.tween_property(progress_bar, 'value', 100.0, time)
 	tween.set_ease(Tween.EASE_IN)
 	tween.parallel().tween_property(self, 'jitter_factor', 1.0, time)
+	
+	get_tree().create_timer(0.1).timeout.connect(func():
+		GameState.emit_signal('half_timer')
+	)
+	
 	await tween.finished
 	timing = false
 	Util.hud.submit_output_trays()
