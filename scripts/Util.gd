@@ -2,6 +2,7 @@ extends Node
 
 var hud: CanvasLayer
 var crab: Node2D
+var menu
 #var speaker: CanvasLayer
 #var crowd: CanvasLayer
 

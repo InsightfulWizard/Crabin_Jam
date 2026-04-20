@@ -66,6 +66,8 @@ func set_current_score(score: int): # replace the other one
 	current_score = clamp(current_score + score, Constants.MIN_SCORE, Constants.MAX_SCORE)
 	if current_score == Constants.MAX_SCORE:
 		win()
+	if current_score == Constants.MIN_SCORE:
+		lose()
 	if current_score > Constants.CHILLIN_THRESH:
 		change_state(CHILLIN)
 	elif current_score < Constants.DREAD_THRESH:
@@ -103,7 +105,13 @@ func exit_game():
 
 
 func win():
+	emit_signal('menu_opened')
+	Util.menu.switch_to_menu(Util.menu.WIN)
 	print('You\'ve convinced them!  Your shell did not crack under the pressure!')
+
+func lose():
+	emit_signal('menu_opened')
+	Util.menu.switch_to_menu(Util.menu.LOSE)
 
 
 func update_potential_score():

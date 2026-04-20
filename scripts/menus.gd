@@ -21,20 +21,31 @@ var mouse_sensitivity_default: float
 
 var current_menu:int = MAIN_MENU
 
+
+@onready var win: Control = $win
+@onready var lose: Control = $lose
+
+
 enum {
 	MAIN_MENU,
-	SETTINGS
+	SETTINGS,
+	WIN,
+	LOSE
 }
 
 
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	
+	Util.menu = self
 	menus.append(main_menu)
 	main_menu.visible = true
 	menus.append(settings)
 	settings.visible = false
+	menus.append(win)
+	win.visible = false
+	menus.append(lose)
+	lose.visible = false
 	
 	visible = GameState.is_menu_open
 	GameState.connect('menu_opened', _on_menu_opened)
@@ -58,6 +69,9 @@ func _on_menu_opened():
 	visible = true
 	
 func _on_menu_closed():
+	if win.visible or lose.visible:
+		win.visible = false
+		lose.visible = false
 	visible = false
 	switch_to_menu(MAIN_MENU)
 

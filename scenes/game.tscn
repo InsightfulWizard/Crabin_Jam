@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c7bl7hg3ofusn" path="res://scenes/speaker.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://bjmdq8hl4rsy7" path="res://scenes/hud.tscn" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://c7mdbbn2ya1tf" path="res://scenes/town.tscn" id="5_iywne"]
-[ext_resource type="Script" path="res://scripts/menus.gd" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="7_gee14"]
+[ext_resource type="Script" uid="uid://blv80jcr7dq44" path="res://scripts/menus.gd" id="7_u5sy4"]
 
 [node name="game" type="Node2D" unique_id=552060712]
 script = ExtResource("1_lbhrr")
@@ -35,6 +36,15 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="fancier_Ui3" parent="menus/main_menu" unique_id=1759600616 instance=ExtResource("7_gee14")]
+z_index = -6
+layout_mode = 0
+offset_left = 408.0
+offset_top = 98.0
+offset_right = 1895.4124
+offset_bottom = 878.35266
+scale = Vector2(0.23194642, 0.23194642)
+
 [node name="play" type="Button" parent="menus/main_menu" unique_id=793605512]
 layout_mode = 1
 anchors_preset = 8
@@ -42,9 +52,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 453.0
+offset_left = 417.0
 offset_top = 115.0
-offset_right = 736.0
+offset_right = 700.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -57,9 +67,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 508.0
+offset_left = 472.0
 offset_top = 206.0
-offset_right = 645.0
+offset_right = 609.0
 offset_bottom = 237.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -72,9 +82,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 652.0
+offset_left = 616.0
 offset_top = 206.0
-offset_right = 688.0
+offset_right = 652.0
 offset_bottom = 237.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -86,6 +96,15 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="fancier_Ui4" parent="menus/settings_menu" unique_id=247656846 instance=ExtResource("7_gee14")]
+z_index = -6
+layout_mode = 0
+offset_left = 408.0
+offset_top = 98.0
+offset_right = 1895.4124
+offset_bottom = 878.35266
+scale = Vector2(0.23194642, 0.23194642)
+
 [node name="to_main" type="Button" parent="menus/settings_menu" unique_id=2059271361]
 layout_mode = 1
 anchors_preset = 8
@@ -93,10 +112,58 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 453.0
+offset_left = 417.0
 offset_top = 115.0
-offset_right = 736.0
+offset_right = 700.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "I think I'm ready..."
+
+[node name="win" type="Control" parent="menus" unique_id=682515032]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="fancier_Ui" parent="menus/win" unique_id=512027642 instance=ExtResource("7_gee14")]
+layout_mode = 0
+offset_left = 16.000008
+offset_top = 15.999998
+offset_right = 4646.149
+offset_bottom = 2551.6558
+scale = Vector2(0.24254078, 0.24254078)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="menus/win/fancier_Ui" unique_id=2130689282]
+layout_mode = 0
+offset_left = 1092.5997
+offset_top = 581.3455
+offset_right = 3483.9502
+offset_bottom = 1974.9255
+theme_override_font_sizes/normal_font_size = 271
+text = "You've done it!"
+
+[node name="lose" type="Control" parent="menus" unique_id=450597829]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="fancier_Ui" parent="menus/lose" unique_id=1404233925 instance=ExtResource("7_gee14")]
+layout_mode = 0
+offset_left = 16.000008
+offset_top = 15.999998
+offset_right = 4646.149
+offset_bottom = 2551.656
+scale = Vector2(0.24254078, 0.24254078)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="menus/lose/fancier_Ui" unique_id=773214162]
+layout_mode = 0
+offset_left = 907.06396
+offset_top = 618.4527
+offset_right = 3937.482
+offset_bottom = 2012.0327
+theme_override_font_sizes/normal_font_size = 271
+text = "Your shell cracked under the pressure "
