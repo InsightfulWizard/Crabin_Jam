@@ -32,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func start_timer(time: float = GameState.time_per_phrase):
-	AudioManager.play_sfx(AudioManager.call_start, 18)
+	AudioManager.play_sfx(AudioManager.call_start, 5.0)
 	if !Constants.USE_SPEECH_TIMER:
 		return
 	timing = true
@@ -55,7 +55,7 @@ func start_timer(time: float = GameState.time_per_phrase):
 
 	get_tree().create_timer(Constants.USE_SPEECH_TIME - 3.0).timeout.connect(
 		func():
-			AudioManager.play_sfx_from_array(AudioManager.stutter, 15.0)
+			AudioManager.play_sfx_from_array(AudioManager.stutter, 5.0)
 	)
 
 	await tween.finished

@@ -5,8 +5,6 @@ extends CanvasLayer
 @onready var speech_timer_bar: Node2D = $speech_timer_bar
 @onready var score: Node2D = $score
 
-var rules_engine: RulesEngine = RulesEngine.new()
-
 @onready var output_trays: Array[Node2D] = [
 	output_tray_1,
 	output_tray_2,
@@ -39,7 +37,7 @@ func submit_output_trays():
 
 func grade_output_tray():
 	var solution = "".join(output_trays[current_output_tray].get_output_values())
-	rules_engine.evaluate_solution(solution)
+	GameState.rules_engine.evaluate_solution(solution)
 	print("Solution: '%s' | Score: %d" % [solution, GameState.recent_score])
 	# print("vals: ", vals)
 	#grading logic
@@ -47,12 +45,12 @@ func grade_output_tray():
 
 func grade_output_tray_potential():
 	var solution = "".join(output_trays[current_output_tray].get_output_values())
-	rules_engine.evaluate_potential_score(solution)
+	GameState.rules_engine.evaluate_potential_score(solution)
 
 
 func reset_potential():
-	var solution = "________________"
-	rules_engine.evaluate_potential_score(solution)
+	GameState.potential_score = 0
+	GameState.emit_signal('potential_score_changed', 0)
 
 
 func cycle_output_trays():

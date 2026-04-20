@@ -7,9 +7,9 @@ func _ready() -> void:
 
 
 func _on_potential_score_changed(score: int):
-	text = str(GameState.potential_score)
+	text = str(score)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

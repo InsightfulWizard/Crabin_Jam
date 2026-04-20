@@ -3,7 +3,8 @@ extends Node2D
 @onready var sweat: CPUParticles2D = $sweat
 
 var moving_tween: Tween
-var initial_pos:Vector2
+var initial_pos: Vector2
+
 
 func _ready() -> void:
 	Util.crab = self
@@ -13,25 +14,24 @@ func _ready() -> void:
 	GameState.connect('menu_opened', _on_menu_open)
 	GameState.connect('menu_closed', _on_menu_closed)
 	initial_pos = position
-	
+
 	position.y = get_viewport().get_visible_rect().size.y * 1.2
-	
+
 	#start_timer()
 
 
 func _on_menu_open():
-	var ypos:float = get_viewport().get_visible_rect().size.y * 1.2
-	move(Vector2( initial_pos.x, ypos ), 1.5)
+	var ypos: float = get_viewport().get_visible_rect().size.y * 1.2
+	move(Vector2(initial_pos.x, ypos), 1.5)
 
 
 func _on_menu_closed():
 	move(initial_pos, 4.0)
 	await moving_tween.finished
-	var audio = AudioManager.play_sfx_from_array(AudioManager.throat_clear, 20)
+	var audio = AudioManager.play_sfx_from_array(AudioManager.throat_clear, 0.0)
 	if audio:
 		await audio.finished
-		
-	
+
 	GameState.start_game()
 
 
@@ -63,8 +63,7 @@ func toggle_dread(b: bool):
 	sweat.emitting = b
 
 
-
-func move(pos:Vector2, time:float):
+func move(pos: Vector2, time: float):
 	if moving_tween and moving_tween.is_valid():
 		moving_tween.kill()
 	moving_tween = get_tree().create_tween()

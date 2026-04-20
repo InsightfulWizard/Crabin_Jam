@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://cbnniog8n446h" path="res://art/friend/friend_7.png" id="13_3xg78"]
 [ext_resource type="Texture2D" uid="uid://dkgfgbcjow8x0" path="res://art/friend/friend_8.png" id="14_48y67"]
 [ext_resource type="Script" uid="uid://bywfggfj4q8jn" path="res://scenes/animated_sprite_2d.gd" id="16_uxdf7"]
+[ext_resource type="Script" uid="uid://ck7xmtfi8e640" path="res://scenes/bubbles.gd" id="24_kp442"]
+[ext_resource type="Texture2D" uid="uid://c42bm4ssvfune" path="res://art/ui/bubble/bubble.tres" id="24_y2nlu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
 texture = ExtResource("5_3xg78")
@@ -98,6 +100,10 @@ corner_radius_bottom_right = 277
 bg_color = Color(0.70972514, 0.5894324, 0.3813395, 1)
 corner_radius_top_left = 86
 corner_radius_bottom_right = 150
+
+[sub_resource type="Curve" id="Curve_kp442"]
+_data = [Vector2(0.6320939, 0.8109906), 0.0, 0.0, 0, 0, Vector2(0.6565558, 0.006899953), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="hud" type="CanvasLayer" unique_id=1041986312]
 script = ExtResource("1_047uy")
@@ -224,3 +230,38 @@ theme_override_styles/background = SubResource("StyleBoxFlat_hd3ao")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5pdws")
 value = 14.97
 show_percentage = false
+
+[node name="bubbles" type="Node2D" parent="." unique_id=226166543]
+modulate = Color(1, 1, 1, 0)
+script = ExtResource("24_kp442")
+
+[node name="rule_bubbles" type="CPUParticles2D" parent="bubbles" unique_id=744259626]
+position = Vector2(82, 310.00003)
+rotation = -0.00931977
+texture = ExtResource("24_y2nlu")
+lifetime = 1.13
+emission_shape = 3
+emission_rect_extents = Vector2(65, 4.73)
+direction = Vector2(0, -9.33)
+spread = 0.0
+gravity = Vector2(0, -300)
+initial_velocity_max = 125.96
+scale_amount_min = 0.02
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_kp442")
+
+[node name="friend_bubbles" type="CPUParticles2D" parent="bubbles" unique_id=875104898]
+position = Vector2(136, 403.00003)
+rotation = -0.00931977
+scale = Vector2(0.5884969, 0.38876316)
+texture = ExtResource("24_y2nlu")
+lifetime = 0.93
+emission_shape = 3
+emission_rect_extents = Vector2(65, 4.73)
+direction = Vector2(0, -9.33)
+spread = 0.0
+gravity = Vector2(0, -300)
+initial_velocity_max = 125.96
+scale_amount_min = 0.01
+scale_amount_max = 0.05
+scale_amount_curve = SubResource("Curve_kp442")

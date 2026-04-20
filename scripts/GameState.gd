@@ -109,6 +109,7 @@ func win():
 	Util.menu.switch_to_menu(Util.menu.WIN)
 	print('You\'ve convinced them!  Your shell did not crack under the pressure!')
 
+
 func lose():
 	emit_signal('menu_opened')
 	Util.menu.switch_to_menu(Util.menu.LOSE)

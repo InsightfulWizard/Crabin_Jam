@@ -1,7 +1,10 @@
 .godot/editor/
 .godot/imported/
 .godot/shader_cache/
+.godot/uid_cache.bin
 
 /android/
 
 .vscode/
+
+.DS_Store

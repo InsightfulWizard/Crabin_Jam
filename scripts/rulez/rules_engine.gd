@@ -6,7 +6,6 @@ var _ruleset: Array[Rule] = []
 
 func _init() -> void:
 	generate_ruleset()
-	print_ruleset()
 
 
 func get_ruleset() -> Array[Rule]:
@@ -46,8 +45,19 @@ func generate_rule() -> Rule:
 func generate_ruleset() -> void:
 	var num_rules = randi_range(Constants.MIN_RULES, Constants.MAX_RULES)
 	for i in range(num_rules):
-		_ruleset.append(generate_rule())
+		while true:
+			var new_rule = generate_rule()
+			if not rule_exists(new_rule):
+				_ruleset.append(new_rule)
+				break
 	_append_empty_rule()
+
+
+func rule_exists(_candidate_rule: Rule) -> bool:
+	for rule in _ruleset:
+		if rule.pattern.get_pattern() == _candidate_rule.pattern.get_pattern():
+			return true
+	return false
 
 
 func _append_empty_rule() -> void:

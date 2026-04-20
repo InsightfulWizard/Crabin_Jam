@@ -1,10 +1,10 @@
-extends AnimatedSprite2D
+extends Node2D
+
+var fade_tween: Tween
 
 const DEFAULT_FADE_DURATION := 0.35
 const DROP_FADE_DURATION := 3.0
 var call_is_dropped := false
-
-var fade_tween: Tween
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,30 +16,25 @@ func _ready() -> void:
 	GameState.connect('score_changed', _on_score_changed)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_score_changed(score: int):
 	call_is_dropped = false
-	fade_in(DROP_FADE_DURATION)
+	fade_out(DROP_FADE_DURATION)
 
 
 func _on_half_timer():
 	if !call_is_dropped:
 		call_is_dropped = true
-		fade_out(DROP_FADE_DURATION)
+		fade_in(DROP_FADE_DURATION)
 
 
 func _on_menu_opened():
 	if !call_is_dropped:
-		fade_out(DEFAULT_FADE_DURATION)
+		fade_in(DEFAULT_FADE_DURATION)
 
 
 func _on_menu_closed():
 	if !call_is_dropped:
-		fade_in(DEFAULT_FADE_DURATION)
+		fade_out(DEFAULT_FADE_DURATION)
 
 
 func fade_out(duration: float = DEFAULT_FADE_DURATION) -> Tween:
@@ -64,3 +59,8 @@ func _kill_fade_tween() -> void:
 	if fade_tween and fade_tween.is_valid():
 		fade_tween.kill()
 	fade_tween = null
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass

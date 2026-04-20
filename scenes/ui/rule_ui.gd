@@ -5,11 +5,13 @@ extends Control
 @onready var score_label: Label = $ScoreLabel
 
 const SYMBOL_START := Vector2(-300, 0)
+const UNDERSCORE_COLOR := Color("#2e2e2e")
 
 var image_map = {
 	"△": preload("res://art/tiles/triangle.png"),
 	"○": preload("res://art/tiles/circle.png"),
 	"□": preload("res://art/tiles/square.png"),
+	"_": preload("res://art/tiles/background.png"),
 }
 
 var rule: Rule
@@ -18,8 +20,9 @@ var score_font_size := 320
 var symbol_gap: float = 280.0
 var score_gap: float = 320.0
 var fade_tween: Tween
-
+var call_is_dropped := false
 const DEFAULT_FADE_DURATION := 0.35
+const DROP_FADE_DURATION := 3.0
 
 
 func _ready() -> void:
@@ -32,16 +35,31 @@ func set_rule(new_rule: Rule) -> void:
 	if GameState and GameState.has_signal("menu_opened") and GameState.has_signal("menu_closed"):
 		GameState.menu_opened.connect(_on_menu_opened)
 		GameState.menu_closed.connect(_on_menu_closed)
+	GameState.connect('half_timer', _on_half_timer)
 	if is_node_ready():
 		_rebuild_visuals()
+	GameState.connect('score_changed', _on_score_changed)
+
+
+func _on_score_changed(_score: int):
+	call_is_dropped = false
+	fade_in(DROP_FADE_DURATION)
+
+
+func _on_half_timer():
+	if !call_is_dropped:
+		call_is_dropped = true
+		fade_out(DROP_FADE_DURATION)
 
 
 func _on_menu_opened():
-	fade_out(DEFAULT_FADE_DURATION)
+	if !call_is_dropped:
+		fade_out(DEFAULT_FADE_DURATION)
 
 
 func _on_menu_closed():
-	fade_in(DEFAULT_FADE_DURATION)
+	if !call_is_dropped:
+		fade_in(DEFAULT_FADE_DURATION)
 
 
 func fade_out(duration: float = DEFAULT_FADE_DURATION) -> Tween:
@@ -88,6 +106,8 @@ func _rebuild_visuals() -> void:
 
 		var sprite := Sprite2D.new()
 		sprite.texture = image_map[symbol]
+		if symbol == "_":
+			sprite.modulate = UNDERSCORE_COLOR
 		sprite.position = SYMBOL_START + Vector2(symbol_gap * symbol_count, 0)
 		sprite.scale = symbol_scale
 		pattern_layer.add_child(sprite)
