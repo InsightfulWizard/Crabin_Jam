@@ -44,7 +44,7 @@ func _input(event):
 
 
 func pickup_tile(tile: Node2D):
-	AudioManager.play_sfx_from_array(AudioManager.item_pickup_sfx, 2.0)
+	AudioManager.play_sfx_from_array(AudioManager.item_pickup_sfx, 0.5)
 	if GameState.current_tile and GameState.current_tile != tile:
 		_restore_dragged_tile_z(GameState.current_tile)
 
@@ -73,7 +73,7 @@ func drop_tile():
 
 	if snap and snap.to_snap(tile):
 		tile.place_in_slot()
-		AudioManager.play_sfx_from_array(AudioManager.item_drop_sfx, 10.0)
+		AudioManager.play_sfx_from_array(AudioManager.item_drop_sfx, 5.0)
 		GameState.update_potential_score()
 	else:
 		var attempted_occupied_snap = nearest_any_snap != null
@@ -88,6 +88,7 @@ func drop_tile():
 
 	_restore_dragged_tile_z(tile)
 	GameState.current_tile = null
+	_refresh_hover_after_drop(tile)
 
 
 func _get_max_tile_z_index() -> int:
@@ -102,6 +103,16 @@ func _restore_dragged_tile_z(tile: Node2D):
 	if tile and dragged_tile_has_original_z_index:
 		tile.z_index = dragged_tile_original_z_index
 	dragged_tile_has_original_z_index = false
+
+
+func _refresh_hover_after_drop(tile: Node2D):
+	if GameState.is_menu_open:
+		return
+	if GameState.hovered_tile:
+		return
+	var mouse_pos = get_global_mouse_position()
+	if tile and tile.has_method("contains_global_point") and tile.contains_global_point(mouse_pos):
+		GameState.set_hovered_tile(tile)
 
 
 func _get_nearest_valid_snap(tile: Node2D, thresh: float) -> Node2D:

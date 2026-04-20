@@ -249,6 +249,17 @@ func get_drag_half_extents() -> Vector2:
 	return Vector2(width * 0.5, tile_size.y * 0.5)
 
 
+func contains_global_point(point: Vector2) -> bool:
+	if !collision_shape or !collision_shape.shape:
+		return false
+	var rect_shape := collision_shape.shape as RectangleShape2D
+	if !rect_shape:
+		return false
+	var local_point = to_local(point) - collision_shape.position
+	var half_size = rect_shape.size * 0.5
+	return absf(local_point.x) <= half_size.x and absf(local_point.y) <= half_size.y
+
+
 func get_group_center_offset() -> Vector2:
 	var extra_width = max(0.0, float(get_slot_length() - 1) * slot_gap)
 	return Vector2(extra_width * 0.5, 0)
