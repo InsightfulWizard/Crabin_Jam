@@ -2,9 +2,11 @@
 .godot/imported/
 .godot/shader_cache/
 .godot/uid_cache.bin
-
+.godot/exported/
 /android/
 
 .vscode/
 
 .DS_Store
+
+build
