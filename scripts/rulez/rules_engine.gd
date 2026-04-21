@@ -91,6 +91,11 @@ func generate_static_ruleset() -> void:
 	_append_empty_rule()
 
 
+func reset_ruleset() -> void:
+	clear_ruleset()
+	generate_ruleset()
+
+
 func print_ruleset() -> void:
 	print("Current Ruleset:")
 	for rule in _ruleset:

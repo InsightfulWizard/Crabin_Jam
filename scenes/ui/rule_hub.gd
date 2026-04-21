@@ -2,7 +2,6 @@ extends Control
 
 @onready var pattern_layer = $PatternLayer
 
-var ruleset: Array[Rule] = []
 const RULE_UI_SCENE := preload("res://scenes/ui/rule.tscn")
 
 var rule_start_position := Vector2(-28.0, 4.0)
@@ -10,38 +9,48 @@ var rule_start_position := Vector2(-28.0, 4.0)
 var rule_ui_scale := Vector2(0.6, 0.6)
 
 var rule_vertical_offset := 54.0
-var rule_fade_duration := 0.35
+var rule_fade_duration := 3.0
 
 var max_visible_rules := 3
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ruleset = GameState.rules_engine.get_ruleset()
-	_rebuild_rule_rows()
+	_rebuild_rule_rows(true)
 	_connect_menu_signals()
-	_sync_rows_with_menu_state(false)
+	GameState.score_changed.connect(_refresh_rules)
 
 
-func _rebuild_rule_rows() -> void:
+func _rebuild_rule_rows(animate_new_rows: bool = false) -> void:
 	if !is_node_ready():
 		return
 
 	for child in pattern_layer.get_children():
-		child.queue_free()
+		child.free()
 
 	var displayed_count := 0
-	for rule in ruleset:
+	for rule in GameState.rules_engine.get_ruleset():
 		if displayed_count >= max_visible_rules:
 			break
 
 		var rule_ui := RULE_UI_SCENE.instantiate() as RuleUI
 		rule_ui.set_rule(rule)
+		rule_ui.modulate.a = 0.0
 		pattern_layer.add_child(rule_ui)
 		displayed_count += 1
 
 	_layout_rule_rows()
-	_sync_rows_with_menu_state(false)
+	_sync_rows_with_menu_state(animate_new_rows)
+
+
+func _refresh_rules(_score: int) -> void:
+	print('Current Ruleset: ', GameState.rules_engine.get_ruleset())
+	if !is_node_ready():
+		return
+
+	GameState.rules_engine.reset_ruleset()
+	_rebuild_rule_rows(true)
+	print('New Ruleset: ', GameState.rules_engine.get_ruleset())
 
 
 func _connect_menu_signals() -> void:

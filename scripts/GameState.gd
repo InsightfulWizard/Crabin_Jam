@@ -117,3 +117,7 @@ func lose():
 
 func update_potential_score():
 	Util.hud.grade_output_tray_potential()
+
+
+func reset_rules():
+	rules_engine.reset_ruleset()

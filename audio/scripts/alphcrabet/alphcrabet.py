@@ -100,7 +100,7 @@ def collect_letter_info(voice_folder: Path, name: str, gap_ms: int, sentence: st
         - letter_segments: List of tuples (start_position, letter_path)
         - max_end_time: Estimated final audio duration in milliseconds
     """
-    word_gap_ms = gap_ms * 1.5
+    word_gap_ms = gap_ms * 3
     letter_segments = []
     current_position = 0
     max_end_time = 0
