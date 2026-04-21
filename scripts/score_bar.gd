@@ -2,12 +2,16 @@ extends Node2D
 
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var water_surface: AnimatedSprite2D = $ProgressBar/water_surface
+@onready var boiling_bubbles: CPUParticles2D = $ProgressBar/boiling_bubbles
 
+var max_bubble_lifetime: float = .9
+var min_bubble_lifetime: float = .1
 
 func _ready() -> void:
 	GameState.connect('score_changed', _on_score_change)
 	progress_bar.value = 100.0 - 100.0 * float(GameState.current_score) / float(Constants.MAX_SCORE)
 	water_surface.position.y = get_water_surface_pos_y(progress_bar.value)
+	boiling_bubbles.lifetime = lerpf(min_bubble_lifetime, max_bubble_lifetime, progress_bar.value / 100.0)
 
 
 func _on_score_change(score: int):
@@ -21,6 +25,9 @@ func _on_score_change(score: int):
 
 	var new_water_surface_pos: Vector2 = Vector2(water_surface.position.x, get_water_surface_pos_y(score_percent))
 	tween.parallel().tween_property(water_surface, 'position', new_water_surface_pos, .5)
+	
+	var new_bubble_lifetime: float = lerpf(min_bubble_lifetime, max_bubble_lifetime, score_percent / 100.0)
+	tween.parallel().tween_property(boiling_bubbles, 'lifetime', new_bubble_lifetime, .5)
 	#progress_bar.value = score_percent
 
 

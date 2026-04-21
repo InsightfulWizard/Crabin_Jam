@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://brgm757thyuvh" path="res://scenes/output_tray.tscn" id="3_hd3ao"]
 [ext_resource type="Script" uid="uid://b5xenegjrrkvn" path="res://scripts/score_bar.gd" id="4_0i1j5"]
 [ext_resource type="Texture2D" uid="uid://ewmssh2wxotx" path="res://art/ui/score_bar/score_fill.png" id="5_3xg78"]
+[ext_resource type="Texture2D" uid="uid://dg73yjs3qmw4k" path="res://art/ui/pot_back.png" id="5_e558t"]
 [ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="6_0m4u7"]
 [ext_resource type="Texture2D" uid="uid://uciumne8l2x6" path="res://art/ui/score_bar/Untitled_Artwork-1 2.png" id="6_qpprf"]
 [ext_resource type="Texture2D" uid="uid://cvyi6h8sx4uuq" path="res://art/friend/friend_1.png" id="7_3swnk"]
@@ -19,12 +20,19 @@
 [ext_resource type="Texture2D" uid="uid://dpib830qtyqak" path="res://art/friend/friend_3.png" id="9_uxdf7"]
 [ext_resource type="Texture2D" uid="uid://70gruji4iakh" path="res://art/friend/friend_4.png" id="10_5357l"]
 [ext_resource type="Texture2D" uid="uid://dqpxr63s6ht2x" path="res://art/friend/friend_5.png" id="11_iypfu"]
+[ext_resource type="Texture2D" uid="uid://c30xgi2m31ebd" path="res://art/fire/fire_1.png" id="11_of3ib"]
+[ext_resource type="Texture2D" uid="uid://tuy4wh7gc2lj" path="res://art/fire/fire_2.png" id="12_7600b"]
 [ext_resource type="Texture2D" uid="uid://ctln2g6jsk81g" path="res://art/friend/friend_6.png" id="12_qpprf"]
 [ext_resource type="Texture2D" uid="uid://cbnniog8n446h" path="res://art/friend/friend_7.png" id="13_3xg78"]
+[ext_resource type="Texture2D" uid="uid://bm7051ybkld4f" path="res://art/fire/fire_3.png" id="13_e558t"]
 [ext_resource type="Texture2D" uid="uid://dkgfgbcjow8x0" path="res://art/friend/friend_8.png" id="14_48y67"]
+[ext_resource type="Texture2D" uid="uid://hir7yuydogjo" path="res://art/fire/fire_4.png" id="14_frrke"]
+[ext_resource type="Texture2D" uid="uid://dnmdvmg5ypv48" path="res://art/ui/pot.png" id="16_7600b"]
 [ext_resource type="Script" uid="uid://bywfggfj4q8jn" path="res://scenes/animated_sprite_2d.gd" id="16_uxdf7"]
 [ext_resource type="Script" uid="uid://ck7xmtfi8e640" path="res://scenes/bubbles.gd" id="24_kp442"]
 [ext_resource type="Texture2D" uid="uid://c42bm4ssvfune" path="res://art/ui/bubble/bubble.tres" id="24_y2nlu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e558t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvuet"]
 texture = ExtResource("5_3xg78")
@@ -46,6 +54,30 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_084dp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve" id="Curve_gltyx"]
+_data = [Vector2(0, 0), 0.0, 8.971899, 0, 0, Vector2(0.4006211, 1), 0.0, 0.0, 0, 0, Vector2(0.8695651, 0.88488775), -0.7835118, -0.7835118, 0, 0, Vector2(1, 0), -20.576305, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vh1iw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_of3ib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7600b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_e558t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_frrke")
 }],
 "loop": true,
 "name": &"default",
@@ -122,18 +154,24 @@ position = Vector2(1152, 0)
 [node name="score" type="Node2D" parent="." unique_id=2011193952]
 script = ExtResource("4_0i1j5")
 
+[node name="pot_back" type="Sprite2D" parent="score" unique_id=2100683013]
+position = Vector2(1092.9115, 295.7533)
+scale = Vector2(0.40084487, 0.3795968)
+texture = ExtResource("5_e558t")
+
 [node name="ProgressBar" type="ProgressBar" parent="score" unique_id=1150095300]
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 1080.0
+offset_left = 1065.0
 offset_top = 149.0
-offset_right = 1138.0
+offset_right = 1123.0
 offset_bottom = 449.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxEmpty_e558t")
 theme_override_styles/fill = SubResource("StyleBoxTexture_kvuet")
 value = 100.0
 fill_mode = 3
@@ -146,13 +184,43 @@ sprite_frames = SubResource("SpriteFrames_gltyx")
 autoplay = "default"
 frame_progress = 0.4410972
 
+[node name="boiling_bubbles" type="CPUParticles2D" parent="score/ProgressBar" unique_id=904265666]
+position = Vector2(29, 295.99997)
+rotation = -0.00931977
+scale = Vector2(0.39692077, 1.606143)
+amount = 20
+texture = ExtResource("24_y2nlu")
+lifetime = 0.9
+emission_shape = 3
+emission_rect_extents = Vector2(65, 4.73)
+direction = Vector2(0, -9.33)
+spread = 0.0
+gravity = Vector2(0, -300)
+initial_velocity_max = 125.96
+scale_amount_min = 0.03
+scale_amount_max = 0.03
+scale_amount_curve = SubResource("Curve_gltyx")
+
+[node name="fire" type="AnimatedSprite2D" parent="score/ProgressBar" unique_id=844761571]
+z_index = 2
+position = Vector2(30.999998, 305)
+scale = Vector2(0.54871786, 0.21153843)
+sprite_frames = SubResource("SpriteFrames_vh1iw")
+autoplay = "default"
+frame_progress = 0.67682034
+
 [node name="facier_ui" parent="score" unique_id=1759600616 instance=ExtResource("6_0m4u7")]
 z_index = -968
-offset_left = 1058.0
-offset_top = 122.0
-offset_right = 1718.9307
-offset_bottom = 1911.5969
+offset_left = 1028.0
+offset_top = 95.0
+offset_right = 1765.1919
+offset_bottom = 2108.2969
 scale = Vector2(0.19669233, 0.19669233)
+
+[node name="pot" type="Sprite2D" parent="score" unique_id=1796125349]
+position = Vector2(1092.9115, 295.7533)
+scale = Vector2(0.40084487, 0.3795968)
+texture = ExtResource("16_7600b")
 
 [node name="facier_ui2" parent="." unique_id=1788682475 instance=ExtResource("6_0m4u7")]
 z_index = -769
