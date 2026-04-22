@@ -19,6 +19,6 @@ scale = Vector2(0.7869104, 0.7869104)
 
 [node name="podium" type="Sprite2D" parent="." unique_id=336125010]
 z_index = -1000
-position = Vector2(603, 597)
+position = Vector2(603, 613.00006)
 scale = Vector2(0.3960543, 0.3960543)
 texture = ExtResource("3_h6vvc")

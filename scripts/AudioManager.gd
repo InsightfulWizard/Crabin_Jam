@@ -83,7 +83,6 @@ func _on_state_change(s):
 
 
 func toggle_chillin(b: bool):
-	print('chillin:  ', b)
 	if b:
 		chillin.fade_in()
 	else:
@@ -91,7 +90,6 @@ func toggle_chillin(b: bool):
 
 
 func toggle_stresed(b: bool):
-	print('toggle_stresed:  ', b)
 	if b:
 		stressed.fade_in()
 	else:
@@ -99,7 +97,6 @@ func toggle_stresed(b: bool):
 
 
 func toggle_dread(b: bool):
-	print('toggle_dread:  ', b)
 	if b:
 		dread.fade_in()
 	else:
@@ -144,14 +141,12 @@ func play_sfx(sound: AudioStreamMP3, volume: float = 0.0):
 func play_music(song: String, volume: float = 0.0):
 	if !music_node.has_node(song):
 		return
-	print('---------     play_music')
 	var p = music_node.get_node(song)
 	p.volume_db = volume
 	p.fade_in()
 
 
 func stop_music(song: String):
-	print('---------     stop_music')
 	if !music_node.has_node(song):
 		return
 	var p = music_node.get_node(song)

@@ -16,8 +16,6 @@ func _ready() -> void:
 
 func _on_score_change(score: int):
 	var score_percent: float = 100.0 - 100.0 * float(GameState.current_score) / float(Constants.MAX_SCORE)
-	print('score_percent: ', score_percent)
-	print('GameState.current_score: ', GameState.current_score)
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_IN_OUT)

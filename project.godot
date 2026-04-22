@@ -14,10 +14,11 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Crabvocate: In Hot Water"
+config/name="Crabvocate For Peace: In Hot Water"
 run/main_scene="uid://klp3ymst6qu6"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://byga46t1e2n5"
+config/windows_native_icon="res://art/ui/icon/app_icon.ico"
 
 [audio]
 

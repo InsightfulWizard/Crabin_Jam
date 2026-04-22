@@ -1,16 +1,34 @@
 extends Node2D
 
 @onready var col = $Area2D
+@onready var label: Label = $Label
 
 var snapped_tile: Node2D
 var snapped_index: int = -1
 var slot_index: int = -1
 var active: bool = true
 
+const filler_words: Array[String] = [
+	'umm',
+	'uhh',
+	'hmm',
+	'err',
+	'...',
+	'uh',
+	'..I.',
+	'um',
+	'er..',
+	'...',
+	'..h.',
+	'..!.',
+	'..?.'
+]
+
 
 func _ready():
 	col.connect('mouse_entered', on_mouse_entered)
 	col.connect('mouse_exited', on_mouse_exited)
+	assign_rand_filler_word()
 
 
 func on_mouse_entered():
@@ -46,3 +64,8 @@ func delete_tile():
 	var tile = snapped_tile
 	get_parent().unsnap_tile(tile)
 	tile.delete()
+
+
+func assign_rand_filler_word():
+	var w: String = filler_words[ randi_range( 0, len(filler_words) -1 ) ]
+	label.text = w

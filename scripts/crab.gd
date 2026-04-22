@@ -74,12 +74,9 @@ func toggle_stresed(_b: bool):
 
 
 func toggle_dread(b: bool):
-	print('QQQ toggle_dread:  ', b)
-	print('QQQ toggle_dread game_lost:  ', game_lost)
 	if game_lost:
 		sweat.emitting = false
 		return
-	print('toggle_dread: ', b)
 	sweat.emitting = b
 
 
@@ -129,7 +126,6 @@ func _on_game_lost():
 
 func _on_game_reset():
 	game_lost = false
-	print('QQQ _on_game_reset:  ', game_lost)
 	plate.scale = Vector2.ONE
 	lemon.scale = Vector2.ONE
 	var tween = create_tween()

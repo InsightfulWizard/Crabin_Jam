@@ -9,6 +9,8 @@ extends CanvasLayer
 	output_tray_1,
 	output_tray_2,
 ]
+@onready var points_popup: Node2D = $"points popup"
+
 var current_output_tray: int = 0
 var cycling_output_tray: bool = false
 
@@ -39,8 +41,7 @@ func grade_output_tray():
 	var solution = "".join(output_trays[current_output_tray].get_output_values())
 	GameState.rules_engine.evaluate_solution(solution)
 	print("Solution: '%s' | Score: %d" % [solution, GameState.recent_score])
-	# print("vals: ", vals)
-	#grading logic
+	points_popup.go(GameState.recent_score)
 
 
 func grade_output_tray_potential():

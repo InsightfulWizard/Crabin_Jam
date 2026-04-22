@@ -24,7 +24,6 @@ func fade_in(time := 2.0):
 	if state == ON or state == FADE_IN:
 		return
 	
-	#print('---------     fade_in')
 	state = FADE_IN
 	if !playing:
 		play()
@@ -42,7 +41,6 @@ func fade_in(time := 2.0):
 func fade_out(time := 4.0):
 	if state == OFF or state == FADE_OUT:
 		return
-	#print('---------     fade_out')
 	state = FADE_OUT
 	if fade_tween and fade_tween.is_valid():
 		fade_tween.kill()

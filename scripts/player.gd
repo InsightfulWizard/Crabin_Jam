@@ -35,7 +35,7 @@ func _input(event):
 				GameState.current_tile.set_group_center_global_position(pos)
 			else:
 				GameState.current_tile.global_position = pos
-	if event.is_action_pressed("test"):
+	if event.is_action_pressed("test") and !GameState.is_menu_open:
 		Util.hud.submit_output_trays()
 	if event.is_action_pressed("t1"):
 		GameState.set_current_score(70)

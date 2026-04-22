@@ -92,6 +92,7 @@ func get_output_values():
 func reset():
 	var handled: Dictionary = { }
 	for n in get_sorted_snaps():
+		n.assign_rand_filler_word()
 		if !n.snapped_tile:
 			continue
 		if handled.has(n.snapped_tile):

@@ -315,7 +315,6 @@ func on_mouse_entered():
 	if is_menu_blocking_fade:
 		return
 	GameState.set_hovered_tile(self)
-	print('hovered: ', name)
 
 
 func on_mouse_exited():

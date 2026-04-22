@@ -193,7 +193,7 @@ animations = [{
 [node name="crowd" type="CanvasLayer" unique_id=2082014096]
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=1286777858 node_paths=PackedStringArray("animated_sprite")]
-position = Vector2(51.000015, 477.75)
+position = Vector2(87, 461)
 scale = Vector2(0.42578134, 0.40136722)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_3_neutral"
@@ -204,7 +204,7 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1696688817 node_paths=PackedStringArray("animated_sprite")]
 z_index = -1
-position = Vector2(187.00006, 463.75)
+position = Vector2(228.00002, 451.00003)
 scale = Vector2(0.41650394, 0.4174805)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_2_neutral"
@@ -246,7 +246,7 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="." unique_id=1652192065 node_paths=PackedStringArray("animated_sprite")]
 z_index = -10
-position = Vector2(242, 411)
+position = Vector2(288, 346)
 rotation = -3.1415925
 scale = Vector2(0.28102288, -0.27807254)
 sprite_frames = SubResource("SpriteFrames_u83yg")
@@ -258,7 +258,7 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="." unique_id=440780438 node_paths=PackedStringArray("animated_sprite")]
 z_index = -19
-position = Vector2(719.00006, 391.00003)
+position = Vector2(732.00006, 364.00003)
 rotation = -3.1415925
 scale = Vector2(0.3420308, -0.35140198)
 sprite_frames = SubResource("SpriteFrames_u83yg")
@@ -270,9 +270,9 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="." unique_id=192598648 node_paths=PackedStringArray("animated_sprite")]
 z_index = -44
-position = Vector2(1011.00006, 316)
+position = Vector2(469.00006, 311)
 rotation = -3.1415925
-scale = Vector2(0.29947585, -0.30444476)
+scale = Vector2(0.24144644, -0.24545252)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_2_neutral"
 script = ExtResource("40_08er1")
@@ -281,7 +281,7 @@ animated_sprite = NodePath(".")
 switch_chance = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=796620968 node_paths=PackedStringArray("animated_sprite")]
-position = Vector2(341, 475)
+position = Vector2(334.00003, 491.00003)
 scale = Vector2(0.37011722, 0.38671875)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_1_neutral"
@@ -291,7 +291,7 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="." unique_id=787900337 node_paths=PackedStringArray("animated_sprite")]
 z_index = -12
-position = Vector2(582, 445.00003)
+position = Vector2(582, 340.00003)
 scale = Vector2(0.30385077, 0.319197)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_1_neutral"
@@ -301,7 +301,7 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="." unique_id=198621719 node_paths=PackedStringArray("animated_sprite")]
 z_index = -10
-position = Vector2(440.00003, 441.00003)
+position = Vector2(439, 402)
 rotation = -3.1415925
 scale = Vector2(-0.311, -0.287)
 sprite_frames = SubResource("SpriteFrames_u83yg")
@@ -313,9 +313,9 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="." unique_id=550412093 node_paths=PackedStringArray("animated_sprite")]
 z_index = -14
-position = Vector2(394, 377)
+position = Vector2(365, 346)
 rotation = -3.1415925
-scale = Vector2(0.22006166, -0.21501184)
+scale = Vector2(0.2632267, -0.25677416)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_1_neutral"
 script = ExtResource("40_08er1")
@@ -334,7 +334,7 @@ animated_sprite = NodePath(".")
 switch_chance = 0.2
 
 [node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="." unique_id=966664953 node_paths=PackedStringArray("animated_sprite")]
-position = Vector2(1067.0001, 475.99994)
+position = Vector2(1141, 499.99997)
 scale = Vector2(0.42578134, 0.40136722)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_3_neutral"
@@ -345,8 +345,8 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="." unique_id=1943016199 node_paths=PackedStringArray("animated_sprite")]
 z_index = -1
-position = Vector2(995, 464.00003)
-scale = Vector2(0.41650394, 0.4174805)
+position = Vector2(980.00006, 480.00003)
+scale = Vector2(0.33002156, 0.33079535)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_3_neutral"
 script = ExtResource("40_08er1")
@@ -356,7 +356,7 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="." unique_id=960873957 node_paths=PackedStringArray("animated_sprite")]
 z_index = -26
-position = Vector2(1111, 355.00003)
+position = Vector2(1008, 345.00003)
 scale = Vector2(0.26123044, 0.2978516)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_1_neutral"
@@ -377,7 +377,7 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="." unique_id=351839370 node_paths=PackedStringArray("animated_sprite")]
 z_index = -163
-position = Vector2(817, 338.00003)
+position = Vector2(812, 334)
 rotation = -3.1415925
 scale = Vector2(0.22766101, -0.2285195)
 sprite_frames = SubResource("SpriteFrames_u83yg")
@@ -388,8 +388,8 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="." unique_id=328380686 node_paths=PackedStringArray("animated_sprite")]
 z_index = -59
-position = Vector2(968, 248)
-scale = Vector2(-0.14865932, 0.14493664)
+position = Vector2(932, 255)
+scale = Vector2(-0.21645413, 0.20670441)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_3_neutral"
 script = ExtResource("40_08er1")
@@ -399,7 +399,7 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="." unique_id=1071907845 node_paths=PackedStringArray("animated_sprite")]
 z_index = -112
-position = Vector2(1107, 247)
+position = Vector2(1056, 263)
 scale = Vector2(0.2092286, 0.21459964)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_2_neutral"
@@ -410,7 +410,7 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="." unique_id=1431271413 node_paths=PackedStringArray("animated_sprite")]
 z_index = -181
-position = Vector2(663.99994, 320)
+position = Vector2(661.99994, 286)
 scale = Vector2(0.20800778, 0.19970699)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_3_neutral"
@@ -421,7 +421,7 @@ switch_chance = 0.2
 
 [node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="." unique_id=1248730508 node_paths=PackedStringArray("animated_sprite")]
 z_index = -228
-position = Vector2(898.00006, 280)
+position = Vector2(865.00006, 276.00003)
 scale = Vector2(0.20373529, 0.20971683)
 sprite_frames = SubResource("SpriteFrames_u83yg")
 animation = &"chef_2_neutral"

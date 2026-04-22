@@ -31,6 +31,7 @@
 [ext_resource type="Script" uid="uid://bywfggfj4q8jn" path="res://scenes/animated_sprite_2d.gd" id="16_uxdf7"]
 [ext_resource type="Script" uid="uid://ck7xmtfi8e640" path="res://scenes/bubbles.gd" id="24_kp442"]
 [ext_resource type="Texture2D" uid="uid://c42bm4ssvfune" path="res://art/ui/bubble/bubble.tres" id="24_y2nlu"]
+[ext_resource type="Script" uid="uid://j7j6cud2hp5k" path="res://scenes/points_popup.gd" id="32_frrke"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e558t"]
 
@@ -142,7 +143,7 @@ script = ExtResource("1_047uy")
 
 [node name="TileCloud" parent="." unique_id=1750301718 instance=ExtResource("2_5pdws")]
 z_index = 100
-position = Vector2(598, 151)
+position = Vector2(577, 151)
 
 [node name="output_tray_1" parent="." unique_id=962911779 instance=ExtResource("3_hd3ao")]
 z_index = -100
@@ -333,3 +334,20 @@ initial_velocity_max = 125.96
 scale_amount_min = 0.01
 scale_amount_max = 0.05
 scale_amount_curve = SubResource("Curve_kp442")
+
+[node name="points popup" type="Node2D" parent="." unique_id=790056970]
+z_index = 1000
+position = Vector2(573, 281)
+script = ExtResource("32_frrke")
+
+[node name="Label" type="Label" parent="points popup" unique_id=1448370453]
+offset_left = -159.0
+offset_top = -71.0
+offset_right = 143.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0.75070685, 0.1128759, 0.21467182, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_font_sizes/font_size = 98
+text = "+40"
+horizontal_alignment = 1

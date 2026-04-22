@@ -13,9 +13,13 @@ var score_decrement_per_round: int = Constants.SCORE_DECREMENT_PER_ROUND_INITIAL
 
 var is_menu_open := true
 var game_started := false
+var game_finished := false
 var rules_engine: RulesEngine = RulesEngine.new()
 
 var potential_score = 0
+
+var points_won:int = 0
+var rounds_played = 0
 
 enum {
 	DREAD,
@@ -31,6 +35,7 @@ signal menu_closed
 signal half_timer
 signal potential_score_changed(score: int)
 signal game_lost
+signal game_won
 signal crab_boiled
 signal game_reset
 
@@ -72,6 +77,8 @@ func get_current_score() -> int:
 
 func set_current_score(score: int): # replace the other one
 	recent_score = score
+	points_won += score
+	rounds_played += 1
 	current_score = clamp(current_score + score, Constants.MIN_SCORE, Constants.MAX_SCORE)
 	if current_score == Constants.MAX_SCORE:
 		win()
@@ -114,13 +121,16 @@ func exit_game():
 
 
 func win():
+	game_finished = true
 	Util.menu.switch_to_menu(Util.menu.WIN)
 	emit_signal('menu_opened')
 	toggle_menu(true)
+	emit_signal('game_won')
 	Util.hud.speech_timer_bar.reset()
 
 
 func lose():
+	game_finished = true
 	Util.menu.switch_to_menu(Util.menu.LOSE)
 	emit_signal('menu_opened')
 	toggle_menu(true)
@@ -137,12 +147,15 @@ func reset_rules():
 
 
 func reset_game():
+	game_finished = false
 	emit_signal('game_reset')
 	toggle_menu(true)
 	Util.menu.switch_to_menu(Util.menu.MAIN_MENU)
 	game_started = false
 	current_score = roundi(float(Constants.MAX_SCORE) * Constants.NORMALIZED_START_SCORE)
 	set_current_score(0)
+	points_won = 0
+	rounds_played = 0
 	#AudioManager._on_state_change(state)
 	Util.hud.speech_timer_bar.reset()
 	reset_rules()

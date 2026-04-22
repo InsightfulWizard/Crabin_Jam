@@ -32,6 +32,8 @@ func _physics_process(_delta: float) -> void:
 
 
 func start_timer(time: float = GameState.time_per_phrase):
+	if GameState.game_finished:
+		return
 	AudioManager.play_sfx(AudioManager.call_start, 5.0)
 	if !Constants.USE_SPEECH_TIMER:
 		return
@@ -41,19 +43,19 @@ func start_timer(time: float = GameState.time_per_phrase):
 	progress_bar.value = 0.0
 	jitter_factor = 0.0
 	tween = get_tree().create_tween()
-	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(progress_bar, 'value', 100.0, time)
 	tween.set_ease(Tween.EASE_IN)
 	tween.parallel().tween_property(self, 'jitter_factor', 1.0, time)
 
-	get_tree().create_timer(Constants.USE_SPEECH_TIME / 2.0).timeout.connect(
+	get_tree().create_timer(Constants.SPEECH_TIME / 2.0).timeout.connect(
 		func():
 			AudioManager.play_sfx(AudioManager.call_end, 0.0)
 			GameState.emit_signal('half_timer')
 	)
 
-	get_tree().create_timer(Constants.USE_SPEECH_TIME - 3.0).timeout.connect(
+	get_tree().create_timer(Constants.SPEECH_TIME - 3.0).timeout.connect(
 		func():
 			AudioManager.play_sfx_from_array(AudioManager.stutter, 5.0)
 	)

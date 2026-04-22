@@ -165,7 +165,7 @@ texture = ExtResource("9_ktnoq")
 
 [node name="lemon" type="Sprite2D" parent="." unique_id=1005776165]
 visible = false
-position = Vector2(231, 40)
+position = Vector2(239, 35.5)
 texture = ExtResource("10_e52nb")
 
 [node name="boiling pot" type="Node2D" parent="." unique_id=782777568]

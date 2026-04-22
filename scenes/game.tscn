@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c7mdbbn2ya1tf" path="res://scenes/town.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="7_gee14"]
 [ext_resource type="Script" uid="uid://blv80jcr7dq44" path="res://scripts/menus.gd" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://n0q3uk4fyopk" path="res://scenes/ui/points_per_round.tscn" id="8_gee14"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5sy4"]
 
@@ -145,9 +146,9 @@ scale = Vector2(0.24254078, 0.24254078)
 [node name="fancier_Ui4" parent="menus/win" unique_id=2103828276 instance=ExtResource("7_gee14")]
 z_index = -3
 layout_mode = 0
-offset_left = 446.99994
+offset_left = 316.0
 offset_top = 136.0
-offset_right = 1469.5085
+offset_right = 1338.5085
 offset_bottom = 375.13507
 scale = Vector2(0.24254078, 0.24254078)
 
@@ -171,14 +172,17 @@ horizontal_alignment = 1
 
 [node name="play_again" type="Button" parent="menus/win" unique_id=1348704818]
 layout_mode = 0
-offset_left = 470.0
+offset_left = 339.00006
 offset_top = 143.0
-offset_right = 674.0
+offset_right = 543.00006
 offset_bottom = 187.0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxEmpty_u5sy4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gee14")
 text = "Play Again"
+
+[node name="points_per_round" parent="menus/win" unique_id=1911742515 instance=ExtResource("8_gee14")]
+position = Vector2(694, 164)
 
 [node name="lose" type="Control" parent="menus" unique_id=450597829]
 visible = false
@@ -216,19 +220,22 @@ scale = Vector2(0.24254078, 0.24254078)
 [node name="fancier_Ui2" parent="menus/lose" unique_id=1514716492 instance=ExtResource("7_gee14")]
 z_index = -3
 layout_mode = 0
-offset_left = 446.99994
+offset_left = 317.0
 offset_top = 136.0
-offset_right = 1469.5085
+offset_right = 1339.5085
 offset_bottom = 375.13507
 scale = Vector2(0.24254078, 0.24254078)
 
 [node name="play_again2" type="Button" parent="menus/lose" unique_id=2121597275]
 layout_mode = 0
-offset_left = 470.0
+offset_left = 340.00006
 offset_top = 143.0
-offset_right = 674.0
+offset_right = 544.00006
 offset_bottom = 187.0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxEmpty_u5sy4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gee14")
 text = "Play Again"
+
+[node name="points_per_round2" parent="menus/lose" unique_id=1236604381 instance=ExtResource("8_gee14")]
+position = Vector2(694, 164)
