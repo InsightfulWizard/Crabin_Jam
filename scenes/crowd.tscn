@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://c2se4dhns11aa" path="res://art/chefs/chef_1_2.png" id="13_gl4e7"]
 [ext_resource type="Texture2D" uid="uid://sla6btwsrm5e" path="res://art/chefs/chef_1_3.png" id="14_ucld5"]
 [ext_resource type="Texture2D" uid="uid://dovfbtws3nufy" path="res://art/chefs/chef_1_4.png" id="15_sgvaf"]
-[ext_resource type="Texture2D" uid="uid://brwujrgvdu43a" path="res://art/chefs/angry/Chefs_Angry-5.png" id="16_nx65f"]
 [ext_resource type="Texture2D" uid="uid://dhafx18r7g58a" path="res://art/chefs/angry/Chefs_Angry-6.png" id="17_rvy7g"]
 [ext_resource type="Texture2D" uid="uid://dr3fhqjwre4m8" path="res://art/chefs/angry/Chefs_Angry-7.png" id="18_mn8ub"]
 [ext_resource type="Texture2D" uid="uid://73mlqy4ge8cg" path="res://art/chefs/angry/Chefs_Angry-8.png" id="19_ba1cr"]
@@ -92,9 +91,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_nx65f")
-}, {
 "duration": 1.0,
 "texture": ExtResource("17_rvy7g")
 }, {
@@ -352,7 +348,7 @@ z_index = -1
 position = Vector2(995, 464.00003)
 scale = Vector2(0.41650394, 0.4174805)
 sprite_frames = SubResource("SpriteFrames_u83yg")
-animation = &"chef_2_neutral"
+animation = &"chef_3_neutral"
 script = ExtResource("40_08er1")
 character_type = 1
 animated_sprite = NodePath(".")
