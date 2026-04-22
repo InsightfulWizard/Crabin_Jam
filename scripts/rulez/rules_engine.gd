@@ -18,7 +18,8 @@ func evaluate_solution(solution: String) -> void:
 	for rule in _ruleset:
 		var matches = rule.pattern.search_all(solution)
 		total_score += matches.size() * rule.score
-
+	var blank_penalty: int = Util.hud.get_blank_penalty()
+	total_score += blank_penalty
 	GameState.set_current_score(total_score)
 
 
@@ -28,7 +29,8 @@ func evaluate_potential_score(solution: String) -> void:
 	for rule in _ruleset:
 		var matches = rule.pattern.search_all(solution)
 		total_score += matches.size() * rule.score
-
+	var blank_penalty: int = Util.hud.get_blank_penalty()
+	total_score += blank_penalty
 	GameState.potential_score = total_score
 	GameState.emit_signal('potential_score_changed', total_score)
 

@@ -31,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 		position = pos_initial + jitter_factor * Vector2(randf_range(-MAX_JITTER, MAX_JITTER), randf_range(-MAX_JITTER, MAX_JITTER))
 
 
-func start_timer(time: float = GameState.time_per_phrase):
+func start_timer(time: float = Constants.SPEECH_TIME):
 	if GameState.game_finished:
 		return
 	AudioManager.play_sfx(AudioManager.call_start, 5.0)

@@ -57,6 +57,7 @@ func pickup_tile(tile: Node2D):
 	tile.pickup()
 	if tile.snap:
 		tile.snap.unsnap()
+		GameState.update_potential_score()
 	var mouse_pos = get_viewport().get_mouse_position()
 	if tile.has_method("set_group_center_global_position"):
 		tile.set_group_center_global_position(mouse_pos)

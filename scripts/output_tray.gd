@@ -93,6 +93,7 @@ func reset():
 	var handled: Dictionary = { }
 	for n in get_sorted_snaps():
 		n.assign_rand_filler_word()
+		n.assign_rand_blank_penalty()
 		if !n.snapped_tile:
 			continue
 		if handled.has(n.snapped_tile):
@@ -104,3 +105,11 @@ func reset():
 func set_snaps_active(b: bool):
 	for n in get_sorted_snaps():
 		n.active = b
+
+
+func get_blank_penalty() -> int:
+	var penalty:int = 0
+	for n in get_sorted_snaps():
+		if !n.snapped_tile:
+			penalty += n.blank_penalty
+	return penalty

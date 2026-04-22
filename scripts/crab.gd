@@ -14,8 +14,8 @@ var game_lost := false
 func _ready() -> void:
 	Util.crab = self
 	GameState.connect('score_changed', _on_score_changed)
-	_on_score_changed(GameState.current_score)
-
+	#_on_score_changed(GameState.current_score) #not sure why this isnt triggering the sweat on init
+	toggle_dread(true)
 	GameState.connect('menu_opened', _on_menu_open)
 	GameState.connect('menu_closed', _on_menu_closed)
 	GameState.connect('game_lost', _on_game_lost)

@@ -8,7 +8,6 @@ var current_snap = null
 
 var current_score: int = roundi(float(Constants.MAX_SCORE) * Constants.NORMALIZED_START_SCORE)
 var recent_score: int = 0
-var time_per_phrase: float = 30.0
 var score_decrement_per_round: int = Constants.SCORE_DECREMENT_PER_ROUND_INITIAL
 
 var is_menu_open := true
@@ -34,6 +33,7 @@ signal menu_opened
 signal menu_closed
 signal half_timer
 signal potential_score_changed(score: int)
+signal game_start
 signal game_lost
 signal game_won
 signal crab_boiled
@@ -67,6 +67,7 @@ func toggle_menu(b:=true):
 func start_game():
 	if !game_started:
 		game_started = true
+		emit_signal('game_start')
 		AudioManager._on_state_change(state)
 	Util.hud.speech_timer_bar.resume()
 

@@ -74,3 +74,7 @@ func cycle_output_trays():
 	next.set_snaps_active(true)
 	current_output_tray = (current_output_tray + 1) % 2
 	cycling_output_tray = false
+
+
+func get_blank_penalty() -> int:
+	return output_trays[current_output_tray].get_blank_penalty()

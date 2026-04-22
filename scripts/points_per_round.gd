@@ -27,7 +27,7 @@ func set_points():
 		points.add_theme_color_override( "font_color", Color(0x73cd8cff) )
 
 
-func get_text():
+func get_text() -> String:
 	if points_per_round < -60:
 		return 'Not Quite!'
 	elif points_per_round < -30:
@@ -44,7 +44,7 @@ func get_text():
 		return 'They love you!'
 	elif points_per_round < 100:
 		return 'You had them in your claw!'
-	elif points_per_round > 110:
+	else:
 		return 'Speech-craft over 1,000,000'
 		
 		

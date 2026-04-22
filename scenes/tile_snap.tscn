@@ -10,21 +10,32 @@ size = Vector2(56, 56)
 z_index = -100
 script = ExtResource("1_6do8e")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=444957237]
+[node name="shake_container" type="Node2D" parent="." unique_id=1548380950]
+
+[node name="Sprite2D" type="Sprite2D" parent="shake_container" unique_id=444957237]
 modulate = Color(0.18000486, 0.18000486, 0.18000486, 1)
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("2_6do8e")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=637244395]
+[node name="Area2D" type="Area2D" parent="shake_container" unique_id=637244395]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1061630280]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shake_container/Area2D" unique_id=1061630280]
 shape = SubResource("RectangleShape2D_763ff")
 
-[node name="Label" type="Label" parent="." unique_id=871850209]
+[node name="Label" type="Label" parent="shake_container" unique_id=871850209]
 offset_left = -28.0
 offset_top = -12.0
 offset_right = 28.0
 offset_bottom = 11.0
 theme_override_colors/font_color = Color(0.4055557, 0.61302465, 0.61365193, 1)
 text = "umm"
+horizontal_alignment = 1
+
+[node name="blank_penalty_text" type="Label" parent="shake_container" unique_id=356533839]
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 28.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.55258983, 0.061968133, 0.14954561, 1)
+text = "-3"
 horizontal_alignment = 1
