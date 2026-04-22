@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bgscpilwx2vn7" path="res://scenes/crab/crab_arm.tscn" id="6_mxkv7"]
 [ext_resource type="Texture2D" uid="uid://qa0tmssc6h2d" path="res://art/crab/sweat/crab_sweat.png" id="8_ts84e"]
 [ext_resource type="PackedScene" uid="uid://dh5rw7h5ncb56" path="res://scenes/crab/crab_leg_code_animated.tscn" id="9_7e7f6"]
+[ext_resource type="Texture2D" uid="uid://by6fkcpfm1au0" path="res://art/crab/plate.png" id="9_ktnoq"]
+[ext_resource type="Texture2D" uid="uid://cwnp07mqxs6h8" path="res://art/crab/lemon.png" id="10_e52nb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hj1h3"]
 animations = [{
@@ -112,12 +114,14 @@ rotation = -1.3423866
 scale = Vector2(0.99625576, 0.99625576)
 
 [node name="arm_r" type="Node2D" parent="body" unique_id=1591101505]
+z_index = -3
 
 [node name="arm" parent="body/arm_r" unique_id=1186130729 instance=ExtResource("6_mxkv7")]
 position = Vector2(111.89626, -163.04884)
 rotation = 0.2489823
 
 [node name="arm_r2" type="Node2D" parent="body" unique_id=1971329964]
+z_index = -3
 scale = Vector2(-1, 1)
 
 [node name="arm" parent="body/arm_r2" unique_id=673559751 instance=ExtResource("6_mxkv7")]
@@ -146,8 +150,19 @@ scale_amount_curve = SubResource("Curve_q4iun")
 anim_speed_min = 1.0
 anim_speed_max = 1.61
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=650262025]
+[node name="shadow" type="Sprite2D" parent="." unique_id=650262025]
 z_index = -19
 position = Vector2(-9.250003, 92)
 scale = Vector2(5.6796875, 1)
 texture = SubResource("GradientTexture2D_7e7f6")
+
+[node name="plate" type="Sprite2D" parent="." unique_id=1684161137]
+visible = false
+z_index = -20
+position = Vector2(0, 44)
+texture = ExtResource("9_ktnoq")
+
+[node name="lemon" type="Sprite2D" parent="." unique_id=1005776165]
+visible = false
+position = Vector2(231, 40)
+texture = ExtResource("10_e52nb")

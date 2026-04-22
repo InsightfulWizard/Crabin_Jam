@@ -17,6 +17,14 @@ var high_res := true
 @export var b_reset_mouse_sensitivity: Button
 var mouse_sensitivity_default: float
 
+#----Win
+@onready var play_again: Button = $win/play_again
+
+
+#----LOSE
+@onready var play_again_2: Button = $lose/play_again2
+
+
 var current_menu: int = MAIN_MENU
 
 @onready var win: Control = $win
@@ -57,6 +65,9 @@ func _ready():
 
 	#mouse_sensitivity_default = Util.player.mouse_sense
 	#s_mouse_sensitivity.value = mouse_sensitivity_default
+	
+	play_again.connect('pressed', _play_again)
+	play_again_2.connect('pressed', _play_again)
 
 
 func _on_menu_opened():
@@ -64,9 +75,9 @@ func _on_menu_opened():
 
 
 func _on_menu_closed():
-	if win.visible or lose.visible:
-		win.visible = false
-		lose.visible = false
+	#if win.visible or lose.visible:
+		#win.visible = false
+		#lose.visible = false
 	visible = false
 	switch_to_menu(MAIN_MENU)
 
@@ -77,7 +88,7 @@ func _resume():
 		AudioManager.start_game,
 		-4.0,
 	)
-	GameState.toggle_menu_open()
+	GameState.toggle_menu(false)
 
 
 func _open_settings():
@@ -129,3 +140,7 @@ func switch_to_menu(menu: int):
 #	if event.is_action_pressed("minus"):
 #		get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
 #		mouse_sense -= .02
+
+
+func _play_again():
+	GameState.reset_game()

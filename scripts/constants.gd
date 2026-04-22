@@ -16,6 +16,8 @@ const MIN_SCORE = 0
 
 const MAX_SCORE = 500
 
+const NORMALIZED_START_SCORE: float = .3
+
 const SCORE_DECREMENT_PER_ROUND_INITIAL := 20
 
 const MIN_RULES = 2
@@ -32,7 +34,7 @@ const MAX_RULE_LENGTH = 2
 
 const USE_SPEECH_TIMER := true
 
-const USE_SPEECH_TIME := 30.0
+const USE_SPEECH_TIME := 25.0
 
 const CHILLIN_THRESH := 300
 

@@ -6,7 +6,7 @@ var current_tile = null
 var hovered_snap = null
 var current_snap = null
 
-var current_score: int = roundi(float(Constants.MAX_SCORE) * .6)
+var current_score: int = roundi(float(Constants.MAX_SCORE) * Constants.NORMALIZED_START_SCORE)
 var recent_score: int = 0
 var time_per_phrase: float = 30.0
 var score_decrement_per_round: int = Constants.SCORE_DECREMENT_PER_ROUND_INITIAL
@@ -30,14 +30,22 @@ signal menu_opened
 signal menu_closed
 signal half_timer
 signal potential_score_changed(score: int)
+signal game_lost
+signal game_reset
 
 
 func _input(_event):
 	if Input.is_action_just_pressed('escape'):
-		toggle_menu_open()
+		if Util.menu.current_menu == Util.menu.WIN or Util.menu.current_menu == Util.menu.LOSE:
+			reset_game()
+			return
+		toggle_menu(!is_menu_open)
 
 
-func toggle_menu_open():
+func toggle_menu(b:=true):
+	if is_menu_open == b:
+		return
+	
 	is_menu_open = !is_menu_open
 
 	if is_menu_open:
@@ -105,14 +113,18 @@ func exit_game():
 
 
 func win():
-	emit_signal('menu_opened')
 	Util.menu.switch_to_menu(Util.menu.WIN)
-	print('You\'ve convinced them!  Your shell did not crack under the pressure!')
+	emit_signal('menu_opened')
+	toggle_menu(true)
+	Util.hud.speech_timer_bar.reset()
 
 
 func lose():
-	emit_signal('menu_opened')
 	Util.menu.switch_to_menu(Util.menu.LOSE)
+	emit_signal('menu_opened')
+	toggle_menu(true)
+	emit_signal('game_lost')
+	Util.hud.speech_timer_bar.reset()
 
 
 func update_potential_score():
@@ -121,3 +133,15 @@ func update_potential_score():
 
 func reset_rules():
 	rules_engine.reset_ruleset()
+
+
+func reset_game():
+	emit_signal('game_reset')
+	toggle_menu(true)
+	Util.menu.switch_to_menu(Util.menu.MAIN_MENU)
+	game_started = false
+	current_score = roundi(float(Constants.MAX_SCORE) * Constants.NORMALIZED_START_SCORE)
+	set_current_score(0)
+	#AudioManager._on_state_change(state)
+	Util.hud.speech_timer_bar.reset()
+	reset_rules()

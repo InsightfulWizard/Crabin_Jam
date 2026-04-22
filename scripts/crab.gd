@@ -1,9 +1,12 @@
 extends Node2D
 
 @onready var sweat: CPUParticles2D = $sweat
+@onready var plate: Sprite2D = $plate
+@onready var lemon: Sprite2D = $lemon
 
 var moving_tween: Tween
 var initial_pos: Vector2
+var game_lost := false
 
 
 func _ready() -> void:
@@ -13,14 +16,21 @@ func _ready() -> void:
 
 	GameState.connect('menu_opened', _on_menu_open)
 	GameState.connect('menu_closed', _on_menu_closed)
+	GameState.connect('game_lost', _on_game_lost)
+	GameState.connect('game_reset', _on_game_reset)
 	initial_pos = position
 
 	position.y = get_viewport().get_visible_rect().size.y * 1.2
+	
+	plate.visible = false
+	lemon.visible = false
 
 	#start_timer()
 
 
 func _on_menu_open():
+	if Util.menu.current_menu == Util.menu.WIN or Util.menu.current_menu == Util.menu.LOSE:
+		return
 	var ypos: float = get_viewport().get_visible_rect().size.y * 1.2
 	move(Vector2(initial_pos.x, ypos), 1.5)
 
@@ -36,6 +46,8 @@ func _on_menu_closed():
 
 
 func _on_score_changed(_score: int):
+	if game_lost:
+		return
 	if GameState.state == GameState.CHILLIN:
 		toggle_chillin(true)
 		toggle_stresed(false)
@@ -59,6 +71,11 @@ func toggle_stresed(_b: bool):
 
 
 func toggle_dread(b: bool):
+	print('QQQ toggle_dread:  ', b)
+	print('QQQ toggle_dread game_lost:  ', game_lost)
+	if game_lost:
+		sweat.emitting = false
+		return
 	print('toggle_dread: ', b)
 	sweat.emitting = b
 
@@ -70,3 +87,34 @@ func move(pos: Vector2, time: float):
 	moving_tween.set_trans(Tween.TRANS_QUAD)
 	moving_tween.set_ease(Tween.EASE_OUT)
 	moving_tween.tween_property(self, 'position', pos, time)
+	
+	
+func _on_game_lost():
+	game_lost = true
+	print('QQQ _on_game_lost:  ', game_lost)
+	plate.visible = true
+	lemon.visible = true
+	plate.scale = Vector2.ZERO
+	lemon.scale = Vector2.ZERO
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(plate, "scale", Vector2(1,1), .5)
+	tween.parallel().tween_property(lemon, "scale", Vector2(1,1), .5)
+	sweat.emitting = false
+
+
+func _on_game_reset():
+	game_lost = false
+	print('QQQ _on_game_reset:  ', game_lost)
+	plate.scale = Vector2.ONE
+	lemon.scale = Vector2.ONE
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(plate, "scale", Vector2(0,0), .5)
+	tween.parallel().tween_property(lemon, "scale", Vector2(0,0), .5)
+	await tween.finished
+	plate.visible = false
+	lemon.visible = false
+	_on_menu_open()

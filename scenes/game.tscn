@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://cxmd67w0o1i63" path="res://scenes/ui/fancier_Ui.tscn" id="7_gee14"]
 [ext_resource type="Script" uid="uid://blv80jcr7dq44" path="res://scripts/menus.gd" id="7_u5sy4"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5sy4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
+bg_color = Color(0.579377, 0.94230384, 0.91065764, 0.49803922)
+
 [node name="game" type="Node2D" unique_id=552060712]
 script = ExtResource("1_lbhrr")
 
@@ -31,6 +36,7 @@ m_exit = NodePath("main_menu/exit")
 s_main_menu = NodePath("settings_menu/to_main")
 
 [node name="main_menu" type="Control" parent="menus" unique_id=449298868]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -91,6 +97,7 @@ grow_vertical = 2
 text = "⚙"
 
 [node name="settings_menu" type="Control" parent="menus" unique_id=1464376805]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -121,28 +128,57 @@ grow_vertical = 2
 text = "I think I'm ready..."
 
 [node name="win" type="Control" parent="menus" unique_id=682515032]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="fancier_Ui" parent="menus/win" unique_id=512027642 instance=ExtResource("7_gee14")]
+[node name="fancier_Ui3" parent="menus/win" unique_id=643237132 instance=ExtResource("7_gee14")]
+z_index = -3
 layout_mode = 0
-offset_left = 16.000008
-offset_top = 15.999998
-offset_right = 4646.149
-offset_bottom = 2551.6558
+offset_left = 210.0
+offset_top = 34.0
+offset_right = 3211.557
+offset_bottom = 561.7462
 scale = Vector2(0.24254078, 0.24254078)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="menus/win/fancier_Ui" unique_id=2130689282]
+[node name="fancier_Ui4" parent="menus/win" unique_id=2103828276 instance=ExtResource("7_gee14")]
+z_index = -3
 layout_mode = 0
-offset_left = 1092.5997
-offset_top = 581.3455
-offset_right = 3483.9502
-offset_bottom = 1974.9255
-theme_override_font_sizes/normal_font_size = 271
-text = "You've done it!"
+offset_left = 446.99994
+offset_top = 136.0
+offset_right = 1469.5085
+offset_bottom = 375.13507
+scale = Vector2(0.24254078, 0.24254078)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="menus/win" unique_id=1217053230]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 124.0
+offset_top = 25.0
+offset_right = 987.209
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Your shell did not crack under the pressure!
+We salute you, Crab-bassador!"
+horizontal_alignment = 1
+
+[node name="play_again" type="Button" parent="menus/win" unique_id=1348704818]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 143.0
+offset_right = 674.0
+offset_bottom = 187.0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u5sy4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gee14")
+text = "Play Again"
 
 [node name="lose" type="Control" parent="menus" unique_id=450597829]
 visible = false
@@ -151,19 +187,48 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="RichTextLabel" type="RichTextLabel" parent="menus/lose" unique_id=773214162]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 124.0
+offset_top = 73.0
+offset_right = 987.209
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "You were unable to convince them..."
+horizontal_alignment = 1
+
 [node name="fancier_Ui" parent="menus/lose" unique_id=1404233925 instance=ExtResource("7_gee14")]
+z_index = -3
 layout_mode = 0
-offset_left = 16.000008
-offset_top = 15.999998
-offset_right = 4646.149
-offset_bottom = 2551.656
+offset_left = 255.99997
+offset_top = 80.0
+offset_right = 2853.5012
+offset_bottom = 418.08746
 scale = Vector2(0.24254078, 0.24254078)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="menus/lose/fancier_Ui" unique_id=773214162]
+[node name="fancier_Ui2" parent="menus/lose" unique_id=1514716492 instance=ExtResource("7_gee14")]
+z_index = -3
 layout_mode = 0
-offset_left = 907.06396
-offset_top = 618.4527
-offset_right = 3937.482
-offset_bottom = 2012.0327
-theme_override_font_sizes/normal_font_size = 271
-text = "Your shell cracked under the pressure "
+offset_left = 446.99994
+offset_top = 136.0
+offset_right = 1469.5085
+offset_bottom = 375.13507
+scale = Vector2(0.24254078, 0.24254078)
+
+[node name="play_again2" type="Button" parent="menus/lose" unique_id=2121597275]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 143.0
+offset_right = 674.0
+offset_bottom = 187.0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u5sy4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gee14")
+text = "Play Again"

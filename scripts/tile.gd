@@ -324,4 +324,9 @@ func on_mouse_exited():
 
 
 func delete():
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "modulate:a", 0.0, 0.8)
+	await tween.finished
 	queue_free()

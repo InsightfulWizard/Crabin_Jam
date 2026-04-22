@@ -69,6 +69,11 @@ func set_spawning_enabled(enabled: bool):
 		check_and_spawn_tile()
 	else:
 		spawn_timer.stop()
+		for t in get_tree().get_nodes_in_group('spawned_tiles'):
+			if !t.snap:
+				t.delete()
+		current_tile_count = 0
+		
 
 
 func _on_menu_opened():

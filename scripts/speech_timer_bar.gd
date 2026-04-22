@@ -76,3 +76,11 @@ func pause():
 		return
 	else:
 		tween.pause()
+
+
+func reset():
+	timing = false
+	if tween:
+		tween.kill()
+	progress_bar.value = 0.0
+	
