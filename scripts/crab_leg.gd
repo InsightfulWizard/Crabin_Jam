@@ -25,7 +25,7 @@ var lost := false
 
 func _ready() -> void:
 	rand = randf_range(0,TWOPI)
-	GameState.connect('game_lost', _on_game_lost)
+	GameState.connect('crab_boiled', _on_crab_boiled)
 	GameState.connect('game_reset', _on_game_reset)
 
 
@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 		l.rotation = rot
 
 
-func _on_game_lost():
+func _on_crab_boiled():
 	lost = true
 	for i in range(len(ls)):
 		var l:Node2D =  ls[i]

@@ -31,6 +31,7 @@ signal menu_closed
 signal half_timer
 signal potential_score_changed(score: int)
 signal game_lost
+signal crab_boiled
 signal game_reset
 
 

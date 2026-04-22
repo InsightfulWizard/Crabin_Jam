@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dh5rw7h5ncb56" path="res://scenes/crab/crab_leg_code_animated.tscn" id="9_7e7f6"]
 [ext_resource type="Texture2D" uid="uid://by6fkcpfm1au0" path="res://art/crab/plate.png" id="9_ktnoq"]
 [ext_resource type="Texture2D" uid="uid://cwnp07mqxs6h8" path="res://art/crab/lemon.png" id="10_e52nb"]
+[ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="11_e52nb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hj1h3"]
 animations = [{
@@ -166,3 +167,11 @@ texture = ExtResource("9_ktnoq")
 visible = false
 position = Vector2(231, 40)
 texture = ExtResource("10_e52nb")
+
+[node name="boiling pot" type="Node2D" parent="." unique_id=782777568]
+position = Vector2(0, 509)
+
+[node name="pot" type="Sprite2D" parent="boiling pot" unique_id=1665782622]
+position = Vector2(0, -55)
+scale = Vector2(5.046875, 4.09375)
+texture = ExtResource("11_e52nb")
