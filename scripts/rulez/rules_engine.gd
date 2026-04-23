@@ -35,24 +35,25 @@ func evaluate_potential_score(solution: String) -> void:
 	GameState.emit_signal('potential_score_changed', total_score)
 
 
-func generate_rule() -> Rule:
+func generate_rule(length: int):
 	var id = randi()
-	var length = randi_range(Constants.MIN_RULE_LENGTH, Constants.MAX_RULE_LENGTH)
 	var pattern = ""
-	for i in range(length):
-		pattern += Constants.ALPHABET[randi() % Constants.ALPHABET.length()]
-	return Rule.new(id, pattern, length * Constants.BASE_SCORE)
+	while true:
+		for i in range(length):
+			pattern += Constants.ALPHABET[randi() % Constants.ALPHABET.length()]
+
+		var score = length * Constants.BASE_SCORE
+		if length >= 3:
+			score += Constants.BASE_SCORE
+		var new_rule = Rule.new(id, pattern, score)
+		if not rule_exists(new_rule):
+			_ruleset.append(new_rule)
+			break
 
 
 func generate_ruleset() -> void:
-	var num_rules = randi_range(Constants.MIN_RULES, Constants.MAX_RULES)
-	for i in range(num_rules):
-		while true:
-			var new_rule = generate_rule()
-			if not rule_exists(new_rule):
-				_ruleset.append(new_rule)
-				break
-	_append_empty_rule()
+	for rule_size in [2, 2, 3]:
+		generate_rule(rule_size)
 
 
 func rule_exists(_candidate_rule: Rule) -> bool:
@@ -62,35 +63,8 @@ func rule_exists(_candidate_rule: Rule) -> bool:
 	return false
 
 
-func _append_empty_rule() -> void:
-	var empty_rule = Rule.new(
-		len(_ruleset),
-		Constants.EMPTY_TILE_VALUE,
-		Constants.PENALTY_EMPTY_TILE,
-	)
-	_ruleset.append(empty_rule)
-
-
 func clear_ruleset() -> void:
 	_ruleset.clear()
-
-
-func generate_solution() -> String:
-	var length = randi_range(Constants.MIN_SOLUTION_LENGTH, Constants.MAX_SOLUTION_LENGTH)
-	var solution = ""
-	for i in range(length):
-		solution += Constants.ALPHABET[randi() % Constants.ALPHABET.length()]
-	return solution
-
-
-# For testing and debugging purposes, we can generate a static ruleset instead of a random one.
-func generate_static_ruleset() -> void:
-	_ruleset = [
-		Rule.new(1, "△○", 20),
-		Rule.new(2, "○□", 15),
-		Rule.new(3, "△□", 10),
-	]
-	_append_empty_rule()
 
 
 func reset_ruleset() -> void:
