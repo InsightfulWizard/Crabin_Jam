@@ -16,6 +16,7 @@ var state := ON
 func _ready():
 	volume_db = -80
 	state = OFF
+	playing = true
 	if !start_low_volume:
 		fade_in()
 
