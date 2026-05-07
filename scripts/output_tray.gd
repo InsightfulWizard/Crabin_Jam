@@ -83,7 +83,7 @@ func get_output_values():
 	var output_values: Array[String] = []
 	for n in get_sorted_snaps():
 		if !n.snapped_tile:
-			output_values.append(Constants.EMPTY_TILE_VALUE)
+			output_values.append(Constants.PENALTY_CHARACTER_LOOKUP[n.blank_penalty])
 			continue
 		output_values.append(n.snapped_tile.get_slot_value(n.snapped_index))
 	return output_values
@@ -108,7 +108,7 @@ func set_snaps_active(b: bool):
 
 
 func get_blank_penalty() -> int:
-	var penalty:int = 0
+	var penalty: int = 0
 	for n in get_sorted_snaps():
 		if !n.snapped_tile:
 			penalty += n.blank_penalty

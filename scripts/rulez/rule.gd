@@ -16,5 +16,3 @@ func _init(_id: int, _pattern: String, _score: int=) -> void:
 
 func _to_string() -> String:
 	return "Rule(id: %d, pattern: '%s', score: %d)" % [id, pattern.get_pattern(), score]
-
-# --- Testing functions

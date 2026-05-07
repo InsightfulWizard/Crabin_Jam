@@ -15,9 +15,11 @@ var image_map = {
 }
 
 var rule: Rule
-var symbol_scale := Vector2(0.5, 0.5)
+var symbol_scale_2 := Vector2(0.5, 0.5)
+var symbol_scale_3 := Vector2(0.325, 0.325)
 var score_font_size := 320
-var symbol_gap: float = 280.0
+var symbol_gap_2: float = 280.0
+var symbol_gap_3: float = 180.0
 var score_gap: float = 320.0
 var fade_tween: Tween
 var call_is_dropped := false
@@ -108,8 +110,12 @@ func _rebuild_visuals() -> void:
 		sprite.texture = image_map[symbol]
 		if symbol == "_":
 			sprite.modulate = UNDERSCORE_COLOR
-		sprite.position = SYMBOL_START + Vector2(symbol_gap * symbol_count, 0)
-		sprite.scale = symbol_scale
+		if pattern_string.length() == 2:
+			sprite.scale = symbol_scale_2
+			sprite.position = SYMBOL_START + Vector2(symbol_gap_2 * symbol_count, 0)
+		else:
+			sprite.scale = symbol_scale_3
+			sprite.position = SYMBOL_START + Vector2(symbol_gap_3 * symbol_count, 0)
 		pattern_layer.add_child(sprite)
 		symbol_count += 1
 
