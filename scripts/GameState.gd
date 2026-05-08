@@ -128,6 +128,7 @@ func win():
 	toggle_menu(true)
 	emit_signal('game_won')
 	Util.hud.speech_timer_bar.reset()
+	reset_potential()
 
 
 func lose():
@@ -137,6 +138,7 @@ func lose():
 	toggle_menu(true)
 	emit_signal('game_lost')
 	Util.hud.speech_timer_bar.reset()
+	reset_potential()
 
 
 func update_potential_score():
@@ -145,6 +147,12 @@ func update_potential_score():
 
 func reset_rules():
 	rules_engine.reset_ruleset()
+	#update_potential_score()
+
+
+func reset_potential():
+	potential_score = 0
+	emit_signal('potential_score_changed', 0)
 
 
 func reset_game():
@@ -160,3 +168,4 @@ func reset_game():
 	#AudioManager._on_state_change(state)
 	Util.hud.speech_timer_bar.reset()
 	reset_rules()
+	reset_potential()

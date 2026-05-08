@@ -17,7 +17,7 @@ func go(i:int = 0):
 		t = '+'
 	label.text = t + str(i)
 	#modulate.a = 0
-	if i < 1:
+	if i < 0:
 		label.add_theme_color_override( "font_color", Color(0.75, 0.11, 0.22) )
 		label.add_theme_color_override( "font_outline_color", Color(0.448, 0.038, 0.159, 1.0) )
 	else:

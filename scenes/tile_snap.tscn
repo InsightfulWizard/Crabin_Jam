@@ -39,3 +39,19 @@ offset_bottom = 28.0
 theme_override_colors/font_color = Color(0.55258983, 0.061968133, 0.14954561, 1)
 text = "-3"
 horizontal_alignment = 1
+
+[node name="indicator" type="ColorRect" parent="." unique_id=160276652]
+z_index = -1
+offset_left = -28.0
+offset_top = 29.0
+offset_right = 28.0
+offset_bottom = 41.0
+color = Color(0, 1, 0.28235295, 1)
+
+[node name="ligature" type="ColorRect" parent="." unique_id=1061284544]
+z_index = -1
+offset_left = 26.0
+offset_top = 29.0
+offset_right = 46.0
+offset_bottom = 41.0
+color = Color(0, 1, 0.28235295, 1)

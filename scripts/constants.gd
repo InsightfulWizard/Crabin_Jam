@@ -32,7 +32,7 @@ const MAX_RULE_LENGTH = 2
 
 const USE_SPEECH_TIMER := true
 
-const SPEECH_TIME := 15.0
+const SPEECH_TIME := 20.0
 
 const CHILLIN_THRESH := 300
 

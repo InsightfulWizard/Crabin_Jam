@@ -4,6 +4,8 @@ extends Node2D
 @onready var label: Label = $shake_container/Label
 @onready var blank_penalty_text: Label = $shake_container/blank_penalty_text
 @onready var shake_container: Node2D = $shake_container
+@onready var indicator: ColorRect = $indicator
+@onready var ligature: ColorRect = $ligature
 
 var snapped_tile: Node2D
 var snapped_index: int = -1
@@ -32,6 +34,9 @@ var jitter_factor: float = .1 #pixels
 var jitter_factor_anim: float = 0 #pixels
 var jitter_tween: Tween
 
+var good_color := Color(0.578, 0.608, 0.218, 1.0)
+var bad_color := Color(0.75, 0.11, 0.22)
+
 
 func _ready():
 	col.connect('mouse_entered', on_mouse_entered)
@@ -41,6 +46,8 @@ func _ready():
 	GameState.connect('game_start', start_jitter)
 	GameState.connect('game_won', end_jitter)
 	GameState.connect('game_reset', end_jitter)
+	indicator.color.a = 0.0
+	ligature.color.a = 0.0
 
 
 func _physics_process(_delta: float) -> void:
@@ -101,7 +108,7 @@ func assign_rand_blank_penalty():
 
 
 func start_jitter():
-	print('------start jitter')
+	#print('------start jitter')
 	if jitter_tween and jitter_tween.is_valid():
 		jitter_tween.kill()
 	jitter_tween = create_tween()
@@ -113,3 +120,21 @@ func end_jitter():
 		jitter_tween.kill()
 	jitter_tween = create_tween()
 	jitter_tween.tween_property(self, 'jitter_factor_anim', 0.0, 2.0)
+
+
+func set_indicator(state:int, add_ligature:bool = false):
+	if state == 0:
+		indicator.color.a = 0.0
+	elif state == 1:
+		indicator.color = good_color
+	elif state == 2:
+		indicator.color = bad_color
+	if add_ligature:
+		if state == 0:
+			ligature.color.a = 0.0
+		elif state == 1:
+			ligature.color = good_color
+		elif state == 2:
+			ligature.color = bad_color
+	else:
+		ligature.color.a = 0.0

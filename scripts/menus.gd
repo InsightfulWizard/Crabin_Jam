@@ -80,6 +80,7 @@ func _on_menu_closed():
 		#lose.visible = false
 	visible = false
 	switch_to_menu(MAIN_MENU)
+	GameState.update_potential_score()
 
 
 func _resume():

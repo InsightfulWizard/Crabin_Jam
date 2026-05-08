@@ -28,21 +28,21 @@ func set_points():
 
 
 func get_text() -> String:
-	if points_per_round < -60:
+	if points_per_round < -30:
 		return 'Not Quite!'
-	elif points_per_round < -30:
+	elif points_per_round < -15:
 		return 'They didn\'t like that!'
 	elif points_per_round < 0:
 		return 'No compromise reached!'
-	elif points_per_round < 30:
+	elif points_per_round < 15:
 		return 'Slowly but surely!'
-	elif points_per_round < 60:
+	elif points_per_round < 30:
 		return 'They came around!'
-	elif points_per_round < 80:
+	elif points_per_round < 40:
 		return 'Very Persuasive!'
-	elif points_per_round < 90:
+	elif points_per_round < 45:
 		return 'They love you!'
-	elif points_per_round < 100:
+	elif points_per_round < 50:
 		return 'You had them in your claw!'
 	else:
 		return 'Speech-craft over 1,000,000'

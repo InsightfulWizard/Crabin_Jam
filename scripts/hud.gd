@@ -33,7 +33,7 @@ func to_hud_space(n: Node2D):
 func submit_output_trays():
 	grade_output_tray()
 	cycle_output_trays()
-	reset_potential()
+	GameState.reset_potential()
 	speech_timer_bar.start_timer()
 
 
@@ -49,9 +49,31 @@ func grade_output_tray_potential():
 	GameState.rules_engine.evaluate_potential_score(solution)
 
 
-func reset_potential():
-	GameState.potential_score = 0
-	GameState.emit_signal('potential_score_changed', 0)
+func set_rule_match_visuals(pos_matches: Array[RegExMatch], neg_matches:Array[RegExMatch]):
+	var snaps = output_trays[current_output_tray].get_sorted_snaps()
+	for snap in snaps:
+		snap.set_indicator(0)
+	for m in pos_matches:
+		var start := m.get_start()
+		var end := m.get_end()
+		if start == -1:
+			continue
+		for i in range(end - start):
+			var add_ligature: bool  =  start + i != end - 1
+			snaps[start + i].set_indicator(1, add_ligature)
+	for m in neg_matches:
+		var start := m.get_start()
+		var end := m.get_end()
+		if start == -1:
+			continue
+		for i in range(end - start):
+			var add_ligature: bool  =  start + i != end- 1
+			snaps[start + i].set_indicator(2, add_ligature)
+
+
+func clear_rule_match_visuals(tray:int):
+	for snap in output_trays[tray].get_sorted_snaps():
+		snap.set_indicator(0)
 
 
 func cycle_output_trays():
@@ -71,9 +93,11 @@ func cycle_output_trays():
 	await tween.finished
 	current.position.x = size_x
 	current.reset()
+	clear_rule_match_visuals(current_output_tray)
 	next.set_snaps_active(true)
 	current_output_tray = (current_output_tray + 1) % 2
 	cycling_output_tray = false
+	GameState.update_potential_score()
 
 
 func get_blank_penalty() -> int:
