@@ -14,7 +14,13 @@ const MIN_SCORE = 0
 
 const MAX_SCORE = 500
 
+const CHILLIN_THRESH := 330
+
+const DREAD_THRESH := 200
+
 const NORMALIZED_START_SCORE: float = .2
+
+const SPEECH_TIME := 20.0
 
 const SCORE_DECREMENT_PER_ROUND_INITIAL := 20
 
@@ -34,11 +40,7 @@ const USE_SPEECH_TIMER := true
 
 const HIDE_MATCH_INDICATOR_ON_HALF_TIME := false
 
-const SPEECH_TIME := 20.0
-
-const CHILLIN_THRESH := 300
-
-const DREAD_THRESH := 200
+const DEBUG_MODE := true
 
 # SCORING
 

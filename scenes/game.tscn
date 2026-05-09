@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://n2n6gtgtxpx7" path="res://scripts/volume_slider.gd" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://n0q3uk4fyopk" path="res://scenes/ui/points_per_round.tscn" id="8_gee14"]
 [ext_resource type="Script" uid="uid://jcwovw5jueoi" path="res://scripts/button_hover_tween.gd" id="8_vtaks"]
+[ext_resource type="Texture2D" uid="uid://coiw0rvnaon0" path="res://art/ui/gear.png" id="9_kvpfn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0tnpc"]
 
@@ -168,18 +169,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 605.0
-offset_top = 198.0
-offset_right = 649.0
-offset_bottom = 245.0
+offset_left = 612.0
+offset_top = 204.0
+offset_right = 642.0
+offset_bottom = 234.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(21, 22)
+pivot_offset = Vector2(15, 16)
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kvpfn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ca42v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_rysoc")
-text = "⚙"
+icon = ExtResource("9_kvpfn")
 script = ExtResource("8_vtaks")
 
 [node name="settings_menu" type="Control" parent="menus" unique_id=1464376805]

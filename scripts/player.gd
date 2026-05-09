@@ -38,9 +38,11 @@ func _input(event):
 	if event.is_action_pressed("test") and !GameState.is_menu_open:
 		Util.hud.submit_output_trays()
 	if event.is_action_pressed("t1"):
-		GameState.set_current_score(70)
+		if Constants.DEBUG_MODE:
+			GameState.set_current_score(70)
 	if event.is_action_pressed("t2"):
-		GameState.set_current_score(-50)
+		if Constants.DEBUG_MODE:
+			GameState.set_current_score(-50)
 
 
 func pickup_tile(tile: Node2D):

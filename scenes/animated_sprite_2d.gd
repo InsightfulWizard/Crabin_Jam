@@ -16,12 +16,7 @@ func _ready() -> void:
 	GameState.connect('score_changed', _on_score_changed)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_score_changed(score: int):
+func _on_score_changed(_score: int):
 	call_is_dropped = false
 	fade_in(DROP_FADE_DURATION)
 

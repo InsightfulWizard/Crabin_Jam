@@ -14,7 +14,7 @@ func _ready() -> void:
 	boiling_bubbles.lifetime = lerpf(min_bubble_lifetime, max_bubble_lifetime, progress_bar.value / 100.0)
 
 
-func _on_score_change(score: int):
+func _on_score_change(_score: int):
 	var score_percent: float = 100.0 - 100.0 * float(GameState.current_score) / float(Constants.MAX_SCORE)
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_BACK)

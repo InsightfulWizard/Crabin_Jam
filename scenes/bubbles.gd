@@ -16,7 +16,7 @@ func _ready() -> void:
 	GameState.connect('score_changed', _on_score_changed)
 
 
-func _on_score_changed(score: int):
+func _on_score_changed(_score: int):
 	call_is_dropped = false
 	fade_out(DROP_FADE_DURATION)
 
@@ -59,8 +59,3 @@ func _kill_fade_tween() -> void:
 	if fade_tween and fade_tween.is_valid():
 		fade_tween.kill()
 	fade_tween = null
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

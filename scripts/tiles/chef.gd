@@ -29,7 +29,7 @@ func _on_score_changed(score: int) -> void:
 	update_mood_from_score(score)
 
 
-func update_mood_from_score(score: int) -> void:
+func update_mood_from_score(_score: int) -> void:
 	if (GameState.state == GameState.CHILLIN && current_mood == Mood.ANGRY) || (GameState.state == GameState.DREAD && current_mood == Mood.HAPPY):
 		set_mood(Mood.NEUTRAL, true)
 		return

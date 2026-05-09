@@ -15,6 +15,19 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Crabvocate For Peace: In Hot Water"
+config/description="Controls
+Left Mouse Button: Click and drag
+Space: Speak your sentence early
+
+🌊🌊    From the deep you come to speak on behalf of all crabdom.    🌊🌊
+
+Now is your chance to convince the chefs of the world to put down their crackers and boiling pots and to join claw with hand in peace.
+
+As Crabvocate, speak to the humans by dragging tiles into the bottom row.
+
+Your translator is on the left, prompting you with persuasive human grammar.
+
+Can you keep your composure or will you simmer under the heat?"
 run/main_scene="uid://klp3ymst6qu6"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://byga46t1e2n5"

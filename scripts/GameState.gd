@@ -25,18 +25,21 @@ enum {
 	STRESSED,
 	CHILLIN,
 }
-var state := STRESSED
+var state := DREAD
 
 signal score_changed(score: int)
 signal state_changed(new_state: int)
 signal menu_opened
 signal menu_closed
+@warning_ignore("unused_signal")
 signal timer_start
+@warning_ignore("unused_signal")
 signal half_timer
 signal potential_score_changed(score: int)
 signal game_start
 signal game_lost
 signal game_won
+@warning_ignore("unused_signal")
 signal crab_boiled
 signal game_reset
 
@@ -119,7 +122,11 @@ func clear_hovered_tile():
 
 
 func exit_game():
-	get_tree().quit()
+	if OS.get_name() == "Web":
+		#todo do something
+		return
+	else:
+		get_tree().quit()
 
 
 func win():
