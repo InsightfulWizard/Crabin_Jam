@@ -34,6 +34,7 @@ func _physics_process(_delta: float) -> void:
 func start_timer(time: float = Constants.SPEECH_TIME):
 	if GameState.game_finished:
 		return
+	GameState.emit_signal('timer_start')
 	AudioManager.play_sfx(AudioManager.call_start, 5.0)
 	if !Constants.USE_SPEECH_TIMER:
 		return
@@ -82,7 +83,7 @@ func pause():
 
 func reset():
 	timing = false
-	if tween:
+	if tween and tween.is_valid():
 		tween.kill()
 	progress_bar.value = 0.0
 	

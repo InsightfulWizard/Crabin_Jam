@@ -62,6 +62,8 @@ func generate_rule(length: int):
 		if not rule_exists(new_rule):
 			_ruleset.append(new_rule)
 			break
+		else:
+			pattern = ''
 
 
 func generate_ruleset() -> void:

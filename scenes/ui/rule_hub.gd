@@ -60,27 +60,28 @@ func _connect_menu_signals() -> void:
 	if !GameState.has_signal("menu_opened") or !GameState.has_signal("menu_closed"):
 		return
 
-	if !GameState.menu_opened.is_connected(_on_menu_opened):
-		GameState.menu_opened.connect(_on_menu_opened)
-
-	if !GameState.menu_closed.is_connected(_on_menu_closed):
-		GameState.menu_closed.connect(_on_menu_closed)
-
-
-func _on_menu_opened() -> void:
-	for child in pattern_layer.get_children():
-		var rule_ui := child as RuleUI
-		if rule_ui == null:
-			continue
-		rule_ui.fade_out(rule_fade_duration)
+	#if !GameState.menu_opened.is_connected(_on_menu_opened):
+		#GameState.menu_opened.connect(_on_menu_opened)
+#
+	#if !GameState.menu_closed.is_connected(_on_menu_closed):
+		#GameState.menu_closed.connect(_on_menu_closed)
 
 
-func _on_menu_closed() -> void:
-	for child in pattern_layer.get_children():
-		var rule_ui := child as RuleUI
-		if rule_ui == null:
-			continue
-		rule_ui.fade_in(rule_fade_duration)
+#rule_ui was already doing this with additional checks, the rules were being revealed on menu close after half_timer
+#func _on_menu_opened() -> void:
+	#for child in pattern_layer.get_children():
+		#var rule_ui := child as RuleUI
+		#if rule_ui == null:
+			#continue
+		#rule_ui.fade_out(rule_fade_duration)
+#
+#
+#func _on_menu_closed() -> void:
+	#for child in pattern_layer.get_children():
+		#var rule_ui := child as RuleUI
+		#if rule_ui == null:
+			#continue
+		#rule_ui.fade_in(rule_fade_duration)
 
 
 func _sync_rows_with_menu_state(animated: bool = true) -> void:

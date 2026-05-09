@@ -31,6 +31,7 @@ signal score_changed(score: int)
 signal state_changed(new_state: int)
 signal menu_opened
 signal menu_closed
+signal timer_start
 signal half_timer
 signal potential_score_changed(score: int)
 signal game_start

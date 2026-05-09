@@ -15,6 +15,7 @@ var initial_pos: Vector2
 var game_lost := false
 var sunglasses_pos_init: Vector2
 var sunglasses_tween: Tween
+var end_sequence_tween: Tween
 
 
 func _ready() -> void:
@@ -115,50 +116,59 @@ func move(pos: Vector2, time: float):
 	
 	
 func _on_game_lost():
-	var pot_tween = create_tween()
-	pot_tween.set_trans(Tween.TRANS_QUAD)
-	pot_tween.set_ease(Tween.EASE_OUT)
-	pot_tween.tween_property(boiling_pot, "position", Vector2.ZERO, 1.5)
+	kill_end_sequence_tween()
+	boiling_pot.visible = true
+	end_sequence_tween = create_tween()
+	end_sequence_tween.set_trans(Tween.TRANS_QUAD)
+	end_sequence_tween.set_ease(Tween.EASE_OUT)
+	end_sequence_tween.tween_property(boiling_pot, "position", Vector2.ZERO, 1.5)
 	
-	await pot_tween.finished
+	await end_sequence_tween.finished
 	
 	game_lost = true
 	GameState.emit_signal('crab_boiled')
 	sweat.emitting = false
 	
-	pot_tween = create_tween()
-	pot_tween.set_ease(Tween.EASE_IN_OUT)
-	pot_tween.chain().tween_property(boiling_pot, "rotation", .125, .125)
-	pot_tween.chain().tween_property(boiling_pot, "rotation", -.125, .125)
-	pot_tween.chain().tween_property(boiling_pot, "rotation", .125, .125)
-	pot_tween.chain().tween_property(boiling_pot, "rotation", -.125, .125)
-	pot_tween.chain().tween_property(boiling_pot, "rotation", 0.0, .125)
+	end_sequence_tween = create_tween()
+	end_sequence_tween.set_ease(Tween.EASE_IN_OUT)
+	end_sequence_tween.chain().tween_property(boiling_pot, "rotation", .125, .125)
+	end_sequence_tween.chain().tween_property(boiling_pot, "rotation", -.125, .125)
+	end_sequence_tween.chain().tween_property(boiling_pot, "rotation", .125, .125)
+	end_sequence_tween.chain().tween_property(boiling_pot, "rotation", -.125, .125)
+	end_sequence_tween.chain().tween_property(boiling_pot, "rotation", 0.0, .125)
 	
-	pot_tween.chain().tween_property(boiling_pot, "position", boiling_pot_pos_init, 1.5)
+	end_sequence_tween.chain().tween_property(boiling_pot, "position", boiling_pot_pos_init, 1.5)
 	
-	await pot_tween.finished
+	await end_sequence_tween.finished
 	
 	plate.visible = true
 	lemon.visible = true
 	plate.scale = Vector2.ZERO
 	lemon.scale = Vector2.ZERO
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_QUAD)
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(plate, "scale", Vector2(1,1), .5)
-	tween.parallel().tween_property(lemon, "scale", Vector2(1,1), .5)
+	end_sequence_tween = create_tween()
+	end_sequence_tween.set_trans(Tween.TRANS_QUAD)
+	end_sequence_tween.set_ease(Tween.EASE_IN_OUT)
+	end_sequence_tween.tween_property(plate, "scale", Vector2(1,1), .5)
+	end_sequence_tween.parallel().tween_property(lemon, "scale", Vector2(1,1), .5)
+
+
+func kill_end_sequence_tween():
+	if end_sequence_tween and end_sequence_tween.is_valid():
+		end_sequence_tween.kill()
 
 
 func _on_game_reset():
+	kill_end_sequence_tween()
 	game_lost = false
-	plate.scale = Vector2.ONE
-	lemon.scale = Vector2.ONE
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_QUAD)
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(plate, "scale", Vector2(0,0), .5)
-	tween.parallel().tween_property(lemon, "scale", Vector2(0,0), .5)
-	await tween.finished
+	end_sequence_tween = create_tween()
+	end_sequence_tween.set_trans(Tween.TRANS_QUAD)
+	end_sequence_tween.set_ease(Tween.EASE_IN_OUT)
+	end_sequence_tween.tween_property(plate, "scale", Vector2(0,0), .5)
+	end_sequence_tween.parallel().tween_property(lemon, "scale", Vector2(0,0), .5)
+	end_sequence_tween.parallel().tween_property(boiling_pot, "position", boiling_pot_pos_init, .5)
+	end_sequence_tween.parallel().tween_property(boiling_pot, "rotation", 0.0, .5)
+	await end_sequence_tween.finished
 	plate.visible = false
 	lemon.visible = false
+	boiling_pot.visible = false
 	_on_menu_open()

@@ -32,6 +32,8 @@ const MAX_RULE_LENGTH = 2
 
 const USE_SPEECH_TIMER := true
 
+const HIDE_MATCH_INDICATOR_ON_HALF_TIME := false
+
 const SPEECH_TIME := 20.0
 
 const CHILLIN_THRESH := 300

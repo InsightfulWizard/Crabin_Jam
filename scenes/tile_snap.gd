@@ -4,8 +4,11 @@ extends Node2D
 @onready var label: Label = $shake_container/Label
 @onready var blank_penalty_text: Label = $shake_container/blank_penalty_text
 @onready var shake_container: Node2D = $shake_container
-@onready var indicator: ColorRect = $indicator
-@onready var ligature: ColorRect = $ligature
+
+@onready var indicator_container: Node2D = $indicator_container
+@onready var indicator: ColorRect = $indicator_container/indicator
+@onready var ligature: ColorRect = $indicator_container/ligature
+
 
 var snapped_tile: Node2D
 var snapped_index: int = -1
@@ -36,6 +39,7 @@ var jitter_tween: Tween
 
 var good_color := Color(0.578, 0.608, 0.218, 1.0)
 var bad_color := Color(0.75, 0.11, 0.22)
+var indicator_tween: Tween
 
 
 func _ready():
@@ -46,6 +50,9 @@ func _ready():
 	GameState.connect('game_start', start_jitter)
 	GameState.connect('game_won', end_jitter)
 	GameState.connect('game_reset', end_jitter)
+	
+	GameState.connect('timer_start', _on_timer_start)
+	GameState.connect('half_timer', _on_half_timer)
 	indicator.color.a = 0.0
 	ligature.color.a = 0.0
 
@@ -138,3 +145,25 @@ func set_indicator(state:int, add_ligature:bool = false):
 			ligature.color = bad_color
 	else:
 		ligature.color.a = 0.0
+
+
+func _on_timer_start():
+	if Constants.HIDE_MATCH_INDICATOR_ON_HALF_TIME:
+		tween_indicator(true)
+
+
+func _on_half_timer():
+	if Constants.HIDE_MATCH_INDICATOR_ON_HALF_TIME:
+		tween_indicator(false)
+
+
+func tween_indicator(b:bool):
+	if indicator_tween and indicator_tween.is_valid():
+		indicator_tween.kill()
+	indicator_tween = get_tree().create_tween()
+	indicator_tween.set_trans(Tween.TRANS_QUAD)
+	indicator_tween.set_ease(Tween.EASE_OUT)
+	if b:
+		indicator_tween.tween_property(indicator_container, "scale", Vector2.ONE, .5)
+	else:
+		indicator_tween.tween_property(indicator_container, "scale", Vector2.ONE * .2, 15.0)

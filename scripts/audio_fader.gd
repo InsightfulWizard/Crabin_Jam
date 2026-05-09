@@ -29,7 +29,7 @@ func fade_in(time := 2.0):
 	if !playing:
 		play()
 	
-	if fade_tween:
+	if fade_tween and fade_tween.is_valid():
 		fade_tween.kill()
 	fade_tween = get_tree().create_tween()
 	fade_tween.set_trans(Tween.TRANS_QUAD)

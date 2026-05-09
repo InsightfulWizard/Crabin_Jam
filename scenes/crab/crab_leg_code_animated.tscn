@@ -84,6 +84,7 @@ z_index = 2
 position = Vector2(-1.0108901, 0.98898995)
 rotation = 0.010950327
 sprite_frames = SubResource("SpriteFrames_4xc8i")
+autoplay = "default"
 offset = Vector2(23, 147)
 
 [node name="l2" type="Node2D" parent="l1" unique_id=483588331]
@@ -95,6 +96,7 @@ position = Vector2(-4.943741, 8.3472595)
 rotation = 0.14557469
 scale = Vector2(0.99999845, 0.99999845)
 sprite_frames = SubResource("SpriteFrames_503lu")
+autoplay = "default"
 offset = Vector2(-5, 55)
 
 [node name="l3" type="Node2D" parent="l1/l2" unique_id=1878567142]
@@ -105,4 +107,5 @@ position = Vector2(-2.035921, 3.3181152)
 rotation = 0.36065355
 scale = Vector2(0.9999996, 0.9999996)
 sprite_frames = SubResource("SpriteFrames_fm78s")
+autoplay = "default"
 offset = Vector2(-18, 108)
