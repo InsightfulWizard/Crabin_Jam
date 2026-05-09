@@ -59,6 +59,7 @@ func _ready():
 
 	for i in range(max_sfx_players):
 		var p := AudioStreamPlayer.new()
+		p.bus = 'SFX'
 		sfx_players.append(p)
 		sfx_stamps.append(-1)
 		sfx_node.add_child(p)
