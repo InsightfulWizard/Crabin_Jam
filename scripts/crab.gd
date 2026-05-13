@@ -45,9 +45,13 @@ func _on_menu_open():
 		return
 	var ypos: float = get_viewport().get_visible_rect().size.y * 1.2
 	move(Vector2(initial_pos.x, ypos), 1.5)
+	if !GameState.game_finished:
+		AudioManager.switch_to_title()
 
 
 func _on_menu_closed():
+	if GameState.game_started:
+		AudioManager._on_state_change(GameState.state)
 	move(initial_pos, 4.0)
 	await moving_tween.finished
 	var audio = AudioManager.play_sfx_from_array(AudioManager.throat_clear, 0.0)
@@ -117,11 +121,19 @@ func move(pos: Vector2, time: float):
 	
 func _on_game_lost():
 	kill_end_sequence_tween()
+	
 	boiling_pot.visible = true
 	end_sequence_tween = create_tween()
 	end_sequence_tween.set_trans(Tween.TRANS_QUAD)
 	end_sequence_tween.set_ease(Tween.EASE_OUT)
-	end_sequence_tween.tween_property(boiling_pot, "position", Vector2.ZERO, 1.5)
+	end_sequence_tween.tween_property(boiling_pot, "position", Vector2.ZERO, .7)
+	
+	var death_timer = get_tree().create_timer(.5)
+	death_timer.timeout.connect(_on_crab_death)
+	var death_timer2 = get_tree().create_timer(.65)
+	death_timer2.timeout.connect(_on_crab_death2)
+	#var death_timer3 = get_tree().create_timer(1.0)
+	#death_timer3.timeout.connect(_on_crab_death3)
 	
 	await end_sequence_tween.finished
 	
@@ -157,6 +169,17 @@ func kill_end_sequence_tween():
 		end_sequence_tween.kill()
 
 
+func _on_crab_death():
+	AudioManager.play_sfx(AudioManager.death_sound)
+
+
+func _on_crab_death2():
+	AudioManager.play_sfx(AudioManager.death_sound2)
+
+func _on_crab_death3():
+	AudioManager.play_sfx(AudioManager.death_sound3)
+
+
 func _on_game_reset():
 	kill_end_sequence_tween()
 	game_lost = false
@@ -172,3 +195,4 @@ func _on_game_reset():
 	lemon.visible = false
 	boiling_pot.visible = false
 	_on_menu_open()
+	_on_state_changed(GameState.state)

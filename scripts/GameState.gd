@@ -1,5 +1,7 @@
 extends Node2D
 
+var debug_mode = false
+
 var hovered_tile = null
 var current_tile = null
 
@@ -44,12 +46,18 @@ signal crab_boiled
 signal game_reset
 
 
+func _ready() -> void:
+	debug_mode = Constants.START_IN_DEBUG_MODE
+
+
 func _input(_event):
 	if Input.is_action_just_pressed('escape'):
 		if Util.menu.current_menu == Util.menu.WIN or Util.menu.current_menu == Util.menu.LOSE:
 			reset_game()
 			return
 		toggle_menu(!is_menu_open)
+	if Input.is_action_just_pressed('toggle_debug_mode'):
+		debug_mode = !debug_mode
 
 
 func toggle_menu(b:=true):

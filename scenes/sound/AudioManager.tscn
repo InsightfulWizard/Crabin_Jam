@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cvrkrtys0r3st" path="res://scripts/AudioManager.gd" id="1_raosv"]
 [ext_resource type="Script" uid="uid://dxerr0krfyxrt" path="res://scripts/audio_fader.gd" id="2_bqdh5"]
-[ext_resource type="AudioStream" uid="uid://vd885b4rog52" path="res://audio/Music/Crabin Jam_2026_Good Gameplay music loop_v2.mp3" id="2_xqysj"]
-[ext_resource type="AudioStream" uid="uid://dcid5m83nxegr" path="res://audio/Music/Crabin Jam_2026_Neutral Gameplay music loop_v2.mp3" id="4_oa5cw"]
-[ext_resource type="AudioStream" uid="uid://db61iraouj8rt" path="res://audio/Music/Crabin Jam_2026_Bad Gameplay music loop_v2.mp3" id="5_2eepx"]
-[ext_resource type="AudioStream" uid="uid://c0ly5dyt38inl" path="res://audio/Sound/Crabin Jam_2026_Title Screen Music Loop.mp3" id="6_oa5cw"]
+[ext_resource type="AudioStream" uid="uid://dyrqsiq8c1oo4" path="res://audio/Music/Crabin Jam_2026_Good Gameplay Music Loop_v3.mp3" id="2_oa5cw"]
+[ext_resource type="AudioStream" uid="uid://dlkwf2heojir0" path="res://audio/Music/Crabin Jam_2026_Neutral Gameplay Music Loop_v3.mp3" id="4_2eepx"]
+[ext_resource type="AudioStream" uid="uid://5mqi6i6xcm34" path="res://audio/Music/Crabin Jam_2026_Bad Gameplay Music Loop_v3.mp3" id="5_o462e"]
+[ext_resource type="AudioStream" uid="uid://1w5hl31yjj00" path="res://audio/Music/Crabin Jam_2026_Title Screen Music Loop_v2.mp3" id="6_vxlqr"]
 
 [node name="AudioManager" type="Node2D" unique_id=1501773681]
 script = ExtResource("1_raosv")
@@ -13,22 +13,22 @@ script = ExtResource("1_raosv")
 [node name="music" type="Node" parent="." unique_id=639598489]
 
 [node name="chillin" type="AudioStreamPlayer" parent="music" unique_id=1784487438]
-stream = ExtResource("2_xqysj")
+stream = ExtResource("2_oa5cw")
 bus = &"Music"
 script = ExtResource("2_bqdh5")
 
 [node name="stressed" type="AudioStreamPlayer" parent="music" unique_id=126747923]
-stream = ExtResource("4_oa5cw")
+stream = ExtResource("4_2eepx")
 bus = &"Music"
 script = ExtResource("2_bqdh5")
 
 [node name="dread" type="AudioStreamPlayer" parent="music" unique_id=1464535576]
-stream = ExtResource("5_2eepx")
+stream = ExtResource("5_o462e")
 bus = &"Music"
 script = ExtResource("2_bqdh5")
 
 [node name="title" type="AudioStreamPlayer" parent="music" unique_id=1638230338]
-stream = ExtResource("6_oa5cw")
+stream = ExtResource("6_vxlqr")
 bus = &"Music"
 script = ExtResource("2_bqdh5")
 start_low_volume = false

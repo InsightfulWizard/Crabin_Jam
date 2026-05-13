@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dyrqsiq8c1oo4"
+path="res://.godot/imported/Crabin Jam_2026_Good Gameplay Music Loop_v3.mp3-357d10213e726f3f1f34fb3a48102980.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/Crabin Jam_2026_Good Gameplay Music Loop_v3.mp3"
+dest_files=["res://.godot/imported/Crabin Jam_2026_Good Gameplay Music Loop_v3.mp3-357d10213e726f3f1f34fb3a48102980.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

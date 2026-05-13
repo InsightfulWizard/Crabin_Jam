@@ -7,11 +7,14 @@ var newest_sfx_stamp: int = -1
 var max_sfx_players: int = 10
 
 @onready var item_drop_sfx = [
-	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_Item Drop_1_v1.mp3"),
-	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_Item Drop_2_v1.mp3"),
-	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_Item Drop_3_v1.mp3"),
-	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_Item Drop_4_v1.mp3"),
-	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_Item Drop_5_v1.mp3"),
+	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_2026_Item Drop_1_v2.mp3"),
+	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_2026_Item Drop_2_v2.mp3"),
+	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_2026_Item Drop_3_v2.mp3"),
+	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_2026_Item Drop_4_v2.mp3"),
+	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_2026_Item Drop_5_v2.mp3"),
+	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_2026_Item Drop_6_no voice_v2.mp3"), #todo
+	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_2026_Item Drop_7_no voice_v2.mp3"),
+	preload("res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_2026_Item Drop_8_no voice_v2.mp3"),
 ]
 
 @onready var item_pickup_sfx = [
@@ -23,22 +26,28 @@ var max_sfx_players: int = 10
 ]
 
 @onready var stutter = [
-	preload("res://audio/Sound/Crab Stutters/Crabin Jam_2026_Stutter_1_v1.mp3"),
-	preload("res://audio/Sound/Crab Stutters/Crabin Jam_2026_Stutter_2_v1.mp3"),
-	preload("res://audio/Sound/Crab Stutters/Crabin Jam_2026_Stutter_3_v1.mp3"),
+	preload("res://audio/Sound/Crab Stutters/Crabin Jam_2026_Stutter_1_v2.mp3"),
+	preload("res://audio/Sound/Crab Stutters/Crabin Jam_2026_Stutter_2_v2.mp3"),
+	preload("res://audio/Sound/Crab Stutters/Crabin Jam_2026_Stutter_3_v2.mp3"),
+	preload("res://audio/Sound/Crab Stutters/Crabin Jam_2026_Stutter_4_v2.mp3"),
 ]
 
 @onready var throat_clear = [
-	preload("res://audio/Sound/Crab Throat Clears/Crabin Jam_Throat Clear_1_v1.mp3"),
-	preload("res://audio/Sound/Crab Throat Clears/Crabin Jam_Throat Clear_2_v1.mp3"),
-	preload("res://audio/Sound/Crab Throat Clears/Crabin Jam_Throat Clear_3_v1.mp3"),
-	preload("res://audio/Sound/Crab Throat Clears/Crabin Jam_Throat Clear_4_v1.mp3"),
+	preload("res://audio/Sound/Crab Throat Clears/Crabin Jam_2026_Throat Clear 1_v2.mp3"),
+	preload("res://audio/Sound/Crab Throat Clears/Crabin Jam_2026_Throat Clear 2_v2.mp3"),
+	preload("res://audio/Sound/Crab Throat Clears/Crabin Jam_2026_Throat Clear 3_v2.mp3"),
+	preload("res://audio/Sound/Crab Throat Clears/Crabin Jam_2026_Throat Clear 4_v2.mp3"),
 ]
 
-@onready var start_game = preload("res://audio/Sound/UI Sounds/Crabin Jam_2026_Start Game Menu Select_v1.mp3")
+@onready var start_game = preload("res://audio/Sound/UI Sounds/Crabin Jam_2026_Start Game Menu Select_v2.mp3")
 
-@onready var call_start = preload("res://audio/Sound/Friend Call Sounds/Crabin Jam_underwater friend call_start_1_v1.mp3")
-@onready var call_end = preload("res://audio/Sound/Friend Call Sounds/Crabin Jam_underwater friend call_ending signal drop_1_v1.mp3")
+@onready var call_start = preload("res://audio/Sound/Friend Call Sounds/Crabin Jam_2026_Call Start_v2.mp3")
+@onready var call_end = preload("res://audio/Sound/Friend Call Sounds/Crabin Jam_2026_Call End_v2.mp3")
+
+@onready var death_sound = preload('res://audio/Sound/Crab Character Loudspeaker Voice Syllables/Andy/G_Andy.mp3')
+@onready var death_sound2 = preload('res://audio/Sound/Crab Character Loudspeaker Voice Syllables/Andy/A_Andy.mp3')
+@onready var death_sound3 = preload('res://audio/Sound/Crab Character Loudspeaker Voice Syllables/Andy/O_Andy.mp3')
+
 
 #non 3D, looping
 @onready var dread: AudioStreamPlayer = $music/dread
@@ -73,14 +82,31 @@ func _on_state_change(s):
 		toggle_chillin(true)
 		toggle_stresed(false)
 		toggle_dread(false)
+		toggle_title(false)
 	if s == GameState.STRESSED:
 		toggle_chillin(false)
 		toggle_stresed(true)
 		toggle_dread(false)
+		toggle_title(false)
 	if s == GameState.DREAD:
 		toggle_chillin(false)
 		toggle_stresed(false)
 		toggle_dread(true)
+		toggle_title(false)
+
+
+func switch_to_title():
+	toggle_chillin(false)
+	toggle_stresed(false)
+	toggle_dread(false)
+	toggle_title(true)
+
+
+func toggle_title(b: bool):
+	if b:
+		title.fade_in()
+	else:
+		title.fade_out()
 
 
 func toggle_chillin(b: bool):

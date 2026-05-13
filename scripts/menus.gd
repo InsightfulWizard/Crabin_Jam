@@ -2,6 +2,9 @@ extends CanvasLayer
 
 @export var main_menu: Control
 @export var settings: Control
+@onready var win: Control = $win
+@onready var lose: Control = $lose
+@export var tutorial: Control
 var menus: Array = []
 
 #----Main Menu
@@ -17,6 +20,9 @@ var high_res := true
 @export var b_reset_mouse_sensitivity: Button
 var mouse_sensitivity_default: float
 
+#----Tutorial
+@export var t_main_menu: Control
+
 #----Win
 @onready var play_again: Button = $win/play_again
 
@@ -27,14 +33,13 @@ var mouse_sensitivity_default: float
 
 var current_menu: int = MAIN_MENU
 
-@onready var win: Control = $win
-@onready var lose: Control = $lose
 
 enum {
 	MAIN_MENU,
 	SETTINGS,
 	WIN,
 	LOSE,
+	TUTORIAL,
 }
 
 
@@ -49,6 +54,8 @@ func _ready():
 	win.visible = false
 	menus.append(lose)
 	lose.visible = false
+	menus.append(tutorial)
+	tutorial.visible = false
 
 	visible = GameState.is_menu_open
 	GameState.connect('menu_opened', _on_menu_opened)
@@ -59,6 +66,7 @@ func _ready():
 	m_exit.connect('pressed', _exit_game)
 
 	s_main_menu.connect('pressed', _open_main_menu)
+	t_main_menu.connect('pressed', _open_main_menu)
 	#s_resolution.connect('pressed', _toggle_resolution)
 	#s_mouse_sensitivity.connect('drag_ended', _on_mouse_sens_change)
 	#b_reset_mouse_sensitivity.connect('pressed', _reset_mouse_sensitivity)
@@ -85,10 +93,11 @@ func _on_menu_closed():
 
 func _resume():
 	AudioManager.fade_title()
-	AudioManager.play_sfx(
-		AudioManager.start_game,
-		-4.0,
-	)
+	#AudioManager.play_sfx(
+		#AudioManager.start_game,
+		#-4.0,
+	#)
+	AudioManager.play_sfx(AudioManager.start_game)
 	GameState.toggle_menu(false)
 
 
@@ -97,7 +106,11 @@ func _open_settings():
 
 
 func _exit_game():
-	GameState.exit_game()
+	if OS.get_name() == "Web":
+		switch_to_menu(TUTORIAL)
+		return
+	else:
+		GameState.exit_game()
 
 
 func _open_main_menu():

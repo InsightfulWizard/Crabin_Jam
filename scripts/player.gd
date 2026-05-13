@@ -38,15 +38,16 @@ func _input(event):
 	if event.is_action_pressed("test") and !GameState.is_menu_open:
 		Util.hud.submit_output_trays()
 	if event.is_action_pressed("t1"):
-		if Constants.DEBUG_MODE:
+		if GameState.debug_mode:
 			GameState.set_current_score(70)
 	if event.is_action_pressed("t2"):
-		if Constants.DEBUG_MODE:
+		if GameState.debug_mode:
 			GameState.set_current_score(-50)
 
 
 func pickup_tile(tile: Node2D):
-	AudioManager.play_sfx_from_array(AudioManager.item_pickup_sfx, 0.5)
+	#AudioManager.play_sfx_from_array(AudioManager.item_pickup_sfx, 0.5)
+	AudioManager.play_sfx_from_array(AudioManager.item_pickup_sfx)
 	if GameState.current_tile and GameState.current_tile != tile:
 		_restore_dragged_tile_z(GameState.current_tile)
 
@@ -76,7 +77,8 @@ func drop_tile():
 
 	if snap and snap.to_snap(tile):
 		tile.place_in_slot()
-		AudioManager.play_sfx_from_array(AudioManager.item_drop_sfx, 5.0)
+		#AudioManager.play_sfx_from_array(AudioManager.item_drop_sfx, 5.0)
+		AudioManager.play_sfx_from_array(AudioManager.item_drop_sfx)
 		GameState.update_potential_score()
 	else:
 		var attempted_occupied_snap = nearest_any_snap != null

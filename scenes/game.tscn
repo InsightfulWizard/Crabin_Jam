@@ -11,6 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://n0q3uk4fyopk" path="res://scenes/ui/points_per_round.tscn" id="8_gee14"]
 [ext_resource type="Script" uid="uid://jcwovw5jueoi" path="res://scripts/button_hover_tween.gd" id="8_vtaks"]
 [ext_resource type="Texture2D" uid="uid://coiw0rvnaon0" path="res://art/ui/gear.png" id="9_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://cvyi6h8sx4uuq" path="res://art/friend/friend_1.png" id="12_264po"]
+[ext_resource type="Texture2D" uid="uid://gwr2otiqj3u8" path="res://art/friend/friend_2.png" id="13_1kice"]
+[ext_resource type="Texture2D" uid="uid://dpib830qtyqak" path="res://art/friend/friend_3.png" id="14_5newe"]
+[ext_resource type="Texture2D" uid="uid://70gruji4iakh" path="res://art/friend/friend_4.png" id="15_37s47"]
+[ext_resource type="Texture2D" uid="uid://dqpxr63s6ht2x" path="res://art/friend/friend_5.png" id="16_bt5mj"]
+[ext_resource type="Texture2D" uid="uid://ctln2g6jsk81g" path="res://art/friend/friend_6.png" id="17_e1j6l"]
+[ext_resource type="Texture2D" uid="uid://cbnniog8n446h" path="res://art/friend/friend_7.png" id="18_pl11u"]
+[ext_resource type="Texture2D" uid="uid://dkgfgbcjow8x0" path="res://art/friend/friend_8.png" id="19_bhx41"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0tnpc"]
 
@@ -56,6 +64,38 @@ corner_radius_bottom_right = 224
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1j6l"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnb83"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_264po")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1kice")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5newe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_37s47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_bt5mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_e1j6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_pl11u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_bhx41")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
 [node name="game" type="Node2D" unique_id=552060712]
 script = ExtResource("1_lbhrr")
 
@@ -69,14 +109,16 @@ script = ExtResource("1_lbhrr")
 
 [node name="Town" parent="." unique_id=1083058813 instance=ExtResource("5_iywne")]
 
-[node name="menus" type="CanvasLayer" parent="." unique_id=853265317 node_paths=PackedStringArray("main_menu", "settings", "m_play", "m_settings", "m_exit", "s_main_menu")]
+[node name="menus" type="CanvasLayer" parent="." unique_id=853265317 node_paths=PackedStringArray("main_menu", "settings", "tutorial", "m_play", "m_settings", "m_exit", "s_main_menu", "t_main_menu")]
 script = ExtResource("7_u5sy4")
 main_menu = NodePath("main_menu")
 settings = NodePath("settings_menu")
+tutorial = NodePath("tut")
 m_play = NodePath("main_menu/play")
 m_settings = NodePath("main_menu/settings")
 m_exit = NodePath("main_menu/exit")
 s_main_menu = NodePath("settings_menu/to_main")
+t_main_menu = NodePath("tut/facier_ui2/to_main")
 
 [node name="main_menu" type="Control" parent="menus" unique_id=449298868]
 layout_mode = 3
@@ -184,7 +226,6 @@ icon = ExtResource("9_kvpfn")
 script = ExtResource("8_vtaks")
 
 [node name="settings_menu" type="Control" parent="menus" unique_id=1464376805]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -393,3 +434,105 @@ script = ExtResource("8_vtaks")
 
 [node name="points_per_round2" parent="menus/lose" unique_id=1236604381 instance=ExtResource("8_gee14")]
 position = Vector2(694, 164)
+
+[node name="tut" type="Control" parent="menus" unique_id=1789291708]
+z_index = 1094
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="facier_ui2" parent="menus/tut" unique_id=1487898873 instance=ExtResource("7_gee14")]
+z_index = -968
+layout_mode = 0
+offset_left = 30.0
+offset_top = 25.0
+offset_right = 5591.986
+offset_bottom = 3141.5422
+scale = Vector2(0.19669233, 0.19669233)
+
+[node name="facier_ui3" parent="menus/tut/facier_ui2" unique_id=155973135 instance=ExtResource("7_gee14")]
+z_index = 1
+layout_mode = 0
+offset_left = 1606.5701
+offset_top = 188.11107
+offset_right = 3984.027
+offset_bottom = 793.9298
+scale = Vector2(0.9986582, 0.9986582)
+
+[node name="facier_ui4" parent="menus/tut/facier_ui2" unique_id=214098520 instance=ExtResource("7_gee14")]
+z_index = 1
+layout_mode = 0
+offset_left = 208.44736
+offset_top = 859.2099
+offset_right = 5360.4517
+offset_bottom = 2590.1206
+scale = Vector2(0.9986582, 0.9986582)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="menus/tut/facier_ui2" unique_id=835508670]
+z_index = 1
+layout_mode = 0
+offset_left = 228.78369
+offset_top = 330.46533
+offset_right = 5358.6226
+offset_bottom = 2709.8157
+theme_override_font_sizes/normal_font_size = 109
+text = "Left Mouse Button:   Click and drag tiles
+Space:   Speak your sentence early
+
+
+🌊🌊    From the deep you come to speak on behalf of all crabdom.    🌊🌊
+
+Now is your chance to convince the chefs of the world to put down their crackers and boiling pots and to join claw with hand in peace.
+
+As Crabvocate, speak to the humans by dragging tiles into the bottom row.
+
+Your translator is on the left, prompting you with persuasive human grammar.
+
+Can you keep your composure or will you simmer under the heat?"
+horizontal_alignment = 1
+
+[node name="fancier_Ui5" parent="menus/tut/facier_ui2" unique_id=984803664 instance=ExtResource("7_gee14")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -680.2981
+offset_top = 1060.0311
+offset_right = 680.2981
+offset_bottom = 1468.2098
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0778046, 1.0778046)
+
+[node name="to_main" type="Button" parent="menus/tut/facier_ui2" unique_id=233307014]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -579.58545
+offset_top = 1090.536
+offset_right = 691.43506
+offset_bottom = 1471.8419
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(625.3423, 193.19482)
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u5sy4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ssvqc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_264po")
+text = "I think I'm ready..."
+script = ExtResource("8_vtaks")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="menus/tut/facier_ui2" unique_id=701475950]
+z_index = 101
+position = Vector2(482.9878, 2074.3057)
+scale = Vector2(0.7383164, 0.7383164)
+sprite_frames = SubResource("SpriteFrames_qnb83")
+autoplay = "default"
+frame_progress = 0.6713719
+offset = Vector2(-30.504501, -50.84082)

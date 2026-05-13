@@ -31,7 +31,11 @@
 [ext_resource type="Script" uid="uid://bywfggfj4q8jn" path="res://scenes/animated_sprite_2d.gd" id="16_uxdf7"]
 [ext_resource type="Script" uid="uid://ck7xmtfi8e640" path="res://scenes/bubbles.gd" id="24_kp442"]
 [ext_resource type="Texture2D" uid="uid://c42bm4ssvfune" path="res://art/ui/bubble/bubble.tres" id="24_y2nlu"]
+[ext_resource type="Texture2D" uid="uid://cok5incqld5ao" path="res://art/ui/wifi/wifi_connected_1.png" id="30_dl6ww"]
+[ext_resource type="Texture2D" uid="uid://bpphwkp818i22" path="res://art/ui/wifi/wifi_connected_2.png" id="31_8f8xv"]
 [ext_resource type="Script" uid="uid://j7j6cud2hp5k" path="res://scenes/points_popup.gd" id="32_frrke"]
+[ext_resource type="Texture2D" uid="uid://cgahl0w8apdb6" path="res://art/ui/wifi/wifi_connected_3.png" id="32_v0qwq"]
+[ext_resource type="Texture2D" uid="uid://bvntac0i5bqlj" path="res://art/ui/wifi/wifi_connected_4.png" id="33_yawqa"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e558t"]
 
@@ -122,6 +126,26 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qccye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_dl6ww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_8f8xv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_v0qwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_yawqa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd3ao"]
@@ -271,6 +295,14 @@ autoplay = "default"
 frame_progress = 0.44666743
 script = ExtResource("16_uxdf7")
 
+[node name="wifi_on" type="AnimatedSprite2D" parent="facier_ui5/AnimatedSprite2D" unique_id=1619145614]
+position = Vector2(212.81134, -27.772827)
+scale = Vector2(3.6770136, 2.879195)
+sprite_frames = SubResource("SpriteFrames_qccye")
+autoplay = "default"
+frame_progress = 0.25926447
+offset = Vector2(46.300934, -17.362854)
+
 [node name="facier_ui3" parent="." unique_id=1249275422 instance=ExtResource("6_0m4u7")]
 z_index = -1000
 offset_left = -24.0
@@ -337,7 +369,7 @@ scale_amount_curve = SubResource("Curve_kp442")
 
 [node name="points popup" type="Node2D" parent="." unique_id=790056970]
 z_index = 1000
-position = Vector2(573, 281)
+position = Vector2(609, 281)
 script = ExtResource("32_frrke")
 
 [node name="Label" type="Label" parent="points popup" unique_id=1448370453]

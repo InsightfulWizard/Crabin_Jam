@@ -122,5 +122,8 @@ func _rebuild_visuals() -> void:
 	if score_label != null:
 		if rule.score >= 0:
 			score_label.text = "+" + str(rule.score)
+			score_label.add_theme_color_override( "font_color", Color(0x73cd8cff) )
+			
 		else:
 			score_label.text = str(rule.score)
+			score_label.add_theme_color_override( "font_color", Color(0.955, 0.22, 0.318, 1.0) )

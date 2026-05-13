@@ -40,7 +40,7 @@ const USE_SPEECH_TIMER := true
 
 const HIDE_MATCH_INDICATOR_ON_HALF_TIME := false
 
-const DEBUG_MODE := true
+const START_IN_DEBUG_MODE := false
 
 # SCORING
 

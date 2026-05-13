@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdivc1pvp5deu"
+path="res://.godot/imported/Crabin Jam_2026_Item Drop_4_v2.mp3-f25b5b93f4062f0b8b9d81564ebb84f3.mp3str"
+
+[deps]
+
+source_file="res://audio/Sound/UI Sounds/Item Drop Sounds/Crabin Jam_2026_Item Drop_4_v2.mp3"
+dest_files=["res://.godot/imported/Crabin Jam_2026_Item Drop_4_v2.mp3-f25b5b93f4062f0b8b9d81564ebb84f3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

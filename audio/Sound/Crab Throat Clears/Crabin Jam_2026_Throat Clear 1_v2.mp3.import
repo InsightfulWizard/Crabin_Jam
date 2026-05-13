@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqihi0n8mg14o"
+path="res://.godot/imported/Crabin Jam_2026_Throat Clear 1_v2.mp3-b2b85265aabd61078d2f9bd5a9b91456.mp3str"
+
+[deps]
+
+source_file="res://audio/Sound/Crab Throat Clears/Crabin Jam_2026_Throat Clear 1_v2.mp3"
+dest_files=["res://.godot/imported/Crabin Jam_2026_Throat Clear 1_v2.mp3-b2b85265aabd61078d2f9bd5a9b91456.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
