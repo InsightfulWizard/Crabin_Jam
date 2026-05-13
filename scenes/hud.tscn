@@ -36,6 +36,13 @@
 [ext_resource type="Script" uid="uid://j7j6cud2hp5k" path="res://scenes/points_popup.gd" id="32_frrke"]
 [ext_resource type="Texture2D" uid="uid://cgahl0w8apdb6" path="res://art/ui/wifi/wifi_connected_3.png" id="32_v0qwq"]
 [ext_resource type="Texture2D" uid="uid://bvntac0i5bqlj" path="res://art/ui/wifi/wifi_connected_4.png" id="33_yawqa"]
+[ext_resource type="Texture2D" uid="uid://caitrcj0jpoah" path="res://art/ui/menu_button/menu_button_1.png" id="37_flipt"]
+[ext_resource type="Script" uid="uid://jcwovw5jueoi" path="res://scripts/button_hover_tween.gd" id="37_uorui"]
+[ext_resource type="Script" uid="uid://blalreorxd60y" path="res://scripts/menu_button.gd" id="37_wi3kw"]
+[ext_resource type="Texture2D" uid="uid://ctttuty74nfj2" path="res://art/ui/menu_button/menu_button_2.png" id="38_uorui"]
+[ext_resource type="Texture2D" uid="uid://b6q2c5gcyhb7t" path="res://art/ui/menu_button/menu_button_3.png" id="39_wi3kw"]
+[ext_resource type="Texture2D" uid="uid://e3jpckqs0jmw" path="res://art/ui/menu_button/menu_button_4.png" id="40_ka0sb"]
+[ext_resource type="Texture2D" uid="uid://c1em58ke8kwy5" path="res://art/ui/menu_button/menu_button_5.png" id="41_7r3ka"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e558t"]
 
@@ -161,6 +168,35 @@ corner_radius_bottom_right = 150
 [sub_resource type="Curve" id="Curve_kp442"]
 _data = [Vector2(0.6320939, 0.8109906), 0.0, 0.0, 0, 0, Vector2(0.6565558, 0.006899953), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wi3kw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ka0sb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7r3ka"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_snea0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_flipt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_uorui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_wi3kw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ka0sb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_7r3ka")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="hud" type="CanvasLayer" unique_id=1041986312]
 script = ExtResource("1_047uy")
@@ -383,3 +419,24 @@ theme_override_constants/outline_size = 13
 theme_override_font_sizes/font_size = 98
 text = "+40"
 horizontal_alignment = 1
+
+[node name="menu_button" type="Node2D" parent="." unique_id=2023730891]
+script = ExtResource("37_wi3kw")
+
+[node name="Button" type="Button" parent="menu_button" unique_id=660645802]
+offset_left = 24.0
+offset_top = 17.0
+offset_right = 135.0
+offset_bottom = 119.0
+pivot_offset = Vector2(56, 50)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wi3kw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ka0sb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7r3ka")
+script = ExtResource("37_uorui")
+
+[node name="menu_button_animation" type="AnimatedSprite2D" parent="menu_button/Button" unique_id=1975881569]
+position = Vector2(56, 51)
+scale = Vector2(0.43974343, 0.43974343)
+sprite_frames = SubResource("SpriteFrames_snea0")
+autoplay = "default"
+frame_progress = 0.49954745

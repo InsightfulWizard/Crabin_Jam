@@ -11,12 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://by6fkcpfm1au0" path="res://art/crab/plate.png" id="9_ktnoq"]
 [ext_resource type="Texture2D" uid="uid://cwnp07mqxs6h8" path="res://art/crab/lemon.png" id="10_e52nb"]
 [ext_resource type="Texture2D" uid="uid://cjn3eamg6ediv" path="res://icon.svg" id="11_e52nb"]
-[ext_resource type="Texture2D" uid="uid://c64qqdtyxwjj7" path="res://art/ui/pot_of_failure/pot_1.png" id="12_0pfnp"]
 [ext_resource type="Texture2D" uid="uid://cnj4ymub6jov6" path="res://art/crab/sunglasses.png" id="12_30wt8"]
-[ext_resource type="Texture2D" uid="uid://c0aqg1pye04te" path="res://art/ui/pot_of_failure/pot_back.png" id="12_rjqmw"]
-[ext_resource type="Texture2D" uid="uid://ghpnctmnlers" path="res://art/ui/pot_of_failure/pot_2.png" id="13_rjqmw"]
-[ext_resource type="Texture2D" uid="uid://bqejmas7ir5ue" path="res://art/ui/pot_of_failure/pot_3.png" id="14_5oqol"]
-[ext_resource type="Texture2D" uid="uid://bi4gnyqqwjsco" path="res://art/ui/pot_of_failure/pot_4.png" id="15_drpxh"]
+[ext_resource type="PackedScene" uid="uid://cdc0fhjo6aaft" path="res://scenes/crab/pot_animated.tscn" id="12_ulf1h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hj1h3"]
 animations = [{
@@ -58,26 +54,6 @@ gradient = SubResource("Gradient_ts84e")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.47008547, 0)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mxkv7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_0pfnp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_rjqmw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_5oqol")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_drpxh")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="crab" type="Node2D" unique_id=226795867]
 script = ExtResource("1_1uom6")
@@ -203,18 +179,8 @@ position = Vector2(0, -55)
 scale = Vector2(5.046875, 4.09375)
 texture = ExtResource("11_e52nb")
 
-[node name="pot_animated" type="Node2D" parent="boiling pot" unique_id=418855871]
+[node name="pot_animated" parent="boiling pot" unique_id=730513648 instance=ExtResource("12_ulf1h")]
 position = Vector2(0, -132.00002)
-scale = Vector2(0.6643713, 0.6643713)
-
-[node name="pot_back" type="Sprite2D" parent="boiling pot/pot_animated" unique_id=1186004585]
-z_index = -100
-texture = ExtResource("12_rjqmw")
-
-[node name="pot" type="AnimatedSprite2D" parent="boiling pot/pot_animated" unique_id=2136669693]
-sprite_frames = SubResource("SpriteFrames_mxkv7")
-autoplay = "default"
-frame_progress = 0.20969751
 
 [node name="sunglasses" type="Node2D" parent="." unique_id=1862408382]
 z_index = -4

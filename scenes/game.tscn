@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ctln2g6jsk81g" path="res://art/friend/friend_6.png" id="17_e1j6l"]
 [ext_resource type="Texture2D" uid="uid://cbnniog8n446h" path="res://art/friend/friend_7.png" id="18_pl11u"]
 [ext_resource type="Texture2D" uid="uid://dkgfgbcjow8x0" path="res://art/friend/friend_8.png" id="19_bhx41"]
+[ext_resource type="PackedScene" uid="uid://cdc0fhjo6aaft" path="res://scenes/crab/pot_animated.tscn" id="20_1kice"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0tnpc"]
 
@@ -226,6 +227,7 @@ icon = ExtResource("9_kvpfn")
 script = ExtResource("8_vtaks")
 
 [node name="settings_menu" type="Control" parent="menus" unique_id=1464376805]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -481,7 +483,7 @@ text = "Left Mouse Button:   Click and drag tiles
 Space:   Speak your sentence early
 
 
-🌊🌊    From the deep you come to speak on behalf of all crabdom.    🌊🌊
+From the deep you come to speak on behalf of all crabdom.
 
 Now is your chance to convince the chefs of the world to put down their crackers and boiling pots and to join claw with hand in peace.
 
@@ -521,7 +523,7 @@ offset_bottom = 1471.8419
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(625.3423, 193.19482)
-theme_override_font_sizes/font_size = 128
+theme_override_font_sizes/font_size = 110
 theme_override_styles/normal = SubResource("StyleBoxEmpty_u5sy4")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ssvqc")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_264po")
@@ -534,5 +536,46 @@ position = Vector2(482.9878, 2074.3057)
 scale = Vector2(0.7383164, 0.7383164)
 sprite_frames = SubResource("SpriteFrames_qnb83")
 autoplay = "default"
-frame_progress = 0.6713719
+frame_progress = 0.63632303
 offset = Vector2(-30.504501, -50.84082)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="menus/tut/facier_ui2" unique_id=318148500]
+z_index = 101
+position = Vector2(1069.8909, 1017.3404)
+scale = Vector2(0.41593555, 0.41593555)
+sprite_frames = SubResource("SpriteFrames_qnb83")
+autoplay = "default"
+frame_progress = 0.63632303
+offset = Vector2(-30.504501, -50.84082)
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="menus/tut/facier_ui2" unique_id=1936280195]
+z_index = 101
+position = Vector2(846.19116, 1017.3404)
+scale = Vector2(0.41593555, 0.41593555)
+sprite_frames = SubResource("SpriteFrames_qnb83")
+autoplay = "default"
+frame_progress = 0.63632303
+offset = Vector2(-30.504501, -50.84082)
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="menus/tut/facier_ui2" unique_id=908294447]
+z_index = 101
+position = Vector2(4771.1025, 1017.3404)
+scale = Vector2(0.41593555, 0.41593555)
+sprite_frames = SubResource("SpriteFrames_qnb83")
+autoplay = "default"
+frame_progress = 0.63632303
+offset = Vector2(-30.504501, -50.84082)
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="menus/tut/facier_ui2" unique_id=914165739]
+z_index = 101
+position = Vector2(4547.403, 1017.3404)
+scale = Vector2(0.41593555, 0.41593555)
+sprite_frames = SubResource("SpriteFrames_qnb83")
+autoplay = "default"
+frame_progress = 0.63632303
+offset = Vector2(-30.504501, -50.84082)
+
+[node name="pot_animated" parent="menus/tut/facier_ui2" unique_id=730513648 instance=ExtResource("20_1kice")]
+z_index = 320
+position = Vector2(4870.5503, 2328.5098)
+scale = Vector2(0.41794693, 0.41794693)

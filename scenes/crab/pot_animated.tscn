@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cdc0fhjo6aaft"]
+
+[ext_resource type="Texture2D" uid="uid://c0aqg1pye04te" path="res://art/ui/pot_of_failure/pot_back.png" id="1_26aw5"]
+[ext_resource type="Texture2D" uid="uid://c64qqdtyxwjj7" path="res://art/ui/pot_of_failure/pot_1.png" id="2_n6tq7"]
+[ext_resource type="Texture2D" uid="uid://ghpnctmnlers" path="res://art/ui/pot_of_failure/pot_2.png" id="3_veivc"]
+[ext_resource type="Texture2D" uid="uid://bqejmas7ir5ue" path="res://art/ui/pot_of_failure/pot_3.png" id="4_x7nxo"]
+[ext_resource type="Texture2D" uid="uid://bi4gnyqqwjsco" path="res://art/ui/pot_of_failure/pot_4.png" id="5_g31mw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxkv7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n6tq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_veivc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_x7nxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g31mw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="pot_animated" type="Node2D" unique_id=730513648]
+scale = Vector2(0.6643713, 0.6643713)
+
+[node name="pot_back" type="Sprite2D" parent="." unique_id=1264318277]
+z_index = -100
+texture = ExtResource("1_26aw5")
+
+[node name="pot" type="AnimatedSprite2D" parent="." unique_id=967539576]
+sprite_frames = SubResource("SpriteFrames_mxkv7")
+autoplay = "default"
+frame_progress = 0.17768075
